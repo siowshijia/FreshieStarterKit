@@ -1,0 +1,11 @@
+#footer {
+    background-size: cover;
+
+    .contact-info.bottom {
+        padding-left: 0;
+    }
+
+    @media (min-width: $screen-lg) {
+        background-size: contain;
+    }
+}
