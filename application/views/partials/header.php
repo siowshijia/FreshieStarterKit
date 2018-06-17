@@ -13,6 +13,7 @@
     <link href="<?php echo base_url("assets/css/lightbox.css"); ?>" rel="stylesheet">
 	<link href="<?php echo base_url("assets/css/main.css"); ?>" rel="stylesheet">
 	<link href="<?php echo base_url("assets/css/responsive.css"); ?>" rel="stylesheet">
+	<link href="<?php echo base_url("assets/css/master.css"); ?>" rel="stylesheet">
 
     <!--[if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
