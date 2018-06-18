@@ -19,3 +19,28 @@
     text-transform: uppercase;
     font-weight   : 900;
 }
+
+.section-lead {
+    line-height: 1.5;
+}
+
+#action {
+    background-size: contain;
+    
+    @media (max-width: $screen-xs-max) {
+        &.responsive {
+            padding: 30px 0;
+            height: auto;
+        }
+
+        .action {
+            &.action.take-tour {
+                margin-top: 0;
+            }
+
+            .btn-common {
+                float: none;
+            }
+        }
+    }
+}
