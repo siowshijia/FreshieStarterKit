@@ -5,7 +5,7 @@
                 <div class="col-md-4 col-sm-12">
                     <div class="contact-info bottom">
                         <h2>Site Map</h2>
-                        <ul class="p-l-none">
+                        <ul class="p-l-none two-column">
                             <li><a href="#">Home</a></li>
                             <li><a href="#">Profile</a></li>
                             <li><a href="#">Quizzes</a></li>
@@ -19,7 +19,7 @@
                     <div class="contact-info bottom">
                         <h2>Contacts</h2>
                         <address>
-                        E-mail: <a href="mailto:someone@example.com">email@email.com</a> <br>
+                        E-mail: <a href="mailto:welcome@nyp.edu.sg">welcome@nyp.edu.sg</a> <br>
                         Tel: 64515115
                         </address>
                     </div>
