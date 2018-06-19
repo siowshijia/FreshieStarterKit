@@ -1,0 +1,138 @@
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    @media (min-width: $screen-sm-min) {
+        width: $container-sm;
+    }
+    @media (min-width: $screen-md-min) {
+        width: $container-md;
+    }
+    @media (min-width: $screen-lg-min) {
+        width: $container-lg;
+    }
+    @media (min-width: $screen-xl-min) {
+        width: $container-xl;
+    }
+}
+
+.container-xs {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    @media (min-width: $screen-xs-min) {
+        width: $container-xs;
+    }
+}
+
+.container-sm {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    @media (min-width: $screen-sm-min) {
+        width: $container-sm;
+    }
+}
+
+.container-md {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    @media (min-width: $screen-sm-min) {
+        width: $container-sm;
+    }
+    @media (min-width: $screen-md-min) {
+        width: $container-md;
+    }
+}
+
+.container-lg {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    @media (min-width: $screen-sm-min) {
+        width: $container-sm;
+    }
+    @media (min-width: $screen-md-min) {
+        width: $container-md;
+    }
+    @media (min-width: $screen-lg-min) {
+        width: $container-lg;
+    }
+}
+
+.container-fluid-sm {
+    margin: 0 auto;
+
+    @media (min-width: $screen-sm-min) {
+        max-width: $container-sm;
+    }
+}
+
+.container-fluid-md {
+    margin: 0 auto;
+
+    @media (min-width: $screen-md-min) {
+        max-width: $container-md;
+    }
+}
+
+.container-fluid-lg {
+    margin: 0 auto;
+
+    @media (min-width: $screen-lg-min) {
+        max-width: $container-lg;
+    }
+}
+
+.container-fluid-xl {
+    margin: 0 auto;
+
+    @media (min-width: $screen-xl-min) {
+        max-width: $container-xl;
+    }
+}
+
+.row-same-height {
+    @media (min-width: $grid-float-breakpoint) {
+        display: flex;
+
+        > [class*='col-'] {
+            display       : flex;
+            flex-direction: column;
+        }
+    }
+}
+
+.col-vertical-middle {
+    @media (min-width: $grid-float-breakpoint) {
+        display        : flex;
+        justify-content: center;
+    }
+}
+
+.container-flex {
+    display: flex;
+}
+
+.container-flex-vertical-center {
+    align-items: center;
+}
+
+.container-flex-horizontal-center {
+    justify-content: center;
+}
+
+.container-flex-wrap {
+    flex-wrap: wrap;
+}
