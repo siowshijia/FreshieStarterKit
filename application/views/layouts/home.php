@@ -60,7 +60,7 @@
                 <div class="action take-tour">
                     <div class="col-sm-7 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
                         <h1 class="title">Events in NYP</h1>
-                        <p>Interesting Events waiting for you to explore!</p>
+                        <p>Interesting events waiting for you to explore!</p>
                     </div>
                     <div class="text-center visible-xs">
                         <a href="#" class="btn btn-common">TAKE ME TO THE EVENTS</a>
