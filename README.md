@@ -1,4 +1,4 @@
-# FreshieStarterKit
+# FreshmanStarterKit
 CodeIgniter Web App for NYP Project
 
 ## Requirements
