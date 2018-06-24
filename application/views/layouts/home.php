@@ -26,7 +26,7 @@
                     <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="300ms">
                         <img src="<?php echo base_url(); ?>assets/images/home/icon1.png" alt="">
                     </div>
-                    <h2>Incredibly Responsive</h2>
+                    <h2>Incredibly Responsives</h2>
                     <p>Ground round tenderloin flank shank ribeye. Hamkevin meatball swine. Cow shankle beef sirloin chicken ground round.</p>
                 </div>
             </div>
