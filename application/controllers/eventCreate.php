@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class event extends CI_Controller {
+class eventCreate extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
@@ -15,15 +15,8 @@ class event extends CI_Controller {
 		$this->load->model("eventModel");
 	}
 
-	public function index()
-	{
-		$this->load->model("eventModel");
-		$events = $this->eventModel->get_events_list();
-		$data["events"] = $events;
-		$this->load->template('layouts/event', $data);
-	}
-
-	function get_category()
+	
+	function index()
 	{
 		$data = array(
 			'view_name' => 'eventCreate',
@@ -38,8 +31,7 @@ class event extends CI_Controller {
 
 		'event_name' => $this->input->post('eventname'),
 		'category_id' => $this->input->post('category_id'),
-	   'registered_date' => @date('Y-m-d', @strtotime($this->input-
-	   >post('registeredDate'))),
+	   'registered_date' => @date('Y-m-d', @strtotime($this->input->post('registeredDate'))),
 	   );
 	   //insert the form data into database
 	   $this->db->insert('event', $data);

@@ -30,11 +30,11 @@
                         <h1 class="title">Events in NYP</h1>
                         <p>Interesting events waiting for you to explore!</p>
                         <?php
-                        foreach($articles as $article)
+                        foreach($events as $event)
                         {
                         ?>
-                        <h3><?php echo $article->eventname; ?></h3>
-                        By <strong><?php echo $article->eventvenue; ?></strong>
+                        <h3><?php echo $event->eventname; ?></h3>
+                        By <strong><?php echo $event->eventvenue  ; ?></strong>
                         <?php
                         }
                         ?>
