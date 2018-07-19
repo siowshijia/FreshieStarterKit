@@ -51,9 +51,9 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
  <div class="col-sm-offset-3 col-lg-6 col-sm-6 well">
  <legend>Add Student Details</legend>
 <?php
-$attributes = array("class" => "form-horizontal", "id" => "studentform", "name" =>
-"studentform");
- echo form_open("student/index", $attributes);?>
+$attributes = array("class" => "form-horizontal", "id" => "eventform", "name" =>
+"eventform");
+ echo form_open("eventCreate/index", $attributes);?>
  <fieldset>
 
  <div class="form-group">
@@ -111,8 +111,7 @@ type="text" class="form-control" value="<?php echo set_value('registeredDate'); 
 
  <div class="form-group">
  <div class="col-sm-offset-4 col-lg-8 col-sm-8 text-left">
-<input id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Insert"
-/>
+<input id="btn_add" name="btn_add" type="submit" class="btn btn-primary" value="Insert"/>
 <input id="btn_cancel" name="btn_cancel" type="reset" class="btn btn-danger"
 value="Cancel" />
  </div>
