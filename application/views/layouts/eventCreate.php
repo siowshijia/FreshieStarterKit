@@ -22,7 +22,7 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
  <script type="text/javascript">
  //load datepicker control onfocus
  $(function() {
-    $("#registeredDate").datepicker();
+    $("#eventDate").datepicker();
  });
  </script>
 
@@ -33,7 +33,7 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
             <div class="slide-text">
                 <h1>Hey There!</h1>
                 <h3 class="section-lead">Welcome to the NYPFreshmanStarterKit site! Another big welcome to you joining the NYP family! Lots of events and quizzes with rewards are waiting for you to participate and walk away with. Start exploring now!</h3>
-                <a href="#" class="btn btn-common">LOGIN</a>
+                <a href="#" class="btn btn-common"></a>
             </div>
             <img src="<?php echo base_url(); ?>assets/images/home/slider/hill.png" class="slider-hill" alt="slider image">
             <img src="<?php echo base_url(); ?>assets/images/home/slider/house.png" class="slider-house" alt="slider image">
@@ -49,7 +49,7 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <div class="container">
  <div class="row">
  <div class="col-sm-offset-3 col-lg-6 col-sm-6 well">
- <legend>Add Student Details</legend>
+ <legend>Add Event Details</legend>
 <?php
 $attributes = array("class" => "form-horizontal", "id" => "eventform", "name" =>
 "eventform");
@@ -60,24 +60,24 @@ $attributes = array("class" => "form-horizontal", "id" => "eventform", "name" =>
  <div class="row colbox">
 
  <div class="col-lg-4 col-sm-4">
- <label for="studentno" class="control-label">Student No</label>
+ <label for="eventname" class="control-label">Event Name</label>
  </div>
  <div class="col-lg-8 col-sm-8">
-<input id="studentno" name="studentno" placeholder="studentno" type="text"
-class="form-control" value="<?php echo set_value('studentno'); ?>" />
- <span class="text-danger"><?php echo form_error('studentno'); ?></span>
+<input id="eventname" name="eventname" placeholder="Event Name" type="text"
+class="form-control" value="<?php echo set_value('eventname'); ?>" />
+ <span class="text-danger"><?php echo form_error('eventname'); ?></span>
  </div>
  </div>
  </div>
  <div class="form-group">
  <div class="row colbox">
  <div class="col-lg-4 col-sm-4">
- <label for="studentname" class="control-label">Student Name</label>
+ <label for="eventvenue" class="control-label">Event Venue</label>
  </div>
  <div class="col-lg-8 col-sm-8">
-<input id="studentname" name="studentname" placeholder="studentname" type="text"
-class="form-control" value="<?php echo set_value('studentname'); ?>" />
- <span class="text-danger"><?php echo form_error('studentname'); ?></span>
+<input id="eventvenue" name="eventvenue" placeholder="Event Venue" type="text"
+class="form-control" value="<?php echo set_value('eventvenue'); ?>" />
+ <span class="text-danger"><?php echo form_error('eventvenue'); ?></span>
  </div>
  </div>
  </div>
@@ -85,7 +85,7 @@ class="form-control" value="<?php echo set_value('studentname'); ?>" />
  <div class="form-group">
  <div class="row colbox">
  <div class="col-lg-4 col-sm-4">
- <label for="school" class="control-label">School</label>
+ <label for="school" class="control-label">Event Category</label>
  </div>
  <div class="col-lg-8 col-sm-8">
  <?php
@@ -99,12 +99,12 @@ class="form-control" value="<?php echo set_value('studentname'); ?>" />
  <div class="form-group">
  <div class="row colbox">
  <div class="col-lg-4 col-sm-4">
- <label for="registeredDate" class="control-label">Registered Date</label>
+ <label for="eventDate" class="control-label">Event Date</label>
  </div>
  <div class="col-lg-8 col-sm-8">
-<input id="registeredDate" name="registeredDate" placeholder="registeredDate"
-type="text" class="form-control" value="<?php echo set_value('registeredDate'); ?>" />
- <span class="text-danger"><?php echo form_error('registeredDate'); ?></span>
+<input id="eventDate" name="eventDate" placeholder="Event Date"
+type="text" class="form-control" value="<?php echo set_value('eventDate'); ?>" />
+ <span class="text-danger"><?php echo form_error('eventDate'); ?></span>
  </div>
  </div>
  </div>
