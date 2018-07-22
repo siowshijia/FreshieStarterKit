@@ -1,20 +1,21 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Register extends CI_Controller {
+class Student extends CI_Controller {
 
 	public function __construct()
     {
         parent::__construct();
-        $this->load->library('form_validation');
-        $this->load->model('Studentmodel');
+        $this->load->model('studentModel');
     }
 
-	public function index()
+	public function register()
 	{
 		$data = array(
 			'view_name' => 'Student Register',
 		);
+
+		$this->load->library('form_validation');
 
         //set validation rules
         $this->form_validation->set_rules('name', 'Name', 'required');
@@ -26,25 +27,26 @@ class Register extends CI_Controller {
 	                'is_unique'     => 'This %s already exists.'
 	        )
 		);
+		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
 
         if ($this->form_validation->run() == FALSE) {
-            //fail validation
+
             $this->load->template('layouts/student/register', $data);
         } else {
-            //pass validation
-            $data = array(
-	            'student_name' => $this->input->post('name'),
-	            'student_email' => $this->input->post('email'),
-	            'password' => $this->input->post('password')
-			);
-            //insert the form data into database
-            $this->db->insert('student', $data);
-            //display success message
-            $this->session->set_flashdata('msg', '<div class="alert alert-success text-center">Student details added to Database!!!</div>');
-            redirect('register/success');
+			$name     = $this->input->post('name');
+			$email    = $this->input->post('email');
+			$password = $this->input->post('password');
+
+			if ($this->studentModel->create_user($name, $email, $password)) {
+
+				redirect('student/success');
+
+			} else {
+
+				$data['error_msg'] = 'Some problems occured, please try again.';
+				$this->load->template('layouts/student/register', $data);
+			}
         }
-
-
 	}
 
 	function success() {
