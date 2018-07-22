@@ -102,10 +102,20 @@ class Student extends CI_Controller {
 
 	public function profile()
 	{
+		$data = array(
+			'view_name' => 'Student Profile',
+		);
+
 		if (isset($_SESSION['user_id'])) {
 
+			$data['logged_in'] = true;
+			$data['user'] = $this->studentModel->get_user($_SESSION['user_id']);
+
+		} else {
+
+			$data['logged_in'] = false;
 		}
-		$data['profile'] = $this->studentModel->get_user();
+
         $this->load->template('layouts/student/profile', $data);
 	}
 }
