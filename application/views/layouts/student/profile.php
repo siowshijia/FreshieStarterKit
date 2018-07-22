@@ -43,12 +43,12 @@
             </div>
 
             <div class="text-center">
-                <a href="" class="btn btn-common">Edit Profile</a>
+                <a href="<?php echo base_url('/student/edit'); ?>" class="btn btn-common">Edit Profile</a>
             </div>
         <?php } else { ?>
             <div class="text-center">
                 <h4>Please login to view this page.</h4>
-                <a href="<?php echo base_url('/student/login'); ?>" class="btn btn-common">Login</a>
+                <a href="<?php echo base_url('/student/login'); ?>" class="btn btn-primary">Login</a>
             </div>
         <?php } ?>
     </div>

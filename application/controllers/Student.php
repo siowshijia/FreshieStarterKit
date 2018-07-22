@@ -118,4 +118,50 @@ class Student extends CI_Controller {
 
         $this->load->template('layouts/student/profile', $data);
 	}
+
+	public function edit() {
+		$data = array(
+			'view_name' => 'Edit Student Profile',
+		);
+
+		if (isset($_SESSION['user_id'])) {
+
+			$data['logged_in'] = true;
+			$data['user'] = $this->studentModel->get_user($_SESSION['user_id']);
+
+			//set validation rules
+	        $this->form_validation->set_rules('stud_name', 'Name', 'required');
+	        $this->form_validation->set_rules('adm_number', 'Admission Number', 'required');
+	        $this->form_validation->set_rules('stud_email', 'Email', 'required|valid_email');
+			$this->form_validation->set_rules('contact_number', 'Contact Number', 'required');
+			$this->form_validation->set_rules('interest', 'Interest', 'required');
+
+	        if ($this->form_validation->run() == FALSE) {
+
+	            $this->load->template('layouts/student/edit', $data);
+
+	        } else {
+				$name           = $this->input->post('stud_name');
+				$adm_number     = $this->input->post('adm_number');
+				$email          = $this->input->post('stud_email');
+				$contact_number = $this->input->post('contact_number');
+				$interest       = $this->input->post('interest');
+
+				if ($this->studentModel->update_user($name, $adm_number, $email, $contact_number, $interest)) {
+
+					redirect('student/profile');
+
+				} else {
+
+					$data['error_msg'] = 'Some problems occured, please try again.';
+					$this->load->template('layouts/student/edit', $data);
+				}
+	        }
+
+		} else {
+
+			$data['logged_in'] = false;
+			$this->load->template('layouts/student/edit', $data);
+		}
+	}
 }
