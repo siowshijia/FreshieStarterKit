@@ -17,22 +17,21 @@
 <section class="section-base">
     <div class="container-xs">
         <form class="form-signin" action="" method="post">
-            <h2>Please sign in:</h2>
+            <h2>Welcome! Register yourself here:</h2>
             <?php if (isset($error_msg)) { ?>
                 <div class="alert alert-danger text-center"><?php echo $error_msg; ?></div>
             <?php } ?>
             <div class="form-group">
-                <label for="stud_email" class="sr-only">Email address</label>
-                <input type="email" name="stud_email" id="stud_email" class="form-control" placeholder="Email address" required="" autofocus="">
+                <label for="name" class="sr-only">Name</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Name">
             </div>
             <div class="form-group">
-                <label for="stud_pass" class="sr-only">Password</label>
-                <input type="password" name="stud_pass" id="stud_pass" class="form-control" placeholder="Password" required="">
+                <label for="email" class="sr-only">Email address</label>
+                <input type="email" name="email" id="email" class="form-control" placeholder="Email address">
             </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" value="remember-me"> Remember me
-                </label>
+            <div class="form-group">
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Password">
             </div>
             <button class="btn btn-primary btn-block" type="submit">Sign in</button>
         </form>
