@@ -21,33 +21,6 @@ class event extends CI_Controller {
 		$events = $this->eventModel->get_events_list();
 		$data["events"] = $events;
 		$this->load->template('layouts/event', $data);
-
-		$data = array(
-
-			'event_name' => $this->input->post('eventname'),
-			'category_id' => $this->input->post('category_id'),
-		   'registered_date' => @date('Y-m-d', @strtotime($this->input->post('registeredDate'))),
-		   );
-		   //insert the form data into database
-		   $this->db->insert('event', $data);
-		   //display success message
-		   $this->session->set_flashdata('msg', '<div class="alert alert-success textcenter">Student
-		   details added to Database!!!</div>');
-		   redirect('student/index');
 	}
-
-	function get_category()
-	{
-		$data = array(
-			'view_name' => 'eventCreate',
-		);
-		$data['category'] = $this->eventModel->get_category();
-		$this->load->template('layouts/eventCreate', $data);
-	}
-
-	function submit_event()
-	{
-		
-	}
-
+	
 }

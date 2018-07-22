@@ -44,8 +44,9 @@ class eventCreate extends CI_Controller {
 			$data = array(
 
 			'event_name' => $this->input->post('eventname'),
-			'category_id' => $this->input->post('event_category'),
-		   'eventdate' => @date('Y-m-d', @strtotime($this->input->post('eventDate'))),
+			'event_venue' => $this->input->post('eventvenue'),
+			'event_category' => $this->input->post('category'),
+		   'event_datetime' => @date('Y-m-d', @strtotime($this->input->post('eventDate'))),
 		   );
 		   //insert the form data into database
 		   $this->db->insert('event', $data);
