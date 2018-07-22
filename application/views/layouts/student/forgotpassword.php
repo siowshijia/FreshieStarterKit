@@ -16,30 +16,16 @@
 
 <section class="section-base">
     <div class="container-xs">
-        <form class="form-signin" action="">
-            <h2>Please sign in:</h2>
+        <form class="form-forgotpassword" action="">
+            <h2>Have you forgotten your password?</h2>
             <div class="form-group">
                 <label for="stud_email" class="sr-only">Email address</label>
                 <input type="email" id="stud_email" class="form-control" placeholder="Email address" required="required" autofocus="" value="<?php echo set_value('stud_email'); ?>">
                 <span class="text-danger"><?php echo form_error('stud_email'); ?></span>
             </div>
-            <div class="form-group">
-                <label for="stud_pass" class="sr-only">Password</label>
-                <input type="password" id="stud_pass" class="form-control" placeholder="Password" required="required" autofocus="" value="<?php echo set_value('stud_pass'); ?>">
-                <span class="text-danger"><?php echo form_error('stud_pass'); ?></span>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" value="remember-me"> Remember me
-                </label>
-            </div>
-            <row>
-            <button class="btn btn-primary btn-block" type="submit">Sign in</button>
-            <button class="btn btn-primary btn-block" type="submit">Forgot password</button>
-            <button class="btn btn-primary btn-block" type="submit">Sign up for new account</button>
+            <button class="btn btn-primary btn-block" type="submit">Retrieve Password</button>
             <button class="btn btn-primary btn-block" type="reset">Cancel</button>
-            <button class="btn btn-primary btn-block" type="submit">Admin Login</button>
-            </row>
+
         </form>
     </div>
 </section>
