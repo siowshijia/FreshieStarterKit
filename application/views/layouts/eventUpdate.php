@@ -49,7 +49,7 @@ class="form-control" value="<?php echo set_value('eventname'); ?>" />
  </div>
  <div class="col-lg-8 col-sm-8">
 <input id="eventvenue" name="eventvenue" placeholder="Event Venue" type="text"
-class="form-control" value="<?php echo set_value('eventvenue'); ?>" />
+class="form-control" value="<?php echo $events[0]->eventvenue;?>" />
  <span class="text-danger"><?php echo form_error('eventvenue'); ?></span>
  </div>
  </div>
@@ -58,16 +58,16 @@ class="form-control" value="<?php echo set_value('eventvenue'); ?>" />
  <div class="form-group">
  <div class="row colbox">
  <div class="col-lg-4 col-sm-4">
- <label for="event" class="control-label">Event Category</label>
+ <label for="school" class="control-label">Event Category</label>
  </div>
  <div class="col-lg-8 col-sm-8">
  <?php
- $attributes = 'class = "form-control" id = "event"';?>
+ $attributes = 'class = "form-control" id = "school"';?>
  <select name="category">
   <option value="sports">Sports</option>
   <option value="arts">Arts</option>
  </select>
- <span class="text-danger"><?php echo form_error('event'); ?></span>
+ <span class="text-danger"><?php echo form_error('school'); ?></span>
  </div>
  </div>
  </div>

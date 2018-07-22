@@ -22,7 +22,7 @@ class eventCreate extends CI_Controller {
 			'view_name' => 'eventCreate',
 		);
 		$data['category'] = $this->eventModel->get_category();
-		$this->load->template('layouts/eventCreate', $data);
+		
 		
 		//set validation rules
 		$this->form_validation->set_rules('eventname', 'Event Name',
@@ -37,7 +37,7 @@ class eventCreate extends CI_Controller {
 		if ($this->form_validation->run() == FALSE)
 		{
 			//fail validation
-			$this->load->view('layouts/eventCreate', $data);
+			$this->load->template('layouts/eventCreate', $data);
 		}	
 		else
 		{
@@ -46,7 +46,7 @@ class eventCreate extends CI_Controller {
 			'event_name' => $this->input->post('eventname'),
 			'event_venue' => $this->input->post('eventvenue'),
 			'event_category' => $this->input->post('category'),
-		   'event_datetime' => @date('Y-m-d', @strtotime($this->input->post('eventDate'))),
+		    'event_datetime' => @date('Y-m-d', @strtotime($this->input->post('eventDate'))),
 		   );
 		   //insert the form data into database
 		   $this->db->insert('event', $data);
