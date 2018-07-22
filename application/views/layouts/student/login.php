@@ -16,7 +16,7 @@
 
 <section class="section-base">
     <div class="container-xs">
-        <form class="form-signin" action="">
+        <form class="form-signin" action="" method="post">
             <h2>Please sign in:</h2>
             <div class="form-group">
                 <label for="stud_email" class="sr-only">Email address</label>
