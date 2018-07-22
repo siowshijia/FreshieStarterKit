@@ -18,13 +18,16 @@
     <div class="container-xs">
         <form class="form-signin" action="" method="post">
             <h2>Please sign in:</h2>
+            <?php if (isset($error_msg)) { ?>
+                <div class="alert alert-danger text-center"><?php echo $error_msg; ?></div>
+            <?php } ?>
             <div class="form-group">
                 <label for="stud_email" class="sr-only">Email address</label>
-                <input type="email" id="stud_email" class="form-control" placeholder="Email address" required="" autofocus="">
+                <input type="email" name="stud_email" id="stud_email" class="form-control" placeholder="Email address" required="" autofocus="">
             </div>
             <div class="form-group">
                 <label for="stud_pass" class="sr-only">Password</label>
-                <input type="password" id="stud_pass" class="form-control" placeholder="Password" required="">
+                <input type="password" name="stud_pass" id="stud_pass" class="form-control" placeholder="Password" required="">
             </div>
             <div class="checkbox">
                 <label>

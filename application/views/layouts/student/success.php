@@ -16,6 +16,8 @@
 
 <section class="section-base">
     <div class="container-xs">
-        <p>You have successfully registered yourself. Welcome!</p>
+        <?php if (isset($message)) { ?>
+            <p><?php echo $message; ?></p>
+        <?php } ?>
     </div>
 </section>
