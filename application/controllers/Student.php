@@ -54,7 +54,8 @@ class Student extends CI_Controller {
         }
 	}
 
-	public function login() {
+	public function login()
+	{
 
 		$data = array(
 			'view_name' => 'Student Login',
@@ -97,5 +98,14 @@ class Student extends CI_Controller {
 
 			}
 		}
+	}
+
+	public function profile()
+	{
+		if (isset($_SESSION['user_id'])) {
+
+		}
+		$data['profile'] = $this->studentModel->get_user();
+        $this->load->template('layouts/student/profile', $data);
 	}
 }
