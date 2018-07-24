@@ -164,4 +164,27 @@ class Student extends CI_Controller {
 			$this->load->template('layouts/student/edit', $data);
 		}
 	}
+
+	public function logout() {
+
+		if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+
+			// remove session datas
+			foreach ($_SESSION as $key => $value) {
+				unset($_SESSION[$key]);
+			}
+
+			$data = array(
+				'view_name' => 'Student Login',
+
+			);
+			$this->load->template('layouts/student/login', $data);
+
+		} else {
+
+			redirect('/');
+
+		}
+
+	}
 }
