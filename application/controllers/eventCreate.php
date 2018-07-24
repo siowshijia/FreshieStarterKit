@@ -22,30 +22,31 @@ class eventCreate extends CI_Controller {
 			'view_name' => 'eventCreate',
 		);
 		$data['category'] = $this->eventModel->get_category();
-		$this->load->template('layouts/eventCreate', $data);
+		
 		
 		//set validation rules
-		$this->form_validation->set_rules('studentno', 'Student No',
-		'trim|required|numeric');
-		$this->form_validation->set_rules('studentname', 'Student Name',
+		$this->form_validation->set_rules('eventname', 'Event Name',
 		'trim|required|callback_alpha_only_space');
-		$this->form_validation->set_rules('school', 'School',
+		$this->form_validation->set_rules('eventvenue', 'Event Venue',
+		'trim|required|callback_alpha_only_space');
+		$this->form_validation->set_rules('category', 'Category',
 		'callback_combo_check');
-		$this->form_validation->set_rules('registeredDate', 'Registered Date',
+		$this->form_validation->set_rules('eventDate', 'Event Date',
 		'required');
 		
 		if ($this->form_validation->run() == FALSE)
 		{
-		//fail validation
-		$this->load->view('layouts/eventCreate', $data);
+			//fail validation
+			$this->load->template('layouts/eventCreate', $data);
 		}	
 		else
 		{
-		$data = array(
+			$data = array(
 
 			'event_name' => $this->input->post('eventname'),
-			'category_id' => $this->input->post('category_id'),
-		   'registered_date' => @date('Y-m-d', @strtotime($this->input->post('registeredDate'))),
+			'event_venue' => $this->input->post('eventvenue'),
+			'event_category' => $this->input->post('category'),
+		    'event_datetime' => @date('Y-m-d', @strtotime($this->input->post('eventDate'))),
 		   );
 		   //insert the form data into database
 		   $this->db->insert('event', $data);
