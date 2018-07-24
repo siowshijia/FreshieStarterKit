@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Student extends CI_Controller {
+class Reward extends CI_Controller {
 
 	public function __construct()
     {
         parent::__construct();
 		$this->load->library('form_validation');
-        $this->load->model('studentModel');
+        $this->load->model('rewardModel');
     }
 
 	public function register()
@@ -37,7 +37,7 @@ class Student extends CI_Controller {
 			$email    = $this->input->post('email');
 			$password = $this->input->post('password');
 
-			if ($this->studentModel->create_user($name, $email, $password)) {
+			if ($this->rewardModel->create_user($name, $email, $password)) {
 
 				$success_data = array(
 					'view_name' => 'Register Success',
@@ -74,10 +74,10 @@ class Student extends CI_Controller {
 			$email    = $this->input->post('stud_email');
 			$password = $this->input->post('stud_pass');
 
-			if ($this->studentModel->resolve_user_login($email, $password)) {
+			if ($this->rewardModel->resolve_user_login($email, $password)) {
 
-				$user_id = $this->studentModel->get_user_id_from_username($email);
-				$user    = $this->studentModel->get_user($user_id);
+				$user_id = $this->rewardModel->get_user_id_from_username($email);
+				$user    = $this->rewardModel->get_user($user_id);
 
 				// set session user datas
 				$_SESSION['user_id']      = (int)$user->student_id;
@@ -109,7 +109,7 @@ class Student extends CI_Controller {
 		if (isset($_SESSION['user_id'])) {
 
 			$data['logged_in'] = true;
-			$data['user'] = $this->studentModel->get_user($_SESSION['user_id']);
+			$data['user'] = $this->rewardModel->get_user($_SESSION['user_id']);
 
 		} else {
 
@@ -127,7 +127,7 @@ class Student extends CI_Controller {
 		if (isset($_SESSION['user_id'])) {
 
 			$data['logged_in'] = true;
-			$data['user'] = $this->studentModel->get_user($_SESSION['user_id']);
+			$data['user'] = $this->rewardModel->get_user($_SESSION['user_id']);
 
 			//set validation rules
 	        $this->form_validation->set_rules('stud_name', 'Name', 'required');
@@ -147,7 +147,7 @@ class Student extends CI_Controller {
 				$contact_number = $this->input->post('contact_number');
 				$interest       = $this->input->post('interest');
 
-				if ($this->studentModel->update_user($name, $adm_number, $email, $contact_number, $interest)) {
+				if ($this->rewardModel->update_user($name, $adm_number, $email, $contact_number, $interest)) {
 
 					redirect('student/profile');
 
@@ -163,28 +163,5 @@ class Student extends CI_Controller {
 			$data['logged_in'] = false;
 			$this->load->template('layouts/student/edit', $data);
 		}
-	}
-
-	public function logout() {
-
-		if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
-
-			// remove session datas
-			foreach ($_SESSION as $key => $value) {
-				unset($_SESSION[$key]);
-			}
-
-			$data = array(
-				'view_name' => 'Student Login',
-
-			);
-			$this->load->template('layouts/student/login', $data);
-
-		} else {
-
-			redirect('/');
-
-		}
-
 	}
 }
