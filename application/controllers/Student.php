@@ -146,8 +146,9 @@ class Student extends CI_Controller {
 				$email          = $this->input->post('stud_email');
 				$contact_number = $this->input->post('contact_number');
 				$interest       = $this->input->post('interest');
+				$id             = $_SESSION['user_id'];
 
-				if ($this->studentModel->update_user($name, $adm_number, $email, $contact_number, $interest)) {
+				if ($this->studentModel->update_user($id, $name, $adm_number, $email, $contact_number, $interest)) {
 
 					redirect('student/profile');
 

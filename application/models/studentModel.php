@@ -51,15 +51,17 @@ class studentModel extends CI_Model
 
 	}
 
-    public function update_user($name, $adm_number, $email, $contact_number, $interest) {
+    public function update_user($id, $name, $adm_number, $email, $contact_number, $interest) {
 
         $data = array(
             'student_name'           => $name,
             'admission_number'       => $adm_number,
             'student_email'          => $email,
             'student_contact_number' => $contact_number,
-            'interest'                => $interest,
+            'interest'               => $interest,
         );
+
+        $this->db->where('student_id', $id);
 
         return $this->db->update('student', $data);
 
