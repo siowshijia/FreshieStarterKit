@@ -26,7 +26,7 @@
         <?php
         $attributes = array("class" => "form-horizontal", "id" => "eventform", "name" =>
         "eventform");
-         echo form_open("events/eventCreate/index", $attributes);?>
+         echo form_open("event/create", $attributes);?>
         <fieldset>
 
             <div class="form-group">
