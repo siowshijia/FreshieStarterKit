@@ -26,7 +26,7 @@
 <?php
 $attributes = array("class" => "form-horizontal", "id" => "eventform", "name" =>
 "eventform");
- echo form_open("event/update", $attributes);?>
+ echo form_open("event/update/".$id = $events[0]->eventId, $attributes);?>
  <fieldset>
 
  <div class="form-group">
@@ -42,6 +42,11 @@ class="form-control" value="<?php echo set_value('eventname'); echo $events[0]->
  </div>
  </div>
  </div>
+
+ <input id="eventId" name="eventId" placeholder="eventId" type="hidden"
+class="form-control" value="<?php echo set_value('eventId'); echo $events[0]->eventId;?>" />
+ <span class="text-danger"><?php echo form_error('eventId'); ?></span>
+
  <div class="form-group">
  <div class="row colbox">
  <div class="col-lg-4 col-sm-4">

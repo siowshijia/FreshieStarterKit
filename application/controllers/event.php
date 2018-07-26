@@ -100,14 +100,15 @@ class Event extends CI_Controller {
 
 	
 }
-	public function update()
+	public function update($id)
 	{
 	$data = array(
 		'view_name' => 'Update Event',
 	);
-
+	
 	$this->load->model("eventModel");
-	$events = $this->eventModel->get_events_list();
+	$db_Id = $id;
+	$events = $this->eventModel->get_event_details($db_Id);
 	$data["events"] = $events;
 	$this->form_validation->set_rules('eventname', 'Event Name',
 		'trim|required|callback_alpha_only_space');
@@ -124,7 +125,8 @@ class Event extends CI_Controller {
 			$this->load->template('layouts/event/eventUpdate', $data);
 		}	
 		else
-		{
+		{	
+			$id = $this->input->post('eventId');
 			$data = array(
 
 			'event_name' => $this->input->post('eventname'),
@@ -132,19 +134,31 @@ class Event extends CI_Controller {
 			'event_category' => $this->input->post('category'),
 			'event_datetime' => @date('Y-m-d', @strtotime($this->input->post('eventDate'))),
 			'description' => $this->input->post('eventDescription'),
-			'description' => $this->input->post('eventDescription'),
+			
 		   );
 		   //insert the form data into database
-		   $this->db->where('event_id', '5');
+		   $this->db->where('event_id', $id);
 		   $this->db->update('event', $data);
 		   //display success message
 		   $this->session->set_flashdata('msg', '<div class="alert alert-success textcenter">Event
-		   sent to Admin for approval</div>');
-		   redirect('event/update');
+		   Updated</div>');
+		   redirect('event/update/'.$id);
 		
 
 		}
 	
+	}
+
+	public function adminView()
+	{	
+		$data = array(
+			'view_name' => 'Events',
+		);
+
+		$this->load->model("eventModel");
+		$events = $this->eventModel->get_events_list();
+		$data["events"] = $events;
+		$this->load->template('layouts/event/adminView', $data);
 	}
 
 }
