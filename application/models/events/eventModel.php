@@ -8,6 +8,8 @@ class eventModel extends CI_Model{
  function get_events_list(){
     $this->db->select('event_name');
     $this->db->select('event_venue');
+    $this->db->select('event_datetime');
+    $this->db->select('event_category');
      $this->db->from('event');
      $query = $this->db->get();
      $result = $query->result();
@@ -17,6 +19,8 @@ class eventModel extends CI_Model{
      $list[$i] = (object)NULL;
      $list[$i]->eventname = $result[$i]->event_name;
      $list[$i]->eventvenue = $result[$i]->event_venue;
+     $list[$i]->eventDatetime = $result[$i]->event_datetime;
+     $list[$i]->eventCategory = $result[$i]->event_category;
      }
      return $list;
  }

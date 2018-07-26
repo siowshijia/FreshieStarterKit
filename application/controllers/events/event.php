@@ -15,12 +15,14 @@ class event extends CI_Controller {
 		$this->load->model("events/eventModel");
 	}
 
-	public function index()
+	public function event()
 	{
 		$this->load->model("eventModel");
 		$events = $this->eventModel->get_events_list();
 		$data["events"] = $events;
 		$this->load->template('layouts/events/event', $data);
 	}
+
+	
 	
 }

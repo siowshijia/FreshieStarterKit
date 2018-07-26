@@ -15,7 +15,6 @@ class eventCreate extends CI_Controller {
 		$this->load->model("events/eventModel");
 	}
 
-	
 	function index()
 	{
 		$data = array(
@@ -46,14 +45,16 @@ class eventCreate extends CI_Controller {
 			'event_name' => $this->input->post('eventname'),
 			'event_venue' => $this->input->post('eventvenue'),
 			'event_category' => $this->input->post('category'),
-		    'event_datetime' => @date('Y-m-d', @strtotime($this->input->post('eventDate'))),
+			'event_datetime' => @date('Y-m-d', @strtotime($this->input->post('eventDate'))),
+			'description' => $this->input->post('eventDescription'),
+			'description' => $this->input->post('eventDescription'),
 		   );
 		   //insert the form data into database
 		   $this->db->insert('event', $data);
 		   //display success message
-		   $this->session->set_flashdata('msg', '<div class="alert alert-success textcenter">Student
-		   details added to Database!!!</div>');
-		   redirect('eventCreate');
+		   $this->session->set_flashdata('msg', '<div class="alert alert-success textcenter">Event
+		   sent to Admin for approval</div>');
+		   redirect('events/eventCreate');
 		}
 	}
 
@@ -85,6 +86,7 @@ class eventCreate extends CI_Controller {
 	return TRUE;
 	}
 }
-
-
+	
 }
+
+

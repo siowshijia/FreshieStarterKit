@@ -37,7 +37,7 @@ $attributes = array("class" => "form-horizontal", "id" => "eventform", "name" =>
  </div>
  <div class="col-lg-8 col-sm-8">
 <input id="eventname" name="eventname" placeholder="Event Name" type="text"
-class="form-control" value="<?php echo set_value('eventname'); ?>" />
+class="form-control" value="<?php echo set_value('eventname'); echo $events[0]->eventname;?>" />
  <span class="text-danger"><?php echo form_error('eventname'); ?></span>
  </div>
  </div>
@@ -49,7 +49,7 @@ class="form-control" value="<?php echo set_value('eventname'); ?>" />
  </div>
  <div class="col-lg-8 col-sm-8">
 <input id="eventvenue" name="eventvenue" placeholder="Event Venue" type="text"
-class="form-control" value="<?php echo $events[0]->eventvenue;?>" />
+class="form-control" value="<?php echo set_value('eventvenue'); echo $events[0]->eventvenue;?>" />
  <span class="text-danger"><?php echo form_error('eventvenue'); ?></span>
  </div>
  </div>
@@ -58,16 +58,16 @@ class="form-control" value="<?php echo $events[0]->eventvenue;?>" />
  <div class="form-group">
  <div class="row colbox">
  <div class="col-lg-4 col-sm-4">
- <label for="school" class="control-label">Event Category</label>
+ <label for="events" class="control-label">Event Category</label>
  </div>
  <div class="col-lg-8 col-sm-8">
  <?php
- $attributes = 'class = "form-control" id = "school"';?>
+ $attributes = 'class = "form-control" id = "events"';?>
  <select name="category">
   <option value="sports">Sports</option>
   <option value="arts">Arts</option>
  </select>
- <span class="text-danger"><?php echo form_error('school'); ?></span>
+ <span class="text-danger"><?php echo form_error('events'); ?></span>
  </div>
  </div>
  </div>
@@ -78,8 +78,8 @@ class="form-control" value="<?php echo $events[0]->eventvenue;?>" />
  <label for="eventDate" class="control-label">Event Date</label>
  </div>
  <div class="col-lg-8 col-sm-8">
-<input id="eventDate" name="eventDate" placeholder="Event Date"
-type="text" class="form-control" value="<?php echo set_value('eventDate'); ?>" />
+    <input id="eventDate" name="eventDate" placeholder="Event Date"
+    type="text" class="form-control" value="<?php echo set_value('eventDate'); echo $events[0]->eventDatetime; ?>" />
  <span class="text-danger"><?php echo form_error('eventDate'); ?></span>
  </div>
  </div>
