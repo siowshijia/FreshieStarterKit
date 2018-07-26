@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class eventCreate extends CI_Controller {
+class Event extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
@@ -15,10 +15,22 @@ class eventCreate extends CI_Controller {
 		$this->load->model("events/eventModel");
 	}
 
-	function index()
+	public function view()
+	{	
+		$data = array(
+			'view_name' => 'Events',
+		);
+
+		$this->load->model("eventModel");
+		$events = $this->eventModel->get_events_list();
+		$data["events"] = $events;
+		$this->load->template('layouts/event/view', $data);
+	}
+
+	function create()
 	{
 		$data = array(
-			'view_name' => 'eventCreate',
+			'view_name' => 'Create Event',
 		);
 		$data['category'] = $this->eventModel->get_category();
 		
@@ -36,7 +48,7 @@ class eventCreate extends CI_Controller {
 		if ($this->form_validation->run() == FALSE)
 		{
 			//fail validation
-			$this->load->template('layouts/events/eventCreate', $data);
+			$this->load->template('layouts/event/eventCreate', $data);
 		}	
 		else
 		{
@@ -85,8 +97,21 @@ class eventCreate extends CI_Controller {
 	{
 	return TRUE;
 	}
+
+	
 }
+public function update()
+{
+	$data = array(
+		'view_name' => 'Update Event',
+	);
+
+	$this->load->model("eventModel");
+	$events = $this->eventModel->get_events_list();
+	$data["events"] = $events;
+	
+	$this->load->template('layouts/event/eventUpdate', $data);
 	
 }
 
-
+}

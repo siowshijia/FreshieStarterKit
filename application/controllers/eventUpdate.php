@@ -15,14 +15,6 @@ class eventUpdate extends CI_Controller {
 		$this->load->model("events/eventModel");
 	}
 
-	public function index()
-	{
-		$this->load->model("eventModel");
-		$events = $this->eventModel->get_events_list();
-		$data["events"] = $events;
-		
-		$this->load->template('layouts/events/eventUpdate', $data);
-		
-	}
+	
 	
 }
