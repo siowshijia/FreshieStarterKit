@@ -48,9 +48,9 @@ class="form-control" value="<?php echo set_value('eventname'); ?>" />
  <label for="eventvenue" class="control-label">Event Venue</label>
  </div>
  <div class="col-lg-8 col-sm-8">
-    <input id="eventvenue" name="eventvenue" placeholder="Event Venue" type="text"
-    class="form-control" value="<?php echo $events[0]->eventvenue;?>" />
-    <span class="text-danger"><?php echo form_error('eventvenue'); ?></span>
+<input id="eventvenue" name="eventvenue" placeholder="Event Venue" type="text"
+class="form-control" value="<?php echo $events[0]->eventvenue;?>" />
+ <span class="text-danger"><?php echo form_error('eventvenue'); ?></span>
  </div>
  </div>
  </div>

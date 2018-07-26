@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class event extends CI_Controller {
+class eventUpdate extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
@@ -12,7 +12,7 @@ class event extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->database();
 		$this->load->library('form_validation');
-		$this->load->model("eventModel");
+		$this->load->model("events/eventModel");
 	}
 
 	public function index()
@@ -20,7 +20,9 @@ class event extends CI_Controller {
 		$this->load->model("eventModel");
 		$events = $this->eventModel->get_events_list();
 		$data["events"] = $events;
-		$this->load->template('layouts/event', $data);
+		
+		$this->load->template('layouts/events/eventUpdate', $data);
+		
 	}
 	
 }

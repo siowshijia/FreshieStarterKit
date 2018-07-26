@@ -12,7 +12,7 @@ class eventCreate extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->database();
 		$this->load->library('form_validation');
-		$this->load->model("eventModel");
+		$this->load->model("events/eventModel");
 	}
 
 	
@@ -37,7 +37,7 @@ class eventCreate extends CI_Controller {
 		if ($this->form_validation->run() == FALSE)
 		{
 			//fail validation
-			$this->load->template('layouts/eventCreate', $data);
+			$this->load->template('layouts/events/eventCreate', $data);
 		}	
 		else
 		{
