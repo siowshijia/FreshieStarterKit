@@ -35,7 +35,7 @@
                         ?>
                         <h3><?php echo $event->eventId; ?></h3>
                         <h3><?php echo $event->eventname; ?></h3>
-                        By <strong><?php echo $event->studentName  ; ?></strong>
+                        By <strong><?php echo $event->description ; ?></strong>
                         <?php
                         }
                         ?>

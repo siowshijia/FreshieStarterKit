@@ -6,13 +6,13 @@ class Event extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->database();
-		parent::__construct();
+		
 		$this->load->library('session');
 		$this->load->helper('form');
 		$this->load->helper('url');
 		$this->load->database();
 		$this->load->library('form_validation');
-		$this->load->model("events/eventModel");
+		$this->load->model("eventModel");
 	}
 
 	public function view()
@@ -59,14 +59,16 @@ class Event extends CI_Controller {
 			'event_category' => $this->input->post('category'),
 			'event_datetime' => @date('Y-m-d', @strtotime($this->input->post('eventDate'))),
 			'description' => $this->input->post('eventDescription'),
-			'description' => $this->input->post('eventDescription'),
+			'event_status' => 'Pending',
+			'event_approval' => 'Not Approved',
+			//'event_owner' => $_SESSION['user_id']
 		   );
 		   //insert the form data into database
 		   $this->db->insert('event', $data);
 		   //display success message
 		   $this->session->set_flashdata('msg', '<div class="alert alert-success textcenter">Event
 		   sent to Admin for approval</div>');
-		   redirect('events/eventCreate');
+		   redirect('event/Create');
 		}
 	}
 
@@ -149,6 +151,18 @@ class Event extends CI_Controller {
 	
 	}
 
+	public function viewStatus()
+	{	
+		$data = array(
+			'view_name' => 'Events',
+		);
+
+		$this->load->model("eventModel");
+		$events = $this->eventModel->get_event_status();
+		$data["events"] = $events;
+		$this->load->template('layouts/event/viewStatus', $data);
+	}
+
 	public function adminView()
 	{	
 		$data = array(
@@ -156,9 +170,68 @@ class Event extends CI_Controller {
 		);
 
 		$this->load->model("eventModel");
-		$events = $this->eventModel->get_events_list();
+		$events = $this->eventModel->get_event_list();
 		$data["events"] = $events;
 		$this->load->template('layouts/event/adminView', $data);
+	}
+
+	public function adminPending()
+	{	
+		$data = array(
+			'view_name' => 'Events',
+		);
+
+		$this->load->model("eventModel");
+		$events = $this->eventModel->get_event_pending();
+		$data["events"] = $events;
+		$this->load->template('layouts/event/adminPending', $data);
+	}
+
+	
+	public function adminUpdate($id)
+	{
+	$data = array(
+		'view_name' => 'Approve Event',
+	);
+	
+	$this->load->model("eventModel");
+	$db_Id = $id;
+	$events = $this->eventModel->get_event_details($db_Id);
+	$data["events"] = $events;
+	$this->form_validation->set_rules('eventname', 'Event Name',
+		'trim|required|callback_alpha_only_space');
+		$this->form_validation->set_rules('eventvenue', 'Event Venue',
+		'trim|required|callback_alpha_only_space');
+		$this->form_validation->set_rules('category', 'Category',
+		'callback_combo_check');
+		$this->form_validation->set_rules('eventDate', 'Event Date',
+		'required');
+		
+		if ($this->form_validation->run() == FALSE)
+		{
+			//fail validation
+			$this->load->template('layouts/event/adminUpdate', $data);
+		}	
+		else
+		{	
+			$id = $this->input->post('eventId');
+			$data = array(
+
+			'event_approval' => $this->input->post('Status'),
+			'admin_remarks' => $this->input->post('adminRemarks'),
+			
+		   );
+		   //insert the form data into database
+		   $this->db->where('event_id', $id);
+		   $this->db->update('event', $data);
+		   //display success message
+		   $this->session->set_flashdata('msg', '<div class="alert alert-success textcenter">Event
+		   Updated</div>');
+		   redirect('event/adminUpdate/'.$id);
+		
+
+		}
+	
 	}
 
 }
