@@ -754,6 +754,7 @@ ul.sub-menu {
   display: table;
   position: static;
   width: 100%;
+  text-align: center;
 }
 
 #team {
