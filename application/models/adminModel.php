@@ -15,11 +15,11 @@ class adminModel extends CI_Model
     public function add_staff($name, $staff_number, $email, $contact_number, $password) {
 
         $data = array(
-            'staff_name'          => $name,
-            'staff_number'        => $staff_number,
-            'staff_email'         => $email,
+            'staff_name'           => $name,
+            'staff_number'         => $staff_number,
+            'staff_email'          => $email,
             'staff_contact_number' => $contact_number,
-            'password'            => $this->hash_password($password),
+            'password'             => $this->hash_password($password),
         );
 
         return $this->db->insert('staff', $data);
@@ -61,21 +61,20 @@ class adminModel extends CI_Model
 
     }
 
-    // public function update_user($id, $name, $adm_number, $email, $contact_number, $interest) {
-    //
-    //     $data = array(
-    //         'student_name'           => $name,
-    //         'admission_number'       => $adm_number,
-    //         'student_email'          => $email,
-    //         'student_contact_number' => $contact_number,
-    //         'interest'               => $interest,
-    //     );
-    //
-    //     $this->db->where('student_id', $id);
-    //
-    //     return $this->db->update('student', $data);
-    //
-    // }
+    public function update_user($id, $name, $staff_number, $email, $contact_number) {
+
+        $data = array(
+            'staff_name'           => $name,
+            'staff_number'         => $staff_number,
+            'staff_email'          => $email,
+            'staff_contact_number' => $contact_number,
+        );
+
+        $this->db->where('staff_id', $id);
+
+        return $this->db->update('staff', $data);
+
+    }
 
     private function hash_password($password) {
 

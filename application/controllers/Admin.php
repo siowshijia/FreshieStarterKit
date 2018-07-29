@@ -112,51 +112,53 @@ class Admin extends CI_Controller {
         }
 	}
 
-	public function edit() {
+	public function edit($id) {
 		$data = array(
-			'view_name' => 'Edit Student Profile',
+			'view_name' => 'Edit Staff',
 		);
 
-		if (isset($_SESSION['user_id'])) {
+		if (isset($id)) {
 
 			$data['logged_in'] = true;
-			$data['user'] = $this->studentModel->get_user($_SESSION['user_id']);
+			$data['user'] = $this->adminModel->get_user($id);
 
 			//set validation rules
-	        $this->form_validation->set_rules('stud_name', 'Name', 'required');
-	        $this->form_validation->set_rules('adm_number', 'Admission Number', 'required');
-	        $this->form_validation->set_rules('stud_email', 'Email', 'required|valid_email');
+	        $this->form_validation->set_rules('name', 'Name', 'required');
+	        $this->form_validation->set_rules('staff_number', 'Admission Number', 'required');
+	        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
 			$this->form_validation->set_rules('contact_number', 'Contact Number', 'required');
-			$this->form_validation->set_rules('interest', 'Interest', 'required');
 
 	        if ($this->form_validation->run() == FALSE) {
 
-	            $this->load->template('layouts/student/edit', $data);
+	            $this->load->template('layouts/admin/admin/edit', $data);
 
 	        } else {
-				$name           = $this->input->post('stud_name');
-				$adm_number     = $this->input->post('adm_number');
-				$email          = $this->input->post('stud_email');
+				$name           = $this->input->post('name');
+				$staff_number   = $this->input->post('staff_number');
+				$email          = $this->input->post('email');
 				$contact_number = $this->input->post('contact_number');
-				$interest       = $this->input->post('interest');
-				$id             = $_SESSION['user_id'];
 
-				if ($this->studentModel->update_user($id, $name, $adm_number, $email, $contact_number, $interest)) {
+				if ($this->adminModel->update_user($id, $name, $staff_number, $email, $contact_number)) {
 
-					redirect('student/profile');
+					redirect('/admin/dashboard');
 
 				} else {
 
 					$data['error_msg'] = 'Some problems occured, please try again.';
-					$this->load->template('layouts/student/edit', $data);
+					$this->load->template('layouts/admin/admin/edit', $data);
 				}
 	        }
 
 		} else {
 
 			$data['logged_in'] = false;
-			$this->load->template('layouts/student/edit', $data);
+			$this->load->template('layouts/admin/admin/edit', $data);
 		}
+	}
+
+	public function delete($id) {
+		$this->db->where('staff_id', $id);
+        return $this->db->delete('staff');
 	}
 
 	public function logout() {
