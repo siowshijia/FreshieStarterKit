@@ -8,6 +8,8 @@
     <meta name="author" content="">
     <title><?php echo isset($view_name) ? $view_name : 'Page'; ?> | NYPFreshmanStarterKit</title>
     <link href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>" rel="stylesheet">
+    <link href="<?php echo base_url("assets/css/jasny-bootstrap.min.css"); ?>" rel="stylesheet">
+    <link href="<?php echo base_url("assets/css/datatables.min.css"); ?>" rel="stylesheet">
     <link href="<?php echo base_url("assets/css/font-awesome.min.css"); ?>" rel="stylesheet">
     <link href="<?php echo base_url("assets/css/animate.min.css"); ?>" rel="stylesheet">
     <link href="<?php echo base_url("assets/css/lightbox.css"); ?>" rel="stylesheet">
