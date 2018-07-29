@@ -16,6 +16,13 @@
 
 <section class="section-base">
     <div class="container-md">
+        <?php if(validation_errors()) { ?>
+            <div class="alert alert-danger"><?= validation_errors();?></div>
+        <?php } ?>
+        <?php if(isset($msg) && $msg != '') { ?>
+            <div class="alert alert-success"><?php echo $msg; ?></div>
+        <?php } ?>
+
         <?php if (isset($users)) { ?>
             <table class="table table-bordered table-striped data-table">
                 <thead>

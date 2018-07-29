@@ -69,14 +69,15 @@ class Admin extends CI_Controller {
 		$this->load->template('layouts/admin/admin/dashboard', $data);
 	}
 
-	public function register()
+	public function add()
 	{
 		$data = array(
-			'view_name' => 'Student Register',
+			'view_name' => 'Add Staff',
 		);
 
         //set validation rules
         $this->form_validation->set_rules('name', 'Name', 'required');
+        $this->form_validation->set_rules('staff_number', 'Staff Number', 'required');
         $this->form_validation->set_rules(
 			'email', 'Email',
 			'required|valid_email|is_unique[student.student_email]',
@@ -85,30 +86,28 @@ class Admin extends CI_Controller {
 	                'is_unique'     => 'This %s already exists.'
 	        )
 		);
+		$this->form_validation->set_rules('contact_number', 'Contact Number', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
 
         if ($this->form_validation->run() == FALSE) {
 
-            $this->load->template('layouts/student/register', $data);
+            $this->load->template('layouts/admin/admin/add', $data);
 
         } else {
-			$name     = $this->input->post('name');
-			$email    = $this->input->post('email');
-			$password = $this->input->post('password');
+			$name           = $this->input->post('name');
+			$staff_number   = $this->input->post('staff_number');
+			$email          = $this->input->post('email');
+			$contact_number = $this->input->post('contact_number');
+			$password       = $this->input->post('password');
 
-			if ($this->studentModel->create_user($name, $email, $password)) {
+			if ($this->adminModel->add_staff($name, $staff_number, $email, $contact_number, $password)) {
 
-				$success_data = array(
-					'view_name' => 'Register Success',
-					'message'   => 'You have successfully register yourself.'
-				);
-
-				$this->load->template('layouts/student/success', $success_data);
+				redirect('/admin/dashboard');
 
 			} else {
 
-				$data['error_msg'] = 'Some problems occured, please try again.';
-				$this->load->template('layouts/student/register', $data);
+				redirect('/admin/add');
+
 			}
         }
 	}

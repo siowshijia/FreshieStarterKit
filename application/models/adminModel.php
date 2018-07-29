@@ -12,13 +12,13 @@ class adminModel extends CI_Model
         parent::__construct();
     }
 
-    public function create_user($name, $number, $email, $contact_no, $password) {
+    public function add_staff($name, $staff_number, $email, $contact_number, $password) {
 
         $data = array(
             'staff_name'          => $name,
-            'staff_number'        => $number,
+            'staff_number'        => $staff_number,
             'staff_email'         => $email,
-            'staff_contactnumber' => $contact_no,
+            'staff_contact_number' => $contact_number,
             'password'            => $this->hash_password($password),
         );
 
