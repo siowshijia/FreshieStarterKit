@@ -16,7 +16,7 @@
 
 <section class="section-base">
     <div class="container-xs">
-        <?php if (isset($user)) { ?>
+        <?php //if (isset($user)) { ?>
             <div class="table-responsive">
                 <table class="table table-striped table-bordered">
                     <tr>
@@ -45,11 +45,11 @@
             <div class="text-center">
                 <a href="<?php echo base_url('/student/edit'); ?>" class="btn btn-common">Edit Profile</a>
             </div>
-        <?php } else { ?>
+        <?php //} else { ?>
             <div class="text-center">
                 <h4>Please login to view this page.</h4>
                 <a href="<?php echo base_url('/student/login'); ?>" class="btn btn-primary">Login</a>
             </div>
-        <?php } ?>
+        <?php //} ?>
     </div>
 </section>

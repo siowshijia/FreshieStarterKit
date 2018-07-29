@@ -39,11 +39,7 @@ class Admin extends CI_Controller {
 				$_SESSION['email']        = (string)$user->staff_email;
 				$_SESSION['logged_in']    = (bool)true;
 
-				$success_data = array(
-					'view_name' => 'Admin Dashboard',
-				);
-
-				$this->load->template('layouts/admin/admin/dashboard', $success_data);
+				redirect('/admin/dashboard');
 
 			} else {
 

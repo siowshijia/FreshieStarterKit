@@ -15,7 +15,28 @@
 <!--/#page-breadcrumb-->
 
 <section class="section-base">
-    <div class="container-xs">
-        asd
+    <div class="container-sm">
+        <table class="table table-bordered table-striped data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Staff Number</th>
+                    <th>Email</th>
+                    <th>Contact Number</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </section>

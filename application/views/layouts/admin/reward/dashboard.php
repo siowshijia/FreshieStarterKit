@@ -16,35 +16,40 @@
 
 <section class="section-base">
     <div class="container-xs">
-        <?php if (isset($user)) { ?>
-            <form class="form-edit-student" action="" method="post">
-                <div class="form-group">
-                    <label for="stud_name" class="sr-only">Name</label>
-                    <input type="text" name="stud_name" id="stud_name" class="form-control" placeholder="Name" value="<?php echo $user->student_name; ?>">
-                </div>
-                <div class="form-group">
-                    <label for="adm_number" class="sr-only">Admission Number</label>
-                    <input type="text" name="adm_number" id="adm_number" class="form-control" placeholder="Admission Number" value="<?php echo $user->admission_number; ?>">
-                </div>
-                <div class="form-group">
-                    <label for="stud_email" class="sr-only">Email address</label>
-                    <input type="email" name="stud_email" id="stud_email" class="form-control" placeholder="Email address" value="<?php echo $user->student_email; ?>">
-                </div>
-                <div class="form-group">
-                    <label for="contact_number" class="sr-only">Contact Number</label>
-                    <input type="text" name="contact_number" id="contact_number" class="form-control" placeholder="Contact Number" value="<?php echo $user->student_contact_number; ?>">
-                </div>
-                <div class="form-group">
-                    <label for="interest" class="sr-only">Interest</label>
-                    <textarea name="interest" id="interest" class="form-control" rows="8" cols="80" placeholder="Interest"><?php echo $user->interest; ?></textarea>
-                </div>
-                <button class="btn btn-primary btn-block" type="submit">Save</button>
-            </form>
-        <?php } else { ?>
+        <?php //if (isset($user)) { ?>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <tr>
+                        <th>Name</th>
+                        <td><?php echo $user->student_name; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Admission Number</th>
+                        <td><?php echo $user->admission_number; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td><?php echo $user->student_email; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Contact Number</th>
+                        <td><?php echo $user->student_contact_number; ?></td>
+                    </tr>
+                    <tr>
+                        <th>Interest</th>
+                        <td><?php echo $user->interest; ?></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="text-center">
+                <a href="<?php echo base_url('/student/edit'); ?>" class="btn btn-common">Edit Profile</a>
+            </div>
+        <?php //} else { ?>
             <div class="text-center">
                 <h4>Please login to view this page.</h4>
                 <a href="<?php echo base_url('/student/login'); ?>" class="btn btn-primary">Login</a>
             </div>
-        <?php } ?>
+        <?php //} ?>
     </div>
 </section>

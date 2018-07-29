@@ -13,8 +13,8 @@ class Reward extends CI_Controller {
 	public function index()
 	{
 		$data = array(
-			'view_name' => 'Student Register',
+			'view_name' => 'Rewards',
 		);
-		$this->load->template('layouts/admin/reward/add', $data);
+		$this->load->template('layouts/admin/reward/view', $data);
 	}
 }
