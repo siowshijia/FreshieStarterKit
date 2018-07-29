@@ -18,6 +18,13 @@ jQuery(function($) {'use strict';
 	//Initiat WOW JS
 	new WOW().init();
 
+	$('.data-table').DataTable({
+		"columnDefs": [{
+			"orderable": false,
+			"targets": -1,
+		}],
+	});
+
 	// portfolio filter
 	$(window).load(function(){
 
@@ -30,15 +37,15 @@ jQuery(function($) {'use strict';
 		}
 
 		var $portfolio_selectors = $('.portfolio-filter >li>a');
-		
+
 		if($portfolio_selectors.length) {
-			
+
 			var $portfolio = $('.portfolio-items');
 			$portfolio.isotope({
 				itemSelector : '.portfolio-item',
 				layoutMode : 'fitRows'
 			});
-			
+
 			$portfolio_selectors.on('click', function(){
 				$portfolio_selectors.removeClass('active');
 				$(this).addClass('active');
@@ -57,7 +64,7 @@ jQuery(function($) {'use strict';
 		options = $.extend({}, options || {}, $this.data('countToOptions') || {});
 		$this.countTo(options);
 	}
-		
+
 	// Search
 	$('.fa-search').on('click', function() {
 		$('.field-toggle').fadeToggle(200);
@@ -109,5 +116,4 @@ jQuery(function($) {'use strict';
 			backgroundColor: '#3e8bff',
 		});
 	}
-
 });

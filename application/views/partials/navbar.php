@@ -29,7 +29,7 @@
                     <li class="<?php echo activate_menu('event'); ?>"><a href="<?php echo base_url('/event'); ?>">Event</a></li>
                     <li class="<?php echo activate_menu('reward'); ?>"><a href="<?php echo base_url('/reward'); ?>">Reward</a></li>
                     <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) { ?>
-                        <li><a href="<?php echo base_url('/student/logout'); ?>">Log Out</a></li>
+                        <li><a href="<?php echo base_url('/logout'); ?>">Log Out</a></li>
                     <?php } ?>
                 </ul>
             </div>

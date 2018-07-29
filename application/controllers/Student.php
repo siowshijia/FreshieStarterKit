@@ -175,11 +175,7 @@ class Student extends CI_Controller {
 				unset($_SESSION[$key]);
 			}
 
-			$data = array(
-				'view_name' => 'Student Login',
-
-			);
-			$this->load->template('layouts/student/login', $data);
+			redirect('/');
 
 		} else {
 
