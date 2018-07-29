@@ -59,7 +59,7 @@ class Admin extends CI_Controller {
 		if (isset($_SESSION['user_id'])) {
 
 			$data['logged_in'] = true;
-			$data['users'] = $this->adminModel->get_user();
+			$data['users'] = $this->adminModel->get_all_staff();
 
 		} else {
 
