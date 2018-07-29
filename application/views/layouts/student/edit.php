@@ -20,23 +20,28 @@
             <form class="form-edit-student" action="" method="post">
                 <div class="form-group">
                     <label for="stud_name" class="sr-only">Name</label>
-                    <input type="text" name="stud_name" id="stud_name" class="form-control" placeholder="Name" value="<?php echo $user->student_name; ?>">
+                    <input type="text" name="stud_name" id="stud_name" class="form-control" placeholder="Name" value="<?php echo $user->student_name; ?>" readonly>
+                    <span class="text-danger"><?php echo form_error('stud_name'); ?></span>
                 </div>
                 <div class="form-group">
                     <label for="adm_number" class="sr-only">Admission Number</label>
                     <input type="text" name="adm_number" id="adm_number" class="form-control" placeholder="Admission Number" value="<?php echo $user->admission_number; ?>">
+                    <span class="text-danger"><?php echo form_error('adm_number'); ?></span>
                 </div>
                 <div class="form-group">
                     <label for="stud_email" class="sr-only">Email address</label>
-                    <input type="email" name="stud_email" id="stud_email" class="form-control" placeholder="Email address" value="<?php echo $user->student_email; ?>">
+                    <input type="email" name="stud_email" id="stud_email" class="form-control" placeholder="Email address" value="<?php echo $user->student_email; ?>" readonly>
+                    <span class="text-danger"><?php echo form_error('stud_email'); ?></span>
                 </div>
                 <div class="form-group">
                     <label for="contact_number" class="sr-only">Contact Number</label>
                     <input type="text" name="contact_number" id="contact_number" class="form-control" placeholder="Contact Number" value="<?php echo $user->student_contact_number; ?>">
+                    <span class="text-danger"><?php echo form_error('contact_number'); ?></span>
                 </div>
                 <div class="form-group">
                     <label for="interest" class="sr-only">Interest</label>
                     <textarea name="interest" id="interest" class="form-control" rows="8" cols="80" placeholder="Interest"><?php echo $user->interest; ?></textarea>
+                    <span class="text-danger"><?php echo form_error('interest'); ?></span>
                 </div>
                 <button class="btn btn-primary btn-block" type="submit">Save</button>
             </form>
