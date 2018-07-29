@@ -138,7 +138,7 @@ class Admin extends CI_Controller {
 				$email          = $this->input->post('email');
 				$contact_number = $this->input->post('contact_number');
 
-				if ($this->adminModel->update_user($id, $name, $staff_number, $email, $contact_number)) {
+				if ($this->adminModel->update_staff($id, $name, $staff_number, $email, $contact_number)) {
 
 					redirect('/admin/dashboard');
 
@@ -157,8 +157,10 @@ class Admin extends CI_Controller {
 	}
 
 	public function delete($id) {
-		$this->db->where('staff_id', $id);
-        return $this->db->delete('staff');
+
+		$this->adminModel->delete_staff($id);
+		redirect('/admin/dashboard');
+
 	}
 
 	public function logout() {

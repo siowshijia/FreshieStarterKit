@@ -61,7 +61,7 @@ class adminModel extends CI_Model
 
     }
 
-    public function update_user($id, $name, $staff_number, $email, $contact_number) {
+    public function update_staff($id, $name, $staff_number, $email, $contact_number) {
 
         $data = array(
             'staff_name'           => $name,
@@ -73,6 +73,13 @@ class adminModel extends CI_Model
         $this->db->where('staff_id', $id);
 
         return $this->db->update('staff', $data);
+
+    }
+
+    public function delete_staff($id) {
+
+        $this->db->where('staff_id', $id);
+        return $this->db->delete('staff');
 
     }
 

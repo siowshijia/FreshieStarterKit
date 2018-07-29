@@ -45,7 +45,7 @@
                             <td><?php echo $user->staff_contact_number; ?></td>
                             <td>
                                 <a href="<?php echo base_url('/admin/edit') . '/' . $user->staff_id; ?>" class="btn btn-primary">Edit</a>
-                                <a href="" class="btn btn-primary">Delete</a>
+                                <a href="<?php echo base_url('/admin/delete') . '/' . $user->staff_id; ?>" class="btn btn-primary">Delete</a>
                             </td>
                         </tr>
                     <?php } ?>
