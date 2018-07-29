@@ -18,7 +18,6 @@
 <section class="section-base">
     <div class="container-xs">
         <h3 class="ds-blue-title">ATTENDANCE POLICY</h3></hr>
-
         <ol>
             <li><p>
                 The following NYP Assessment Regulation shall be applied to all modules, unless otherwise stated, that are given a letter-grade
