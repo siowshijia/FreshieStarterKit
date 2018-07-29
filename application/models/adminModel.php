@@ -45,11 +45,11 @@ class adminModel extends CI_Model
 
 	}
 
-    public function get_user($user_id) {
+    public function get_user() {
 
+		$this->db->select('*');
 		$this->db->from('staff');
-		$this->db->where('staff_id', $user_id);
-		return $this->db->get()->row();
+		return $this->db->get()->result();
 
 	}
 

@@ -18,8 +18,12 @@ jQuery(function($) {'use strict';
 	//Initiat WOW JS
 	new WOW().init();
 
-	$('.data-table').DataTable();
-	console.log('asd');
+	$('.data-table').DataTable({
+		"columnDefs": [{
+			"orderable": false,
+			"targets": -1,
+		}],
+	});
 
 	// portfolio filter
 	$(window).load(function(){

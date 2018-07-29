@@ -55,6 +55,17 @@ class Admin extends CI_Controller {
 		$data = array(
 			'view_name' => 'Admin Dashboard',
 		);
+
+		if (isset($_SESSION['user_id'])) {
+
+			$data['logged_in'] = true;
+			$data['users'] = $this->adminModel->get_user();
+
+		} else {
+
+			$data['logged_in'] = false;
+		}
+
 		$this->load->template('layouts/admin/admin/dashboard', $data);
 	}
 
@@ -100,25 +111,6 @@ class Admin extends CI_Controller {
 				$this->load->template('layouts/student/register', $data);
 			}
         }
-	}
-
-	public function profile()
-	{
-		$data = array(
-			'view_name' => 'Student Profile',
-		);
-
-		if (isset($_SESSION['user_id'])) {
-
-			$data['logged_in'] = true;
-			$data['user'] = $this->studentModel->get_user($_SESSION['user_id']);
-
-		} else {
-
-			$data['logged_in'] = false;
-		}
-
-        $this->load->template('layouts/student/profile', $data);
 	}
 
 	public function edit() {
