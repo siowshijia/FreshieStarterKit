@@ -45,19 +45,11 @@
 
     <script type="text/javascript" src="<?php echo base_url("assets/js/jquery.js"); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("assets/js/jasny-bootstrap.min.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("assets/js/datatables.min.js"); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("assets/js/responsive.bootstrap.min.js"); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url("assets/js/lightbox.min.js"); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url("assets/js/wow.min.js"); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url("assets/js/main.js"); ?>"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script type="text/javascript">
-    //load datepicker control onfocus
-    $(function() {
-    $("#eventDate").datepicker();
-    });
-    </script>
 </body>
 </html>

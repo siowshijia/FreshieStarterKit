@@ -22,7 +22,7 @@ class Event extends CI_Controller {
 		);
 
 		$this->load->model("eventModel");
-		$events = $this->eventModel->get_events_list();
+		$events = $this->eventModel->get_event_list();
 		$data["events"] = $events;
 		$this->load->template('layouts/event/view', $data);
 	}
@@ -61,7 +61,7 @@ class Event extends CI_Controller {
 			'description' => $this->input->post('eventDescription'),
 			'event_status' => 'Pending',
 			'event_approval' => 'Not Approved',
-			//'event_owner' => $_SESSION['user_id']
+			'event_owner' => $_SESSION['user_id']
 		   );
 		   //insert the form data into database
 		   $this->db->insert('event', $data);

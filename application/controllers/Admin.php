@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Admin extends CI_Controller {
 
 	public function __construct()
     {
@@ -11,8 +11,9 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		$data = array(
-			'view_name' => 'Home',
+			'view_name' => 'Admin Dashboard',
 		);
-		$this->load->template('layouts/home', $data);
+		$this->load->template('layouts/admin/admin/dashboard', $data);
+
 	}
 }

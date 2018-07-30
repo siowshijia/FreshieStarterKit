@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 14, 2018 at 04:10 PM
+-- Generation Time: Jul 17, 2018 at 09:49 AM
 -- Server version: 5.6.35
 -- PHP Version: 7.1.1
 
@@ -19,6 +19,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `fsk`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ci_sessions`
+--
+
+CREATE TABLE `ci_sessions` (
+  `id` varchar(40) NOT NULL,
+  `ip_address` varchar(45) NOT NULL,
+  `timestamp` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `data` blob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ci_sessions`
+--
+
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
+('105a2bf231d84a632406bc42dfd4697254513112', '::1', 1531665654, 0x5f5f63695f6c6173745f726567656e65726174657c693a313533313636353635343b),
+('1461c8a932d620580493dba7c7f8e3d178cc70c8', '::1', 1531664527, 0x5f5f63695f6c6173745f726567656e65726174657c693a313533313636343532373b),
+('54ed6bf7484259d32421042c75bd89bd9f099116', '::1', 1531753107, 0x5f5f63695f6c6173745f726567656e65726174657c693a313533313735333130373b),
+('c17ce58e99183cc0926677dc4cfbd1c286039261', '::1', 1531755924, 0x5f5f63695f6c6173745f726567656e65726174657c693a313533313735353931363b),
+('c3f88e5f0450335b72f5ed559b78c1b256dbcc44', '::1', 1531755916, 0x5f5f63695f6c6173745f726567656e65726174657c693a313533313735353931363b),
+('c623894b26fbbf150eecc09430e50210fe8b448c', '::1', 1531665708, 0x5f5f63695f6c6173745f726567656e65726174657c693a313533313636353635343b);
 
 -- --------------------------------------------------------
 
@@ -153,8 +178,22 @@ CREATE TABLE `student` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`student_id`, `student_name`, `admission_number`, `student_email`, `student_contact_number`, `interest`, `points`, `password`) VALUES
+(1, 'shijia', '123456A', 'siowshijia@gmail.com', '61234567', NULL, 10, '12341234');
+
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `ci_sessions`
+--
+ALTER TABLE `ci_sessions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ci_sessions_timestamp` (`timestamp`);
 
 --
 -- Indexes for table `event`
@@ -253,7 +292,7 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
@@ -288,3 +327,17 @@ ALTER TABLE `reward_transaction`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+--
+-- Table structure for table `ci_session`
+--
+
+CREATE TABLE IF NOT EXISTS `ci_sessions` (
+  `id` varchar(40) NOT NULL,
+  `ip_address` varchar(45) NOT NULL,
+  `timestamp` int(10) unsigned DEFAULT 0 NOT NULL,
+  `data` blob NOT NULL,
+  PRIMARY KEY (id),
+  KEY `ci_sessions_timestamp` (`timestamp`)
+  );
+-- --------------------------------------------------------
