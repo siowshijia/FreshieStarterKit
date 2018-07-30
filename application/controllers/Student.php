@@ -133,7 +133,7 @@ class Student extends CI_Controller {
 
 	}
 
-	public function viewpointsstatement()
+	public function points()
 	{
 		$data = array(
 			'view_name' => 'Student Points Statement',
@@ -150,7 +150,7 @@ class Student extends CI_Controller {
 
 		}
 
-        $this->load->template('layouts/student/viewpointsstatement', $data);
+        $this->load->template('layouts/student/points', $data);
 
 	}
 
@@ -256,47 +256,47 @@ class Student extends CI_Controller {
 
 	}
 
-public function alpha_only_space($str)
-{
- if (!preg_match("/^([-a-z ])+$/i", $str))
- {
-$this->form_validation->set_message('alpha_only_space', 'The %s field must
-contain only alphabets or spaces');
-return FALSE;
- }
- else
- {
-return TRUE;
- }
-}
+	public function alpha_only_space($str)
+	{
+		if (!preg_match("/^([-a-z ])+$/i", $str))
+		{
+			$this->form_validation->set_message('alpha_only_space', 'The %s field must
+			contain only alphabets or spaces');
+			return FALSE;
+		}
+		else
+		{
+			return TRUE;
+		}
+	}
 
-public function valid_admin_no($str)
-{
- if (!preg_match("/^([1]\d{5}[A-Z])+$/i", $str))
- {
-$this->form_validation->set_message('valid_admin_no', 'The %s field must
-be in this format: 123456A');
-return FALSE;
- }
- else
- {
-return TRUE;
- }
-}
+	public function valid_admin_no($str)
+	{
+		if (!preg_match("/^([1]\d{5}[A-Z])+$/i", $str))
+		{
+			$this->form_validation->set_message('valid_admin_no', 'The %s field must
+			be in this format: 123456A');
+			return FALSE;
+		}
+		else
+		{
+			return TRUE;
+		}
+	}
 
-public function valid_contact_no($str)
-{
- if (!preg_match("/^([6|8|9]\d{7})+$/i", $str))
- {
-$this->form_validation->set_message('valid_contact_no', 'Please enter a valid contact 
-no. in the %s field.');
-return FALSE;
- }
- else
- {
-return TRUE;
- }
-}
+	public function valid_contact_no($str)
+	{
+		if (!preg_match("/^([6|8|9]\d{7})+$/i", $str))
+		{
+			$this->form_validation->set_message('valid_contact_no', 'Please enter a valid contact
+			no. in the %s field.');
+			return FALSE;
+		}
+		else
+		{
+			return TRUE;
+		}
+	}
 
 	public function logout() {
 
@@ -308,7 +308,7 @@ return TRUE;
 				unset($_SESSION[$key]);
 
 			}
-      
+
 			redirect('/');
 
 		} else {

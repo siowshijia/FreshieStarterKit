@@ -15,46 +15,22 @@
 <!--/#page-breadcrumb-->
 
 <section class="section-base">
-    <div class="container-md">
-        <?php if(validation_errors()) { ?>
-            <div class="alert alert-danger"><?= validation_errors();?></div>
-        <?php } ?>
-        <?php if(isset($msg) && $msg != '') { ?>
-            <div class="alert alert-success"><?php echo $msg; ?></div>
-        <?php } ?>
+    <div class="container-xs">
 
-        <?php if (isset($users)) { ?>
-            <table class="table table-bordered table-striped data-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Staff Number</th>
-                        <th>Email</th>
-                        <th>Contact Number</th>
-                        <th>&nbsp;</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($users as $user) { ?>
-                        <tr>
-                            <td><?php echo $user->staff_id; ?></td>
-                            <td><?php echo $user->staff_name; ?></td>
-                            <td><?php echo $user->staff_number; ?></td>
-                            <td><?php echo $user->staff_email; ?></td>
-                            <td><?php echo $user->staff_contact_number; ?></td>
-                            <td>
-                                <a href="<?php echo base_url('/admin/edit') . '/' . $user->staff_id; ?>" class="btn btn-primary">Edit</a>
-                                <a href="<?php echo base_url('/admin/delete') . '/' . $user->staff_id; ?>" class="btn btn-primary">Delete</a>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
+        <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) { ?>
+            <div class="categories">
+                <h3>Admin Site Map</h3>
+                <ul class="nav navbar-stacked">
+                    <li><a href="<?php echo base_url('/staff/dashboard'); ?>">Staff</a></li>
+                    <li><a href="<?php echo base_url('/quiz'); ?>">Quizzes</a></li>
+                    <li><a href="<?php echo base_url('/event'); ?>">Events</a></li>
+                    <li><a href="<?php echo base_url('/admin/reward'); ?>">Reward</a></li>
+                </ul>
+            </div>
         <?php } else { ?>
             <div class="text-center">
                 <h4>Please login to view this page.</h4>
-                <a href="<?php echo base_url('/admin'); ?>" class="btn btn-primary">Login</a>
+                <a href="<?php echo base_url('/staff/login'); ?>" class="btn btn-primary">Login</a>
             </div>
         <?php } ?>
     </div>
