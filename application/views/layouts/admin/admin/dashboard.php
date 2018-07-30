@@ -23,6 +23,10 @@
             <div class="alert alert-success"><?php echo $msg; ?></div>
         <?php } ?>
 
+        <div class="m-b-md">
+            <a href="<?php echo base_url('/admin/add'); ?>" class="btn btn-primary">Add Staff</a>
+        </div>
+
         <?php if (isset($users)) { ?>
             <table class="table table-bordered table-striped data-table">
                 <thead>
