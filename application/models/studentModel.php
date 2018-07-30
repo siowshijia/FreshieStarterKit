@@ -70,7 +70,7 @@ class studentModel extends CI_Model
     public function update_userpass($id, $password) {
 
         $data = array(
-            'password'               => $this->hash_password($password),
+            'password' => $this->hash_password($password),
         );
 
         $this->db->where('student_id', $id);
