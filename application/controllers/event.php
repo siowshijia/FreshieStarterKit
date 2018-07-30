@@ -71,13 +71,13 @@ class Event extends CI_Controller {
 				'event_status' => 'Pending',
 				'event_approval' => 'Not Approved',
 				'event_owner' => $_SESSION['user_id']
-			);
+				);
 			//insert the form data into database
 			$this->db->insert('event', $data);
 			//display success message
 			$this->session->set_flashdata('msg', '<div class="alert alert-success textcenter">Event
 			sent to Admin for approval</div>');
-			redirect('event/view');
+			redirect('event');
 			}
 		
 		}else {
@@ -254,7 +254,7 @@ class Event extends CI_Controller {
 	public function details($id)
 	{	
 		$data = array(
-			'view_name' => 'Events',
+			'view_name' => 'Events Details',
 		);
 
 		if (isset($_SESSION['user_id'])) {
@@ -263,15 +263,51 @@ class Event extends CI_Controller {
 			$events = $this->eventModel->get_event_details($id);
 			$data["events"] = $events;
 
+		
+
 		} else {
 
 			$data['logged_in'] = false;
 
 		}
 
-        $this->load->template('layouts/event/view', $data);
+        $this->load->template('layouts/event/details', $data);
 
 	}
 
+	function register_attendance()
+	{
+	$data1 = array(
+		'event_id' => $this->input->post('eventid'),
+		'student_id' => $_SESSION['user_id'],
+		'datetime' => date('m/d/Y h:i:s a', time()),
+		);
+		
+		$this->db->replace('event_attendance', $data1);
+		redirect('event/Attendance');
+	}	
+
+
+	public function attendance()
+	{	
+		$data = array(
+			'view_name' => 'Registered Events',
+		);
+
+		if (isset($_SESSION['user_id'])) {
+
+			$data['logged_in'] = true;
+			$events = $this->eventModel->get_event_attendance($_SESSION['user_id']);
+			$data["events"] = $events;
+
+		} else {
+
+			$data['logged_in'] = false;
+
+		}
+
+        $this->load->template('layouts/event/eventAttendance', $data);
+
+	}
 
 }

@@ -31,7 +31,7 @@
                             <div class="panel panel-primary">
                             <div class="panel-heading"><?php echo $event->eventname; ?>@<?php echo $event->eventvenue; ?></div>
                             <div class="panel-body">
-                            <?php echo $event->eventCategory; ?> <a class='pull-right' href="<?php echo base_url('/event/details') . '/' . $event->eventId; ?>" class="btn btn-primary">Register</a>
+                            <?php echo $event->eventCategory; ?> <a class='pull-right' href="<?php echo base_url('/event/details') . '/' . $event->eventId; ?>" class="btn btn-primary">View Details</a>
                             </div>
 </div>
                            

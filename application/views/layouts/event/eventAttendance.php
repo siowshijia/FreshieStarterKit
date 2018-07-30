@@ -23,21 +23,19 @@
         <?php if(isset($msg) && $msg != '') { ?>
             <div class="alert alert-success"><?php echo $msg; ?></div>
         <?php } ?>
-        <form name ="attendance" action="<?php echo site_url('event/register_attendance'); ?>"" method="post">
-         <div class="panel panel-primary">
-            <div class="panel-heading"><?php echo $events[0]->eventname; ?>@<?php echo $events[0]->eventvenue; ?><p class='pull-right'/><?php echo $events[0]->eventCategory; ?></p></div>
-                <div class="panel-body">
-                    <div class="form-group" method="post">
-                        <label for="eventid" class="sr-only">Event Venue</label>
-                        <input type="text" name="eventid" id="eventid" class="form-control" value="<?php echo $events[0]->eventId; ?>">
-                    </div>
-                    <?php echo $events[0]->description; ?><button class="btn btn-primary btn-block" type="submit">Register</button>
-                            
-                </div>
-            </div>
+
+
+         
+                    <?php foreach ($events as $event) { ?>
+                        
+                            <div class="panel panel-primary">
+                            <div class="panel-heading"><?php echo $event->eventname; ?>@<?php echo $event->eventvenue; ?></div>
+                            <div class="panel-body">
+                            </div>
+</div>
                            
-                    
-            </form>     
+                    <?php } ?>
+              
         <?php } else { ?>
             <div class="text-center">
                 <h4>Please login to view this page.</h4>
