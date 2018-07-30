@@ -41,7 +41,7 @@ class studentModel extends CI_Model
 		$this->db->select('student_id');
 		$this->db->from('student');
         $this->db->where('student_email', $email);
-        
+
 		return $this->db->get()->row('student_id');
 
 	}
@@ -52,20 +52,20 @@ class studentModel extends CI_Model
 
 		$this->db->from('student');
         $this->db->where('student_id', $user_id);
-        
+
 		return $this->db->get()->row();
 
     }
-    
+
     public function get_student_points_statement($user_id)
- {
- $this->db->from('reward_transaction');
- $this->db->where('student_id', $user_id);
- $this->db->join('student', 'reward_transaction.student_id = student.student_id', 'inner');
- $this->db->join('rewards', 'reward_transaction.reward_id = student.reward_id', 'inner');
- $query = $this->db->get();
- return $query->result();
- }
+    {
+        $this->db->from('reward_transaction');
+        $this->db->where('student_id', $user_id);
+        $this->db->join('student', 'reward_transaction.student_id = student.student_id', 'inner');
+        $this->db->join('rewards', 'reward_transaction.reward_id = student.reward_id', 'inner');
+        $query = $this->db->get();
+        return $query->result();
+    }
 
     public function update_userpass($id, $password) {
 

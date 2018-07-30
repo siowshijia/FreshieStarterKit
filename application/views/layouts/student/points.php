@@ -17,26 +17,24 @@
 <section class="section-base">
     <div class="container-xs">
         <?php if (isset($user)) { ?>
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered">
-                    <tr>
-                        <th>Transaction ID</th>
-                        <th>Reward ID</th>
-                        <th>Student ID</th>
-                        <th>Transaction Type</th>
-                        <th>Amount</th>
-                        <th>Data</th>
-                    </tr>
-                    <tr>
-                        <td><?php echo $user->transaction_id; ?></td>
-                        <td><?php echo $user->reward_id; ?></td>
-                        <td><?php echo $user->student_id; ?></td>
-                        <td><?php echo $user->transaction_type; ?></td>
-                        <td><?php echo $user->amount; ?></td>
-                        <td><?php echo $user->data; ?></td>
-                    </tr>
-                </table>
-            </div>
+            <table class="table table-striped table-bordered data-table">
+                <tr>
+                    <th>Transaction ID</th>
+                    <th>Reward ID</th>
+                    <th>Student ID</th>
+                    <th>Transaction Type</th>
+                    <th>Amount</th>
+                    <th>Data</th>
+                </tr>
+                <tr>
+                    <td><?php echo $user->transaction_id; ?></td>
+                    <td><?php echo $user->reward_id; ?></td>
+                    <td><?php echo $user->student_id; ?></td>
+                    <td><?php echo $user->transaction_type; ?></td>
+                    <td><?php echo $user->amount; ?></td>
+                    <td><?php echo $user->data; ?></td>
+                </tr>
+            </table>
 
             <div class="text-center">
                 <a href="<?php echo base_url('/student/profile'); ?>" class="btn btn-common">Back to Profile</a>
