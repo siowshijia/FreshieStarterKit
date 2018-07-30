@@ -37,7 +37,16 @@
                     <label for="contact_number" class="sr-only">Contact Number</label>
                     <input type="text" name="contact_number" id="contact_number" class="form-control" placeholder="Contact Number"  value="<?php echo $user->staff_contact_number; ?>">
                 </div>
+                <div class="form-group">
+                    <label for="user_role" class="sr-only">User Role</label>
+                    <select class="form-control" name="user_role">
+                        <option disabled>Select Role</option>
+                        <option value="Admin" <?php echo ($user->user_role === 'Admin') ? 'selected' : '' ; ?>>Admin</option>
+                        <option value="Event Manager" <?php echo ($user->user_role === 'Event Manager') ? 'selected' : '' ; ?>>Event Manager</option>
+                    </select>
+                </div>
                 <button class="btn btn-primary btn-block" type="submit">Save</button>
+                <a href="<?php echo base_url('/staff/dashboard'); ?>" class="btn btn-primary btn-block m-t-sm">Back</a>
             </form>
         <?php } else { ?>
             <div class="text-center">

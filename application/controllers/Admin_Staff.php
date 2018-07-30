@@ -37,6 +37,7 @@ class Admin_Staff extends CI_Controller {
 				// set session user datas
 				$_SESSION['user_id']      = (int)$user->staff_id;
 				$_SESSION['email']        = (string)$user->staff_email;
+				$_SESSION['user_role']    = (string)$user->user_role;
 				$_SESSION['logged_in']    = (bool)true;
 
 				redirect('/staff/dashboard');
@@ -87,6 +88,7 @@ class Admin_Staff extends CI_Controller {
 	        )
 		);
 		$this->form_validation->set_rules('contact_number', 'Contact Number', 'required');
+		$this->form_validation->set_rules('user_role', 'User role', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
 
         if ($this->form_validation->run() == FALSE) {
@@ -98,9 +100,10 @@ class Admin_Staff extends CI_Controller {
 			$staff_number   = $this->input->post('staff_number');
 			$email          = $this->input->post('email');
 			$contact_number = $this->input->post('contact_number');
+			$user_role      = $this->input->post('user_role');
 			$password       = $this->input->post('password');
 
-			if ($this->adminStaffModel->add_staff($name, $staff_number, $email, $contact_number, $password)) {
+			if ($this->adminStaffModel->add_staff($name, $staff_number, $email, $contact_number, $user_role, $password)) {
 
 				redirect('/staff/dashboard');
 
@@ -127,6 +130,7 @@ class Admin_Staff extends CI_Controller {
 	        $this->form_validation->set_rules('staff_number', 'Admission Number', 'required');
 	        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
 			$this->form_validation->set_rules('contact_number', 'Contact Number', 'required');
+			$this->form_validation->set_rules('user_role', 'User Role', 'required');
 
 	        if ($this->form_validation->run() == FALSE) {
 
@@ -137,8 +141,9 @@ class Admin_Staff extends CI_Controller {
 				$staff_number   = $this->input->post('staff_number');
 				$email          = $this->input->post('email');
 				$contact_number = $this->input->post('contact_number');
+				$user_role      = $this->input->post('user_role');
 
-				if ($this->adminStaffModel->update_staff($id, $name, $staff_number, $email, $contact_number)) {
+				if ($this->adminStaffModel->update_staff($id, $name, $staff_number, $email, $contact_number, $user_role)) {
 
 					redirect('/staff/dashboard');
 

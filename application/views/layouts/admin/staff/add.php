@@ -38,10 +38,19 @@
                     <input type="text" name="contact_number" id="contact_number" class="form-control" placeholder="Contact Number">
                 </div>
                 <div class="form-group">
+                    <label for="user_role" class="sr-only">User Role</label>
+                    <select class="form-control" name="user_role">
+                        <option selected disabled>Select Role</option>
+                        <option value="admin">Admin</option>
+                        <option value="event_manage">Event Manager</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="password" class="sr-only">Password</label>
                     <input type="password" name="password" id="password" class="form-control" placeholder="Password">
                 </div>
                 <button class="btn btn-primary btn-block" type="submit">Add</button>
+                <a href="<?php echo base_url('/staff/dashboard'); ?>" class="btn btn-primary btn-block m-t-sm">Back</a>
             </form>
         <?php } else { ?>
             <div class="text-center">
