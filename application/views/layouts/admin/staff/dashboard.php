@@ -25,9 +25,9 @@
 
         <?php if (isset($users)) { ?>
             <div class="m-b-md">
-                <a href="<?php echo base_url('/admin/add'); ?>" class="btn btn-primary">Add Staff</a>
+                <a href="<?php echo base_url('/staff/add'); ?>" class="btn btn-primary">Add Staff</a>
             </div>
-            
+
             <table class="table table-bordered table-striped data-table">
                 <thead>
                     <tr>
@@ -48,8 +48,8 @@
                             <td><?php echo $user->staff_email; ?></td>
                             <td><?php echo $user->staff_contact_number; ?></td>
                             <td>
-                                <a href="<?php echo base_url('/admin/edit') . '/' . $user->staff_id; ?>" class="btn btn-primary">Edit</a>
-                                <a href="<?php echo base_url('/admin/delete') . '/' . $user->staff_id; ?>" class="btn btn-primary">Delete</a>
+                                <a href="<?php echo base_url('/staff/edit') . '/' . $user->staff_id; ?>" class="btn btn-primary">Edit</a>
+                                <a href="<?php echo base_url('/staff/delete') . '/' . $user->staff_id; ?>" class="btn btn-primary">Delete</a>
                             </td>
                         </tr>
                     <?php } ?>
