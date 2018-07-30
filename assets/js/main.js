@@ -23,6 +23,7 @@ jQuery(function($) {'use strict';
 			"orderable": false,
 			"targets": -1,
 		}],
+		responsive: true,
 	});
 
 	// portfolio filter
