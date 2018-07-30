@@ -17,7 +17,7 @@
                         <h3><?php echo $event->eventId; ?></h3>
                         <h3><?php echo $event->eventname; ?></h3>
                         By <strong><?php echo $event->eventvenue  ; ?></strong>
-                        <a href="<?php echo base_url().'event/adminUpdate/'.$id = $event->eventId;?>" rel="stylesheet">Update</a>
+                        <a href="<?php echo base_url().'admin_event/adminUpdate/'.$id = $event->eventId;?>" rel="stylesheet">Update</a>
                         <?php
                         }
                         ?>

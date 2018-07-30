@@ -14,6 +14,7 @@ class eventModel extends CI_Model{
         $this->db->select('event_datetime');
         $this->db->select('event_category');
         $this->db->select('student_name');
+        $this->db->select('description');
         $this->db->join('student', 'event.event_owner = student.student_id');
         $this->db->select('event_id');
         $this->db->from('event');
@@ -28,6 +29,7 @@ class eventModel extends CI_Model{
         $list[$i]->eventDatetime = $result[$i]->event_datetime;
         $list[$i]->eventCategory = $result[$i]->event_category;
         $list[$i]->studentName = $result[$i]->student_name;
+        $list[$i]->description = $result[$i]->description;
         $list[$i]->eventId = $result[$i]->event_id;
         }
         return $list;
