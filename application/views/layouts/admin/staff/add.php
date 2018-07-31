@@ -41,8 +41,8 @@
                     <label for="user_role" class="sr-only">User Role</label>
                     <select class="form-control" name="user_role">
                         <option selected disabled>Select Role</option>
-                        <option value="admin">Admin</option>
-                        <option value="event_manage">Event Manager</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Event Manager">Event Manager</option>
                     </select>
                 </div>
                 <div class="form-group">
