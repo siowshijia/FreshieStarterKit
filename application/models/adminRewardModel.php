@@ -12,56 +12,58 @@ class adminRewardModel extends CI_Model
         parent::__construct();
     }
 
-    public function create_user($name, $email, $password) {
+    public function add_reward($name, $points, $qty, $image, $description, $expired_date) {
 
         $data = array(
-            'student_name'  => $name,
-            'student_email' => $email,
-            'password'      => $this->hash_password($password),
+            'reward_name'      => $name,
+            'cost_points'      => $points,
+            'quantity'         => $qty,
+            'image'            => $image,
+            'description'      => $description,
+            'expired_date'     => $expired_date,
         );
 
-        return $this->db->insert('student', $data);
+        return $this->db->insert('rewards', $data);
 
     }
 
-    public function resolve_user_login($email, $password) {
+    public function get_reward($id) {
 
-		$this->db->select('password');
-		$this->db->from('student');
-		$this->db->where('student_email', $email);
-		$hash = $this->db->get()->row('password');
-
-		return $this->verify_password_hash($password, $hash);
-	}
-
-    public function get_user_id_from_username($email) {
-
-		$this->db->select('student_id');
-		$this->db->from('student');
-		$this->db->where('student_email', $email);
-		return $this->db->get()->row('student_id');
-
-	}
-
-    public function get_user($user_id) {
-
-		$this->db->from('student');
-		$this->db->where('student_id', $user_id);
+		$this->db->from('rewards');
+		$this->db->where('reward_id', $id);
 		return $this->db->get()->row();
 
 	}
 
-    public function update_user($name, $adm_number, $email, $contact_number, $interest) {
+    public function get_all_rewards() {
+
+        $this->db->select('*');
+        $this->db->from('rewards');
+        return $this->db->get()->result();
+
+    }
+
+    public function update_reward($id, $name, $points, $qty, $image, $description, $expired_date) {
 
         $data = array(
-            'student_name'           => $name,
-            'admission_number'       => $adm_number,
-            'student_email'          => $email,
-            'student_contact_number' => $contact_number,
-            'interest'                => $interest,
+            'reward_name'      => $name,
+            'cost_points'      => $points,
+            'quantity'         => $qty,
+            'image'            => $image,
+            'description'      => $description,
+            'expired_date'     => $expired_date,
         );
 
-        return $this->db->update('student', $data);
+        $this->db->where('reward_id', $id);
+
+        return $this->db->update('rewards', $data);
+
+    }
+
+    public function delete_reward($id) {
+
+        $this->db->where('reward_id', $id);
+        return $this->db->delete('rewards');
 
     }
 

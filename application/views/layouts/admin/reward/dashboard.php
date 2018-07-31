@@ -15,41 +15,46 @@
 <!--/#page-breadcrumb-->
 
 <section class="section-base">
-    <div class="container-xs">
-        <?php //if (isset($user)) { ?>
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered">
-                    <tr>
-                        <th>Name</th>
-                        <td><?php echo $user->student_name; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Admission Number</th>
-                        <td><?php echo $user->admission_number; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Email</th>
-                        <td><?php echo $user->student_email; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Contact Number</th>
-                        <td><?php echo $user->student_contact_number; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Interest</th>
-                        <td><?php echo $user->interest; ?></td>
-                    </tr>
-                </table>
+    <div class="container-md">
+        <?php if (isset($rewards)) { ?>
+            <div class="m-b-md">
+                <a href="<?php echo base_url('/reward/add'); ?>" class="btn btn-primary">Add Reward</a>
             </div>
 
-            <div class="text-center">
-                <a href="<?php echo base_url('/student/edit'); ?>" class="btn btn-common">Edit Profile</a>
-            </div>
-        <?php //} else { ?>
+            <table class="table table-bordered table-striped data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Cost Points</th>
+                        <th>Quantity</th>
+                        <th>Description</th>
+                        <th>Expired Date</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($rewards as $reward) { ?>
+                        <tr>
+                            <td><?php echo $reward->reward_id; ?></td>
+                            <td><?php echo $reward->reward_name; ?></td>
+                            <td><?php echo $reward->cost_points; ?></td>
+                            <td><?php echo $reward->quantity; ?></td>
+                            <td><?php echo $reward->description; ?></td>
+                            <td><?php echo $reward->expired_date; ?></td>
+                            <td>
+                                <a href="<?php echo base_url('/reward/edit') . '/' . $reward->reward_id; ?>" class="btn btn-primary">Edit</a>
+                                <a href="<?php echo base_url('/reward/delete') . '/' . $reward->reward_id; ?>" class="btn btn-primary">Delete</a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        <?php } else { ?>
             <div class="text-center">
                 <h4>Please login to view this page.</h4>
-                <a href="<?php echo base_url('/student/login'); ?>" class="btn btn-primary">Login</a>
+                <a href="<?php echo base_url('/staff/login'); ?>" class="btn btn-primary">Login</a>
             </div>
-        <?php //} ?>
+        <?php } ?>
     </div>
 </section>

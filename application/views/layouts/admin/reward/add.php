@@ -16,8 +16,8 @@
 
 <section class="section-base">
     <div class="container-xs">
-        <?php //if (isset($user)) { ?>
-            <form class="form-edit-student" action="" method="post">
+        <?php if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Admin')) { ?>
+            <form class="form-add" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="name" class="sr-only">Name</label>
                     <input type="text" name="name" id="name" class="form-control" placeholder="Name">
@@ -34,9 +34,14 @@
                     <div class="fileinput fileinput-new" data-provides="fileinput">
                         <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
                         <div>
-                            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
+                            <span class="btn btn-default btn-file">
+                                <span class="fileinput-new">Select image</span>
+                                <span class="fileinput-exists">Change</span>
+                                <input type="file" name="image" accept="image/*">
+                            </span>
                             <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                         </div>
+                        <p class="small m-b-none"><i>*Max. file size: 1MB</i></p>
                     </div>
                 </div>
                 <div class="form-group">
@@ -48,12 +53,13 @@
                     <input type="text" name="expired_date" id="expired_date" class="form-control" placeholder="Expired Date">
                 </div>
                 <button class="btn btn-primary btn-block" type="submit">Add</button>
+                <a href="<?php echo base_url('/reward/dashboard'); ?>" class="btn btn-primary btn-block m-t-sm">Back</a>
             </form>
-        <?php //} else { ?>
+        <?php } else { ?>
             <div class="text-center">
                 <h4>Please login to view this page.</h4>
                 <a href="<?php echo base_url('/admin/login'); ?>" class="btn btn-primary">Login</a>
             </div>
-        <?php //} ?>
+        <?php } ?>
     </div>
 </section>
