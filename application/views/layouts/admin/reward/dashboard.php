@@ -25,6 +25,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Image</th>
                         <th>Name</th>
                         <th>Cost Points</th>
                         <th>Quantity</th>
@@ -37,6 +38,9 @@
                     <?php foreach ($rewards as $reward) { ?>
                         <tr>
                             <td><?php echo $reward->reward_id; ?></td>
+                            <td>
+                                <img src="<?php echo base_url('/uploads/' . $reward->image); ?>" alt="<?php echo $reward->reward_name; ?>">
+                            </td>
                             <td><?php echo $reward->reward_name; ?></td>
                             <td><?php echo $reward->cost_points; ?></td>
                             <td><?php echo $reward->quantity; ?></td>
