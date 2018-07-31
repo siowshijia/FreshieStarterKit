@@ -102,13 +102,10 @@ class Admin_Event extends CI_Controller {
 	$events = $this->eventModel->get_event_details($db_Id);
 	$data["events"] = $events;
 	$this->form_validation->set_rules('eventname', 'Event Name',
-		'trim|required|callback_alpha_only_space');
+		'trim|required');
 		$this->form_validation->set_rules('eventvenue', 'Event Venue',
-		'trim|required|callback_alpha_only_space');
-		$this->form_validation->set_rules('category', 'Category',
-		'callback_combo_check');
-		$this->form_validation->set_rules('eventDate', 'Event Date',
-		'required');
+		'trim|required');
+		
 		
 		if ($this->form_validation->run() == FALSE)
 		{
@@ -125,7 +122,9 @@ class Admin_Event extends CI_Controller {
 			'event_category' => $this->input->post('category'),
 			'event_datetime' => @date('Y-m-d', @strtotime($this->input->post('eventDate'))),
 			'description' => $this->input->post('eventDescription'),
-			
+			'event_approval' => $this->input->post('Status'),
+			'event_status' => 'Active',
+			'admin_remarks' => $this->input->post('adminRemarks'),
 		   );
 		   //insert the form data into database
 		   $this->db->where('event_id', $id);
@@ -133,7 +132,7 @@ class Admin_Event extends CI_Controller {
 		   //display success message
 		   $this->session->set_flashdata('msg', '<div class="alert alert-success textcenter">Event
 		   Updated</div>');
-		   redirect('admin/event/update/'.$id);
+		   redirect('admin_event/update/'.$id);
 		
 
 		}
@@ -210,6 +209,18 @@ class Admin_Event extends CI_Controller {
 
 		}
 	
+	}
+
+	public function viewAttendance($id)
+	{	
+		$data = array(
+			'view_name' => 'Event Attendanc7e',
+		);
+
+		$this->load->model("eventModel");
+		$events = $this->eventModel->get_event_attendance1($id);
+		$data["events"] = $events;
+		$this->load->template('layouts/admin/event/viewAttendance', $data);
 	}
 
 }

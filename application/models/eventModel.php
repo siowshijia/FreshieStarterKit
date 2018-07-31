@@ -178,4 +178,39 @@ class eventModel extends CI_Model{
         return $this->db->delete('event_attendance');
 
     }
+
+    function get_event_attendance1($id){
+        $this->db->select('event_name');
+        $this->db->select('event_venue');
+        $this->db->select('event_datetime');
+        $this->db->select('event_category');
+        $this->db->select('student.student_name');
+        $this->db->select('student.student_id');
+        $this->db->select('student.admission_number');
+        $this->db->join('event', 'event.event_id = event_attendance.event_id');
+        $this->db->join('student', 'student.student_id = event_attendance.student_id');
+        
+        
+        $this->db->where('event_attendance.event_id',$id);
+        $this->db->from('event_attendance');
+
+        $query = $this->db->get();
+        $result = $query->result();
+
+        $list = Array();
+        for ($i = 0; $i < count($result); $i++)
+        {
+        $list[$i] = (object)NULL;
+        $list[$i]->eventname = $result[$i]->event_name;
+        $list[$i]->eventvenue = $result[$i]->event_venue;
+        $list[$i]->eventDatetime = $result[$i]->event_datetime;
+        $list[$i]->eventCategory = $result[$i]->event_category;
+        $list[$i]->studentname = $result[$i]->student_name;
+        $list[$i]->studentNo = $result[$i]->admission_number;
+        $list[$i]->datetime = $result[$i]->datetime;
+        }
+        return $list;
+        
+       
+    }
 }
