@@ -22,6 +22,7 @@
                 <h3>Admin Site Map</h3>
                 <ul class="nav navbar-stacked">
                     <li><a href="<?php echo base_url('/admin/staff/dashboard'); ?>">Staff</a></li>
+                    <li><a href="<?php echo base_url('/admin/student/dashboard'); ?>">Student</a></li>
                     <li><a href="<?php echo base_url('/admin/quiz'); ?>">Quizzes</a></li>
                     <li><a href="<?php echo base_url('/admin/event'); ?>">Events</a></li>
                     <li><a href="<?php echo base_url('/admin/reward/dashboard'); ?>">Reward</a></li>

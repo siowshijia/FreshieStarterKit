@@ -58,6 +58,12 @@ $route['admin/staff/add'] = 'admin_staff/add';
 $route['admin/staff/edit/(:num)'] = 'admin_staff/edit/$1';
 $route['admin/staff/delete/(:num)'] = 'admin_staff/delete/$1';
 
+// Student
+$route['admin/student/dashboard'] = 'admin_student/dashboard';
+$route['admin/student/add'] = 'admin_student/add';
+$route['admin/student/edit/(:num)'] = 'admin_student/edit/$1';
+$route['admin/student/delete/(:num)'] = 'admin_student/delete/$1';
+
 // Reward
 $route['admin/reward/dashboard'] = 'admin_reward/dashboard';
 $route['admin/reward/add'] = 'admin_reward/add';
