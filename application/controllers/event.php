@@ -303,4 +303,16 @@ class Event extends CI_Controller {
 
 	}
 
+	function delete()
+	{
+	$data1 = array(
+		'event_id' => $this->input->post('eventid'),
+		'student_id' => $_SESSION['user_id'],
+		'datetime' => date('m/d/Y h:i:s a', time()),
+		);
+		
+		$this->db->replace('event_attendance', $data1);
+		redirect('event/Attendance');
+	}	
+
 }

@@ -170,4 +170,12 @@ class eventModel extends CI_Model{
         
        
     }
+
+    public function delete_attendance($eventid,$studentid) {
+
+        $this->db->where('event_id', $eventid);
+        $this->db->where('student_id', $studentid);
+        return $this->db->delete('event_attendance');
+
+    }
 }
