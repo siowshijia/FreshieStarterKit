@@ -29,8 +29,8 @@
                     <label for="category" class="sr-only">Category</label>
                     <select class="form-control" name="category">
                         <option selected disabled>Select Category</option>
-                        <option value="admin">Admin</option>
-                        <option value="others">Others</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Others">Others</option>
                     </select>
                 </div>
                 <div class="form-group">

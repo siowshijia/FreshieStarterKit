@@ -99,7 +99,7 @@ class Admin_Quiz extends CI_Controller {
 
 				if ($this->adminQuizModel->add_quiz($question, $category, $answer, $updated_by)) {
 
-					redirect('/quiz/dashboard');
+					redirect('/admin/quiz/dashboard');
 
 				} else {
 
@@ -111,7 +111,7 @@ class Admin_Quiz extends CI_Controller {
 		} else {
 
 			$data['logged_in'] = false;
-			$this->load->template('layouts/admin/staff/edit', $data);
+			$this->load->template('layouts/admin/quiz/edit', $data);
 		}
 	}
 }

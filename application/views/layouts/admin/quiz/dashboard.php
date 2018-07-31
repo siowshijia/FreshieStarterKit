@@ -38,6 +38,7 @@
                         <th>Answer</th>
                         <th>Category</th>
                         <th>Created By</th>
+                        <th>Updated By</th>
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
@@ -48,6 +49,7 @@
                             <td><?php echo $quiz->quiz_question; ?></td>
                             <td><?php echo $quiz->quiz_answer; ?></td>
                             <td><?php echo $quiz->quiz_cat_id; ?></td>
+                            <td><?php echo $quiz->staff_name; ?></td>
                             <td><?php echo $quiz->staff_name; ?></td>
                             <td>
                                 <a href="<?php echo base_url('/admin/quiz/edit') . '/' . $quiz->quiz_id; ?>" class="btn btn-primary">Edit</a>
