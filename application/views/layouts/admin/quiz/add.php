@@ -23,11 +23,11 @@
                 <?php } ?>
                 <div class="form-group">
                     <label for="question" class="sr-only">Question</label>
-                    <input name="question" cols="40" rows="5" id="question" class="form-control" placeholder="Question">
+                    <textarea name="question" cols="40" rows="5" id="question" class="form-control" placeholder="Question"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="category" class="sr-only">Category</label>
-                    <select class="form-control" name="Category">
+                    <select class="form-control" name="category">
                         <option selected disabled>Select Category</option>
                         <option value="admin">Admin</option>
                         <option value="others">Others</option>
@@ -35,11 +35,11 @@
                 </div>
                 <div class="form-group">
                     <label for="answer" class="sr-only">Answer</label>
-                    <input name="question" cols="40" rows="2" id="answer" class="form-control" placeholder="Answer">
+                    <textarea name="answer" cols="40" rows="2" id="answer" class="form-control" placeholder="Answer"></textarea>
                 </div>
 
                 <button class="btn btn-primary btn-block" type="submit">Add</button>
-                <a href="<?php echo base_url('/quiz/dashboard'); ?>" class="btn btn-primary btn-block m-t-sm">Back</a>
+                <a href="<?php echo base_url('/admin/quiz/dashboard'); ?>" class="btn btn-primary btn-block m-t-sm">Back</a>
             </form>
         <?php } else { ?>
             <div class="text-center">

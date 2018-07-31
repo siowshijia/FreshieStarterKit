@@ -35,6 +35,7 @@
                     <tr>
                         <th>Quiz ID</th>
                         <th>Question</th>
+                        <th>Answer</th>
                         <th>Category</th>
                         <th>Created By</th>
                         <th>&nbsp;</th>
@@ -45,8 +46,9 @@
                         <tr>
                             <td><?php echo $quiz->quiz_id; ?></td>
                             <td><?php echo $quiz->quiz_question; ?></td>
+                            <td><?php echo $quiz->quiz_answer; ?></td>
                             <td><?php echo $quiz->quiz_cat_id; ?></td>
-                            <td><?php echo $quiz->created_by; ?></td>
+                            <td><?php echo $quiz->staff_name; ?></td>
                             <td>
                                 <a href="<?php echo base_url('/admin/quiz/edit') . '/' . $quiz->quiz_id; ?>" class="btn btn-primary">Edit</a>
                                 <a href="<?php echo base_url('/admin/quiz/delete') . '/' . $quiz->quiz_id; ?>" class="btn btn-primary">Delete</a>
