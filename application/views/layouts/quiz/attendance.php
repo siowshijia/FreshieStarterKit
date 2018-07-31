@@ -69,5 +69,9 @@
                 Once this is done, your absence will not be counted in the calculation of your attendance.</li>
             </p></li>
         </ol>
+
+        <div class="container-xs">
+        
+        </div>
     </div>
 </section>
