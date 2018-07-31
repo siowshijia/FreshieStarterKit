@@ -31,6 +31,7 @@
                             <div class="panel panel-primary">
                             <div class="panel-heading"><?php echo $event->eventname; ?>@<?php echo $event->eventvenue; ?></div>
                             <div class="panel-body">
+                            <a href="<?php echo base_url('/event/delete') . '/' . $event->eventId; ?>" class="btn btn-primary">Delete</a>
                             </div>
 </div>
                            
