@@ -27,7 +27,7 @@
         
         <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) { ?>
             <div class="m-b-md">
-                <a href="<?php echo base_url('/quiz/add'); ?>" class="btn btn-primary">Add Quiz</a>
+                <a href="<?php echo base_url('/admin/quiz/add'); ?>" class="btn btn-primary">Add Quiz</a>
             </div>
 
             <table class="table table-bordered table-striped data-table">
@@ -48,8 +48,8 @@
                             <td><?php echo $quiz->quiz_cat_id; ?></td>
                             <td><?php echo $quiz->created_by; ?></td>
                             <td>
-                                <a href="<?php echo base_url('/quiz/edit') . '/' . $quiz->quiz_id; ?>" class="btn btn-primary">Edit</a>
-                                <a href="<?php echo base_url('/quiz/delete') . '/' . $quiz->quiz_id; ?>" class="btn btn-primary">Delete</a>
+                                <a href="<?php echo base_url('/admin/quiz/edit') . '/' . $quiz->quiz_id; ?>" class="btn btn-primary">Edit</a>
+                                <a href="<?php echo base_url('/admin/quiz/delete') . '/' . $quiz->quiz_id; ?>" class="btn btn-primary">Delete</a>
                             </td>
                         </tr>
                     <?php } ?>

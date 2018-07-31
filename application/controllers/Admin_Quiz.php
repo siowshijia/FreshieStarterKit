@@ -59,9 +59,9 @@ class Admin_Quiz extends CI_Controller {
 			$question		= $this->input->post('Question');
 			$category		= $this->input->post('Category');
 			$answer			= $this->input->post('Answer');
-			$created_by		= $this->input->post('Created By');
+			$created_by		= $_SESSION['user_id'];
 
-			if ($this->adminQuizModel->add_staff($question, $category, $answer)) {
+			if ($this->adminQuizModel->add_staff($question, $category, $answer, $created_by)) {
 
 				redirect('/quiz/dashboard');
 

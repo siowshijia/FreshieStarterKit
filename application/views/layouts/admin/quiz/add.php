@@ -23,7 +23,7 @@
                 <?php } ?>
                 <div class="form-group">
                     <label for="question" class="sr-only">Question</label>
-                    <textarea name="question" cols="40" rows="5" id="question" class="form-control" placeholder="Question"></textarea>
+                    <input name="question" cols="40" rows="5" id="question" class="form-control" placeholder="Question">
                 </div>
                 <div class="form-group">
                     <label for="category" class="sr-only">Category</label>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="form-group">
                     <label for="answer" class="sr-only">Answer</label>
-                    <textarea name="question" cols="40" rows="2" id="answer" class="form-control" placeholder="Answer"></textarea>
+                    <input name="question" cols="40" rows="2" id="answer" class="form-control" placeholder="Answer">
                 </div>
 
                 <button class="btn btn-primary btn-block" type="submit">Add</button>
