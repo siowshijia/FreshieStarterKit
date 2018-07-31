@@ -16,7 +16,7 @@
 
 <section class="section-base">
     <div class="container-xs">
-        <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) { ?>
+        <?php if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Admin')) { ?>
             <form action="" method="post">
                 <?php if (isset($error_msg)) { ?>
                     <div class="alert alert-danger text-center"><?php echo $error_msg; ?></div>
@@ -54,8 +54,8 @@
             </form>
         <?php } else { ?>
             <div class="text-center">
-                <h4>Please login to view this page.</h4>
-                <a href="<?php echo base_url('/staff/login'); ?>" class="btn btn-primary">Login</a>
+                <h4>Please login as Adminstrator to view this page.</h4>
+                <a href="<?php echo base_url('/admin/staff/login'); ?>" class="btn btn-primary">Login</a>
             </div>
         <?php } ?>
     </div>

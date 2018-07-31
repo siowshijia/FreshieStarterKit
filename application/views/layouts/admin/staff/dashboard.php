@@ -25,7 +25,7 @@
 
         <?php if (isset($users)) { ?>
             <div class="m-b-md">
-                <a href="<?php echo base_url('/staff/add'); ?>" class="btn btn-primary">Add Staff</a>
+                <a href="<?php echo base_url('/admin/staff/add'); ?>" class="btn btn-primary">Add Staff</a>
             </div>
 
             <table class="table table-bordered table-striped data-table">
@@ -50,8 +50,8 @@
                             <td><?php echo $user->staff_contact_number; ?></td>
                             <td><?php echo $user->user_role; ?></td>
                             <td>
-                                <a href="<?php echo base_url('/staff/edit') . '/' . $user->staff_id; ?>" class="btn btn-primary">Edit</a>
-                                <a href="<?php echo base_url('/staff/delete') . '/' . $user->staff_id; ?>" class="btn btn-primary">Delete</a>
+                                <a href="<?php echo base_url('/admin/staff/edit') . '/' . $user->staff_id; ?>" class="btn btn-primary">Edit</a>
+                                <a href="<?php echo base_url('/admin/staff/delete') . '/' . $user->staff_id; ?>" class="btn btn-primary">Delete</a>
                             </td>
                         </tr>
                     <?php } ?>
@@ -59,8 +59,8 @@
             </table>
         <?php } else { ?>
             <div class="text-center">
-                <h4>Please login to view this page.</h4>
-                <a href="<?php echo base_url('/staff/login'); ?>" class="btn btn-primary">Login</a>
+                <h4>Please login as Adminstrator to view this page.</h4>
+                <a href="<?php echo base_url('/admin/staff/login'); ?>" class="btn btn-primary">Login</a>
             </div>
         <?php } ?>
     </div>

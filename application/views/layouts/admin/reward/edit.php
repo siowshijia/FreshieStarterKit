@@ -16,7 +16,7 @@
 
 <section class="section-base">
     <div class="container-xs">
-        <?php if (isset($reward)) { ?>
+        <?php if (isset($reward) && isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Admin')) { ?>
             <form class="form-edit" action="" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="name" class="sr-only">Name</label>
@@ -58,8 +58,8 @@
             </form>
         <?php } else { ?>
             <div class="text-center">
-                <h4>Please login to view this page.</h4>
-                <a href="<?php echo base_url('/student/login'); ?>" class="btn btn-primary">Login</a>
+                <h4>Please login as Adminstrator to view this page.</h4>
+                <a href="<?php echo base_url('/admin/staff/login'); ?>" class="btn btn-primary">Login</a>
             </div>
         <?php } ?>
     </div>

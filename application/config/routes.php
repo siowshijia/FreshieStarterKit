@@ -52,17 +52,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 // User/Staff
 $route['logout'] = 'student/logout';
-$route['staff/login'] = 'admin_staff/index';
-$route['staff/dashboard'] = 'admin_staff/dashboard';
-$route['staff/add'] = 'admin_staff/add';
-$route['staff/edit/(:num)'] = 'admin_staff/edit/$1';
-$route['staff/delete/(:num)'] = 'admin_staff/delete/$1';
+$route['admin/staff/login'] = 'admin_staff/index';
+$route['admin/staff/dashboard'] = 'admin_staff/dashboard';
+$route['admin/staff/add'] = 'admin_staff/add';
+$route['admin/staff/edit/(:num)'] = 'admin_staff/edit/$1';
+$route['admin/staff/delete/(:num)'] = 'admin_staff/delete/$1';
 
 // Reward
-$route['reward/dashboard'] = 'admin_reward/dashboard';
-$route['reward/add'] = 'admin_reward/add';
-$route['reward/edit/(:num)'] = 'admin_reward/edit/$1';
-$route['reward/delete/(:num)'] = 'admin_reward/delete/$1';
+$route['admin/reward/dashboard'] = 'admin_reward/dashboard';
+$route['admin/reward/add'] = 'admin_reward/add';
+$route['admin/reward/edit/(:num)'] = 'admin_reward/edit/$1';
+$route['admin/reward/delete/(:num)'] = 'admin_reward/delete/$1';
 
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
