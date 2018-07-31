@@ -65,11 +65,11 @@ class Admin_Reward extends CI_Controller {
 
 			if ($this->adminRewardModel->add_reward($name, $points, $qty, $image, $description, $expired_date)) {
 
-				redirect('/reward/dashboard');
+				redirect('/admin/reward/dashboard');
 
 			} else {
 
-				redirect('/reward/add');
+				redirect('/admin/reward/add');
 
 			}
         }
@@ -124,7 +124,7 @@ class Admin_Reward extends CI_Controller {
 
 				if ($this->adminRewardModel->update_reward($id, $name, $points, $qty, $image, $description, $expired_date)) {
 
-					redirect('/reward/dashboard');
+					redirect('/admin/reward/dashboard');
 
 				} else {
 
@@ -143,7 +143,7 @@ class Admin_Reward extends CI_Controller {
 	public function delete($id) {
 
 		$this->adminRewardModel->delete_reward($id);
-		redirect('/reward/dashboard');
+		redirect('/admin/reward/dashboard');
 
 	}
 }

@@ -53,12 +53,12 @@
                     <input type="text" name="expired_date" id="expired_date" class="form-control" placeholder="Expired Date">
                 </div>
                 <button class="btn btn-primary btn-block" type="submit">Add</button>
-                <a href="<?php echo base_url('/reward/dashboard'); ?>" class="btn btn-primary btn-block m-t-sm">Back</a>
+                <a href="<?php echo base_url('/admin/reward/dashboard'); ?>" class="btn btn-primary btn-block m-t-sm">Back</a>
             </form>
         <?php } else { ?>
             <div class="text-center">
-                <h4>Please login to view this page.</h4>
-                <a href="<?php echo base_url('/admin/login'); ?>" class="btn btn-primary">Login</a>
+                <h4>Please login as Administrator to view this page.</h4>
+                <a href="<?php echo base_url('/admin/staff/login'); ?>" class="btn btn-primary">Login</a>
             </div>
         <?php } ?>
     </div>

@@ -16,41 +16,37 @@
 
 <section class="section-base">
     <div class="container-xs">
-        <?php if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Admin')) { ?>
-            <form action="" method="post">
+        <?php if (isset($user) && isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Admin')) { ?>
+            <form class="form-signin" action="" method="post">
                 <?php if (isset($error_msg)) { ?>
                     <div class="alert alert-danger text-center"><?php echo $error_msg; ?></div>
                 <?php } ?>
                 <div class="form-group">
                     <label for="name" class="sr-only">Name</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="Name">
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Name" value="<?php echo $user->student_name; ?>">
                 </div>
                 <div class="form-group">
-                    <label for="staff_number" class="sr-only">Staff Number</label>
-                    <input type="text" name="staff_number" id="staff_number" class="form-control" placeholder="Staff Number">
+                    <label for="admission_number" class="sr-only">Admission Number</label>
+                    <input type="text" name="admission_number" id="admission_number" class="form-control" placeholder="Admission Number"  value="<?php echo $user->admission_number; ?>">
                 </div>
                 <div class="form-group">
                     <label for="email" class="sr-only">Email address</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="Email address">
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Email address"  value="<?php echo $user->student_email; ?>">
                 </div>
                 <div class="form-group">
                     <label for="contact_number" class="sr-only">Contact Number</label>
-                    <input type="text" name="contact_number" id="contact_number" class="form-control" placeholder="Contact Number">
+                    <input type="text" name="contact_number" id="contact_number" class="form-control" placeholder="Contact Number"  value="<?php echo $user->student_contact_number; ?>">
                 </div>
                 <div class="form-group">
-                    <label for="user_role" class="sr-only">User Role</label>
-                    <select class="form-control" name="user_role">
-                        <option selected disabled>Select Role</option>
-                        <option value="Admin">Admin</option>
-                        <option value="Event Manager">Event Manager</option>
-                    </select>
+                    <label for="user_role" class="sr-only">Interest</label>
+                    <textarea name="interest" id="interest" class="form-control" rows="8" cols="80" placeholder="Interest"><?php echo $user->interest; ?></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="password" class="sr-only">Password</label>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                    <label for="points" class="sr-only">Points</label>
+                    <input type="text" name="points" id="points" class="form-control" placeholder="Points" value="<?php echo $user->points; ?>">
                 </div>
-                <button class="btn btn-primary btn-block" type="submit">Add</button>
-                <a href="<?php echo base_url('/admin/staff/dashboard'); ?>" class="btn btn-primary btn-block m-t-sm">Back</a>
+                <button class="btn btn-primary btn-block" type="submit">Save</button>
+                <a href="<?php echo base_url('/admin/student/dashboard'); ?>" class="btn btn-primary btn-block m-t-sm">Back</a>
             </form>
         <?php } else { ?>
             <div class="text-center">
