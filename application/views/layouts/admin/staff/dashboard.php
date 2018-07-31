@@ -36,6 +36,7 @@
                         <th>Staff Number</th>
                         <th>Email</th>
                         <th>Contact Number</th>
+                        <th>User Role</th>
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
@@ -47,6 +48,7 @@
                             <td><?php echo $user->staff_number; ?></td>
                             <td><?php echo $user->staff_email; ?></td>
                             <td><?php echo $user->staff_contact_number; ?></td>
+                            <td><?php echo $user->user_role; ?></td>
                             <td>
                                 <a href="<?php echo base_url('/staff/edit') . '/' . $user->staff_id; ?>" class="btn btn-primary">Edit</a>
                                 <a href="<?php echo base_url('/staff/delete') . '/' . $user->staff_id; ?>" class="btn btn-primary">Delete</a>

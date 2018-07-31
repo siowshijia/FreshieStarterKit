@@ -122,6 +122,7 @@ class eventModel extends CI_Model{
         $query = $this->db->get();
         $result = $query->result();
         $list = Array();
+
         for ($i = 0; $i < count($result); $i++)
         {
         $list[$i] = (object)NULL;

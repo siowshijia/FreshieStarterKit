@@ -12,13 +12,14 @@ class adminStaffModel extends CI_Model
         parent::__construct();
     }
 
-    public function add_staff($name, $staff_number, $email, $contact_number, $password) {
+    public function add_staff($name, $staff_number, $email, $contact_number, $user_role, $password) {
 
         $data = array(
             'staff_name'           => $name,
             'staff_number'         => $staff_number,
             'staff_email'          => $email,
             'staff_contact_number' => $contact_number,
+            'user_role'            => $user_role,
             'password'             => $this->hash_password($password),
         );
 
@@ -61,13 +62,14 @@ class adminStaffModel extends CI_Model
 
     }
 
-    public function update_staff($id, $name, $staff_number, $email, $contact_number) {
+    public function update_staff($id, $name, $staff_number, $email, $contact_number, $user_role) {
 
         $data = array(
             'staff_name'           => $name,
             'staff_number'         => $staff_number,
             'staff_email'          => $email,
             'staff_contact_number' => $contact_number,
+            'user_role'            => $user_role,
         );
 
         $this->db->where('staff_id', $id);
