@@ -16,7 +16,7 @@
 
 <section class="section-base">
     <div class="container-xs">
-        <?php if (isset($user)) { ?>
+        <?php if (isset($user) && isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Admin')) { ?>
             <form class="form-signin" action="" method="post">
                 <?php if (isset($error_msg)) { ?>
                     <div class="alert alert-danger text-center"><?php echo $error_msg; ?></div>

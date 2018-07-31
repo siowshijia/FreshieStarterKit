@@ -50,7 +50,7 @@
                     <input type="password" name="password" id="password" class="form-control" placeholder="Password">
                 </div>
                 <button class="btn btn-primary btn-block" type="submit">Add</button>
-                <a href="<?php echo base_url('/staff/dashboard'); ?>" class="btn btn-primary btn-block m-t-sm">Back</a>
+                <a href="<?php echo base_url('/admin/staff/dashboard'); ?>" class="btn btn-primary btn-block m-t-sm">Back</a>
             </form>
         <?php } else { ?>
             <div class="text-center">
