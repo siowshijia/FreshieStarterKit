@@ -22,35 +22,29 @@
                     <div class="alert alert-danger text-center"><?php echo $error_msg; ?></div>
                 <?php } ?>
                 <div class="form-group">
-                    <label for="name" class="sr-only">Name</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="Name">
+                    <label for="name" class="sr-only">Event Name</label>
+                    <input type="text" name="eventname" id="eventname" class="form-control" placeholder="Event Name">
                 </div>
                 <div class="form-group">
-                    <label for="staff_number" class="sr-only">Staff Number</label>
-                    <input type="text" name="staff_number" id="staff_number" class="form-control" placeholder="Staff Number">
+                    <label for="eventvenue" class="sr-only">Event Venue</label>
+                    <input type="text" name="eventvenue" id="eventvenue" class="form-control" placeholder="Event Venue">
                 </div>
                 <div class="form-group">
-                    <label for="email" class="sr-only">Email address</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="Email address">
-                </div>
-                <div class="form-group">
-                    <label for="contact_number" class="sr-only">Contact Number</label>
-                    <input type="text" name="contact_number" id="contact_number" class="form-control" placeholder="Contact Number">
-                </div>
-                <div class="form-group">
-                    <label for="user_role" class="sr-only">User Role</label>
-                    <select class="form-control" name="user_role">
-                        <option selected disabled>Select Role</option>
-                        <option value="admin">Admin</option>
-                        <option value="event_manage">Event Manager</option>
+                <label for="category" class="sr-only">Category</label>
+                    <select name="category" class="form-control">
+                        <option value="sports">Sports</option>
+                        <option value="arts">Arts</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="password" class="sr-only">Password</label>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                    <label for="eventDate" class="sr-only">Contact Number</label>
+                    <input type="text" name="eventDate" id="eventDate" class="form-control" placeholder="Event Date">
+                </div>
+                <div class="form-group">
+                    <label for="eventDescription" class="sr-only">Event Description</label>
+                    <input type="text" name="eventDescription" id="eventDescription" class="form-control" placeholder="Description">
                 </div>
                 <button class="btn btn-primary btn-block" type="submit">Add</button>
-                <a href="<?php echo base_url('/staff/dashboard'); ?>" class="btn btn-primary btn-block m-t-sm">Back</a>
             </form>
         <?php } else { ?>
             <div class="text-center">

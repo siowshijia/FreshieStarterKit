@@ -46,7 +46,7 @@
                     </select>
                 </div>
                 <button class="btn btn-primary btn-block" type="submit">Save</button>
-                <a href="<?php echo base_url('/staff/dashboard'); ?>" class="btn btn-primary btn-block m-t-sm">Back</a>
+                <a href="<?php echo base_url('/quiz/dashboard'); ?>" class="btn btn-primary btn-block m-t-sm">Back</a>
             </form>
         <?php } else { ?>
             <div class="text-center">

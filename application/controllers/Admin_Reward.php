@@ -7,14 +7,21 @@ class Admin_Reward extends CI_Controller {
     {
         parent::__construct();
 		$this->load->library('form_validation');
-        $this->load->model('rewardModel');
+        $this->load->model('adminRewardModel');
     }
 
-	public function index()
+	public function dashboard()
 	{
 		$data = array(
 			'view_name' => 'Reward Dashboard',
 		);
+
+		if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Admin')) {
+
+			$data['rewards'] = $this->adminRewardModel->get_all_rewards();
+
+		}
+
 		$this->load->template('layouts/admin/reward/dashboard', $data);
 	}
 
@@ -23,14 +30,120 @@ class Admin_Reward extends CI_Controller {
 		$data = array(
 			'view_name' => 'Add Reward',
 		);
-		$this->load->template('layouts/admin/reward/add', $data);
+
+        //set validation rules
+        $this->form_validation->set_rules('name', 'Name', 'required');
+        $this->form_validation->set_rules('points', 'Points', 'required');
+        $this->form_validation->set_rules('qty', 'Quantity','required');
+		$this->form_validation->set_rules('description', 'Description', 'required');
+		$this->form_validation->set_rules('expired_date', 'Expired Date', 'required');
+
+		$config['upload_path']          = './uploads/';
+        $config['allowed_types']        = '*';
+        $config['max_size']             = 2048;
+        $config['max_width']            = 1920;
+        $config['max_height']           = 1080;
+        $config['encrypt_name']         = true;
+
+        $this->load->library('upload', $config);
+
+        if ($this->form_validation->run() == FALSE) {
+
+            $this->load->template('layouts/admin/reward/add', $data);
+
+        } else {
+
+			$this->upload->do_upload('image');
+
+			$name         = $this->input->post('name');
+			$points       = $this->input->post('points');
+			$qty          = $this->input->post('qty');
+			$file         = $this->upload->data();
+			$image        = $file['file_name'];
+			$description  = $this->input->post('description');
+			$expired_date = $this->input->post('expired_date');
+
+			if ($this->adminRewardModel->add_reward($name, $points, $qty, $image, $description, $expired_date)) {
+
+				redirect('/reward/dashboard');
+
+			} else {
+
+				redirect('/reward/add');
+
+			}
+        }
 	}
 
-	public function edit()
-	{
+	public function edit($id) {
 		$data = array(
 			'view_name' => 'Edit Reward',
 		);
-		$this->load->template('layouts/admin/reward/edit', $data);
+
+		if (isset($id)) {
+
+			$data['reward'] = $this->adminRewardModel->get_reward($id);
+
+			//set validation rules
+			$this->form_validation->set_rules('name', 'Name', 'required');
+	        $this->form_validation->set_rules('points', 'Points', 'required');
+	        $this->form_validation->set_rules('qty', 'Email','required');
+			$this->form_validation->set_rules('description', 'Description', 'required');
+			$this->form_validation->set_rules('expired_date', 'Expired Date', 'required');
+
+			$config['upload_path']          = './uploads/';
+	        $config['allowed_types']        = '*';
+	        $config['max_size']             = 2048;
+	        $config['max_width']            = 1920;
+	        $config['max_height']           = 1080;
+	        $config['encrypt_name']         = true;
+
+	        $this->load->library('upload', $config);
+
+	        if ($this->form_validation->run() == FALSE) {
+
+	            $this->load->template('layouts/admin/reward/edit', $data);
+
+	        } else {
+
+				$old_file_name = $data['reward']->image;
+
+				if ($old_file_name) {
+					unlink('./uploads/' . $old_file_name);
+				}
+
+				$this->upload->do_upload('image');
+
+				$name         = $this->input->post('name');
+				$points       = $this->input->post('points');
+				$qty          = $this->input->post('qty');
+				$file         = $this->upload->data();
+				$image        = $file['file_name'];
+				$description  = $this->input->post('description');
+				$expired_date = $this->input->post('expired_date');
+
+				if ($this->adminRewardModel->update_reward($id, $name, $points, $qty, $image, $description, $expired_date)) {
+
+					redirect('/reward/dashboard');
+
+				} else {
+
+					$data['error_msg'] = 'Some problems occured, please try again.';
+					$this->load->template('layouts/admin/reward/edit', $data);
+				}
+	        }
+
+		} else {
+
+			$this->load->template('layouts/admin/reward/edit', $data);
+
+		}
+	}
+
+	public function delete($id) {
+
+		$this->adminRewardModel->delete_reward($id);
+		redirect('/reward/dashboard');
+
 	}
 }

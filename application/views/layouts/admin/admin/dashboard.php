@@ -24,7 +24,7 @@
                     <li><a href="<?php echo base_url('/staff/dashboard'); ?>">Staff</a></li>
                     <li><a href="<?php echo base_url('/quiz'); ?>">Quizzes</a></li>
                     <li><a href="<?php echo base_url('/event'); ?>">Events</a></li>
-                    <li><a href="<?php echo base_url('/admin/reward'); ?>">Reward</a></li>
+                    <li><a href="<?php echo base_url('/reward/dashboard'); ?>">Reward</a></li>
                 </ul>
             </div>
         <?php } else { ?>

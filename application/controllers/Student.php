@@ -18,18 +18,18 @@ class Student extends CI_Controller {
 		);
 
         //set validation rules
-        $this->form_validation->set_rules('name', 'Name', 'required|callback_alpha_only_space');
+        $this->form_validation->set_rules('name', 'Name', 'required|validation_msg');
         $this->form_validation->set_rules(
 			'email', 'Email',
-			'required|valid_email|is_unique[student.student_email]',
+			'required|valid_email|is_unique[student.student_email]|validation_msg',
 				array(
 	                'required'      => 'You have not provided %s.',
 	                'is_unique'     => 'This %s already exists.'
 	        )
 		);
 
-		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
-		$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|matches[password]');
+		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|validation_msg');
+		$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|validation_msg');
 
         if ($this->form_validation->run() == FALSE) {
 
@@ -91,6 +91,7 @@ class Student extends CI_Controller {
 				$_SESSION['user_id']      = (int)$user->student_id;
 				$_SESSION['email']        = (string)$user->student_email;
 				$_SESSION['logged_in']    = (bool)true;
+				$_SESSION['user_role']    = 'student';
 
 				$success_data = array(
 					'view_name' => 'Login Success',
