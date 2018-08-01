@@ -71,10 +71,10 @@ $route['admin/reward/edit/(:num)'] = 'admin_reward/edit/$1';
 $route['admin/reward/delete/(:num)'] = 'admin_reward/delete/$1';
 
 // Quiz
-$route['quiz/dashboard'] = 'admin_quiz/dashboard';
-$route['quiz/add'] = 'admin_quiz/add';
-$route['quiz/edit/(:num)'] = 'admin_quiz/edit/$1';
-$route['quiz/delete/(:num)'] = 'admin_quiz/delete/$1';
+$route['admin/quiz/dashboard'] = 'admin_quiz/dashboard';
+$route['admin/quiz/add'] = 'admin_quiz/add';
+$route['admin/quiz/edit/(:num)'] = 'admin_quiz/edit/$1';
+$route['admin/quiz/delete/(:num)'] = 'admin_quiz/delete/$1';
 
 $route['default_controller'] = 'home';
 $route['404_override'] = '';

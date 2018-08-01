@@ -17,10 +17,13 @@
 
          //Quiz Dashboard
         public function get_all_quiz() {
-
+            
             $this->db->select('*');
             $this->db->from('quiz_new');
+            $this->db->join('staff', 'staff.staff_id = quiz_new.created_by');
+
             return $this->db->get()->result();
+
         }
 
         //Quiz Deletion
@@ -30,7 +33,6 @@
             return $this->db->delete('quiz_new');
     
         }
-
 
         public function add_quiz($question, $category, $answer, $created_by) {
 
@@ -45,15 +47,13 @@
     
         }
         
-        /*
-        public function update_quiz($question, $category, $answer, $created_by, $update_by) {
+        public function update_quiz($question, $category, $answer, $update_by) {
 
             $data = array(
-                'Question'              => $question,
-                'Category'              => $category,
-                'Answer'                => $answer,
-                'Created_By'            => $created_by,
-                'Updated_By'            => $update_by,
+                'quiz_question'     => $question,
+                'quiz_cat_id'       => $category,
+                'quiz_answer'       => $answer,
+                'updated_By'        => $update_by,
             );
     
             $this->db->where('quiz_id', $id);
@@ -69,8 +69,6 @@
             return $this->db->get()->row();
     
         }
-
-        */
 
     }
 ?>

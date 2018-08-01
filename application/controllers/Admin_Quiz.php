@@ -36,7 +36,7 @@ class Admin_Quiz extends CI_Controller {
 	public function delete($id) {
 
 		$this->adminQuizModel->delete_quiz($id);
-		redirect('/quiz/dashboard');
+		redirect('/admin/quiz/dashboard');
 
 	}
 
@@ -47,33 +47,32 @@ class Admin_Quiz extends CI_Controller {
 		);
 
         //set validation rules
-       	$this->form_validation->set_rules('question', 'Question', 'required');
-		$this->form_validation->set_rules('category', 'Category', 'required');
-		$this->form_validation->set_rules('answer', 'Answer', 'required');
+       	$this->form_validation->set_rules('question', 'question', 'required');
+		$this->form_validation->set_rules('category', 'category', 'required');
+		$this->form_validation->set_rules('answer', 'answer', 'required');
 
         if ($this->form_validation->run() == FALSE) {
 
             $this->load->template('layouts/admin/quiz/add', $data);
 
         } else {
-			$question		= $this->input->post('Question');
-			$category		= $this->input->post('Category');
-			$answer			= $this->input->post('Answer');
-			$created_by		= $this->input->post('Created By');
+			$question		= $this->input->post('question');
+			$category		= $this->input->post('category');
+			$answer			= $this->input->post('answer');
+			$created_by		= $_SESSION['user_id'];
 
-			if ($this->adminQuizModel->add_staff($question, $category, $answer)) {
+			if ($this->adminQuizModel->add_quiz($question, $category, $answer, $created_by)) {
 
-				redirect('/quiz/dashboard');
+				redirect('/admin/quiz/dashboard');
 
 			} else {
 
-				redirect('/quiz/add');
+				redirect('/admin/quiz/add');
 
 			}
         }
 	}
 
-	/*
 	public function edit($id) {
 		$data = array(
 			'view_name' => 'Edit Quiz',
@@ -81,30 +80,26 @@ class Admin_Quiz extends CI_Controller {
 
 		if (isset($id)) {
 
-			$data['logged_in'] = true;
-			$data['user'] = $this->adminQuizModel->get_quiz($id);
+			$data['quiz'] = $this->adminQuizModel->get_quiz($id);
 
 			//set validation rules
-	        $this->form_validation->set_rules('question', 'Question', 'required');
-	        $this->form_validation->set_rules('category', 'Category', 'required');
-	        $this->form_validation->set_rules('answer', 'Answer', 'required');
-			$this->form_validation->set_rules('created_by', 'Created By', 'required');
-			$this->form_validation->set_rules('updated_by', 'Updated By', 'required');
+	        $this->form_validation->set_rules('question', 'question', 'required');
+			$this->form_validation->set_rules('category', 'category', 'required');
+			$this->form_validation->set_rules('answer', 'answer', 'required');
 
 	        if ($this->form_validation->run() == FALSE) {
 
 	            $this->load->template('layouts/admin/quiz/edit', $data);
 
 	        } else {
-				$question		= $this->input->post('Question');
-				$category		= $this->input->post('Category');
-				$answer			= $this->input->post('Answer');
-				$created_by		= $this->input->post('Created By');
-				$update_by		= $this->input->post('Updated By')
+				$question		= $this->input->post('question');
+				$category		= $this->input->post('category');
+				$answer			= $this->input->post('answer');
+				$updated_by		= $_SESSION['user_id'];
 
-				if ($this->adminQuizModel->update_quiz($question, $category, $answer, $created_by, $update_by)) {
+				if ($this->adminQuizModel->add_quiz($question, $category, $answer, $updated_by)) {
 
-					redirect('/quiz/dashboard');
+					redirect('/admin/quiz/dashboard');
 
 				} else {
 
@@ -119,8 +114,4 @@ class Admin_Quiz extends CI_Controller {
 			$this->load->template('layouts/admin/quiz/edit', $data);
 		}
 	}
-
-
-	*/
-
-  }
+}
