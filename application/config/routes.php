@@ -77,5 +77,5 @@ $route['quiz/edit/(:num)'] = 'admin_quiz/edit/$1';
 $route['quiz/delete/(:num)'] = 'admin_quiz/delete/$1';
 
 $route['default_controller'] = 'home';
-$route['404_override'] = '';
+$route['404_override'] = 'home/error404';
 $route['translate_uri_dashes'] = FALSE;
