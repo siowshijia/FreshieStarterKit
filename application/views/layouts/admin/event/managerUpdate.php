@@ -22,8 +22,6 @@
                     <div class="alert alert-danger text-center"><?php echo $error_msg; ?></div>
                 <?php } ?>
                 <div class="form-group">
-                <input type="hidden" name="eventId" id="eventId" class="form-control" valueplaceholder="Event Name"
-                    value="<?php echo set_value('eventId'); echo $events[0]->eventId; ?>">
                     <label for="name" class="sr-only">Event Name</label>
                     <input type="text" name="eventname" id="eventname" class="form-control" valueplaceholder="Event Name"
                     value="<?php echo set_value('eventname'); echo $events[0]->eventname; ?>">
@@ -41,30 +39,23 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="eventDate" class="sr-only">Event Date</label>
+                    <label for="eventDate" class="sr-only">Contact Number</label>
                     <input type="text" name="eventDate" id="eventDate" class="form-control" placeholder="Event Date"
                     value="<?php echo set_value('eventDatetime'); echo $events[0]->eventDatetime; ?>">
                 </div>
                 <div class="form-group">
                     <label for="eventDescription" class="sr-only">Event Description</label>
-                    <textarea rows="5" type="text" name="eventDescription" id="eventDescription" class="form-control" placeholder="Description"
+                    <textarea type="text" name="eventDescription" id="eventDescription" class="form-control" placeholder="Description"
                     value="<?php echo set_value('description');?>"><?php echo $events[0]->description; ?>"</textarea>
                     
                 </div>
+
                 <div class="form-group">
                 <label for="Status" class="sr-only">Status</label>
                     <select name="Status" class="form-control">
-                        <option value="Approved">Approve</option>
-                        <option value="Denied">Deny</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
                     </select>
-                </div>
-
-                <div class="form-group">
-                    
-                    <textarea rows="5" type="text" name="adminRemarks" id="adminRemarks" class="form-control" placeholder="Remarks">
-                    <?php echo $events[0]->adminRemarks; ?>
-                    </textarea>
-                    
                 </div>
                 <button class="btn btn-primary btn-block" type="submit">Update</button>
             </form>

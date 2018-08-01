@@ -25,17 +25,17 @@
 
         <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) { ?>
             <div class="m-b-md">
-            <a href="<?php echo base_url('/admin_event/create')?>" class="btn btn-primary">Add Event</a>
+            <a href="<?php echo base_url('/admin_event/managerCreate')?>" class="btn btn-primary">Add Event</a>
             </div>
 
             <table class="table table-bordered table-striped data-table">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Staff Number</th>
-                        <th>Email</th>
-                        <th>Contact Number</th>
+                        <th>Event Name</th>
+                        <th>Venue</th>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Description</th>
                         <th>User Role</th>
                         <th>&nbsp;</th>
                     </tr>
@@ -51,7 +51,8 @@
                             <td><?php echo $event->description; ?></td>
                             <td><?php echo $event->eventId; ?></td>
                             <td>
-                            <a href="<?php echo base_url('/admin_event/Update') . '/' . $event->eventId; ?>" class="btn btn-primary">Edit</a>   
+                            <a href="<?php echo base_url('/event/managerUpdate') . '/' . $event->eventId; ?>" class="btn btn-primary">Edit</a>
+                            
                             </td>
                         </tr>
                     <?php } ?>

@@ -16,7 +16,7 @@ class Admin_Event extends CI_Controller {
 	}
 
 
-	function create()
+	function managerCreate()
 	{
 		$data = array(
 			'view_name' => 'Create Event',
@@ -37,7 +37,7 @@ class Admin_Event extends CI_Controller {
 		if ($this->form_validation->run() == FALSE)
 		{
 			//fail validation
-			$this->load->template('layouts/admin/event/eventCreate', $data);
+			$this->load->template('layouts/admin/event/managerCreate', $data);
 		}	
 		else
 		{
@@ -110,7 +110,7 @@ class Admin_Event extends CI_Controller {
 		if ($this->form_validation->run() == FALSE)
 		{
 			//fail validation
-			$this->load->template('layouts/admin/event/eventUpdate', $data);
+			$this->load->template('layouts/admin/event/adminUpdate', $data);
 		}	
 		else
 		{	
@@ -165,7 +165,7 @@ class Admin_Event extends CI_Controller {
 	}
 
 	
-	public function adminUpdate($id)
+	public function managerUpdate($id)
 	{
 	$data = array(
 		'view_name' => 'Approve Event',
@@ -187,7 +187,7 @@ class Admin_Event extends CI_Controller {
 		if ($this->form_validation->run() == FALSE)
 		{
 			//fail validation
-			$this->load->template('layouts/admin/event/adminUpdate', $data);
+			$this->load->template('layouts/admin/event/managerUpdate', $data);
 		}	
 		else
 		{	
@@ -204,7 +204,7 @@ class Admin_Event extends CI_Controller {
 		   //display success message
 		   $this->session->set_flashdata('msg', '<div class="alert alert-success textcenter">Event
 		   Updated</div>');
-		   redirect('admin/event/adminPending/');
+		   redirect('admin/event/managerUpdate/');
 		
 
 		}
@@ -221,6 +221,18 @@ class Admin_Event extends CI_Controller {
 		$events = $this->eventModel->get_event_attendance1($id);
 		$data["events"] = $events;
 		$this->load->template('layouts/admin/event/viewAttendance', $data);
+	}
+
+	public function managerView()
+	{	
+		$data = array(
+			'view_name' => 'Events',
+		);
+		$id = $_SESSION['user_id'];
+		$this->load->model("eventModel");
+		$events = $this->eventModel->get_event_list_by_manager($id);
+		$data["events"] = $events;
+		$this->load->template('layouts/admin/event/managerView', $data);
 	}
 
 }
