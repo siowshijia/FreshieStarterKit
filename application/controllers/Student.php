@@ -11,57 +11,6 @@ class Student extends CI_Controller {
         $this->load->model('studentModel');
     }
 
-	public function register()
-	{
-		$data = array(
-			'view_name' => 'Student Register',
-		);
-
-        //set validation rules
-        $this->form_validation->set_rules('name', 'Name', 'required|validation_msg');
-        $this->form_validation->set_rules(
-			'email', 'Email',
-			'required|valid_email|is_unique[student.student_email]|validation_msg',
-				array(
-	                'required'      => 'You have not provided %s.',
-	                'is_unique'     => 'This %s already exists.'
-	        )
-		);
-
-		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|validation_msg');
-		$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|validation_msg');
-
-        if ($this->form_validation->run() == FALSE) {
-
-            $this->load->template('layouts/student/register', $data);
-
-        } else {
-
-			$name     = $this->input->post('name');
-			$email    = $this->input->post('email');
-			$password = $this->input->post('password');
-			$password = $this->input->post('confirm_password');
-
-			if ($this->studentModel->create_user($name, $email, $password)) {
-
-				$success_data = array(
-					'view_name' => 'Register Success',
-					'message'   => 'You have successfully register yourself.'
-				);
-
-				$this->load->template('layouts/student/success', $success_data);
-
-			} else {
-
-				$data['error_msg'] = 'Some problems occured, please try again.';
-				$this->load->template('layouts/student/register', $data);
-
-			}
-
-        }
-
-	}
-
 	public function login()
 	{
 		$data = array(
