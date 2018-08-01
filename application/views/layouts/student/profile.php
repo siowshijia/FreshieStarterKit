@@ -45,15 +45,14 @@
                     </tr>
                 </table>
             </div>
-            <row id="edit">
-            <div class="text-center">
+
+            <div class="text-center m-b-md">
                 <a href="<?php echo base_url('/student/edit'); ?>" class="btn btn-common">Edit Profile</a>
             </div>
-            <br/>
+
             <div class="text-center">
                 <a href="<?php echo base_url('/student/editpassword'); ?>" class="btn btn-common">Change Password</a>
             </div>
-            </row>
         <?php } else { ?>
             <div class="text-center">
                 <h4>Please login to view this page.</h4>

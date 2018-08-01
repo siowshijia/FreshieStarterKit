@@ -19,11 +19,6 @@
         <?php if (isset($user)) { ?>
             <form class="form-edit-student" action="" method="post">
                 <div class="form-group">
-                    <label for="old_stud_pass" class="sr-only">Current Password</label>
-                    <input type="password" name="old_stud_pass" id="old_stud_pass" class="form-control" placeholder="Current Password" value="<?php echo $user->password; ?>" readonly>
-                    <span class="text-danger"><?php echo form_error('old_stud_pass'); ?></span>
-                </div>
-                <div class="form-group">
                     <label for="new_stud_pass" class="sr-only">New Password</label>
                     <input type="password" name="new_stud_pass" id="new_stud_pass" class="form-control" placeholder="New Password">
                     <span class="text-danger"><?php echo form_error('new_stud_pass'); ?></span>
