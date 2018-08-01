@@ -21,16 +21,17 @@
             <div class="categories">
                 <h3>Admin Site Map</h3>
                 <ul class="nav navbar-stacked">
-                    <li><a href="<?php echo base_url('/staff/dashboard'); ?>">Staff</a></li>
-                    <li><a href="<?php echo base_url('/quiz'); ?>">Quizzes</a></li>
-                    <li><a href="<?php echo base_url('/event'); ?>">Events</a></li>
-                    <li><a href="<?php echo base_url('/reward/dashboard'); ?>">Reward</a></li>
+                    <li><a href="<?php echo base_url('/admin/staff/dashboard'); ?>">Staff</a></li>
+                    <li><a href="<?php echo base_url('/admin/student/dashboard'); ?>">Student</a></li>
+                    <li><a href="<?php echo base_url('/admin/quiz'); ?>">Quizzes</a></li>
+                    <li><a href="<?php echo base_url('/admin/event'); ?>">Events</a></li>
+                    <li><a href="<?php echo base_url('/admin/reward/dashboard'); ?>">Reward</a></li>
                 </ul>
             </div>
         <?php } else { ?>
             <div class="text-center">
-                <h4>Please login to view this page.</h4>
-                <a href="<?php echo base_url('/staff/login'); ?>" class="btn btn-primary">Login</a>
+                <h4>Please login as Adminstrator to view this page.</h4>
+                <a href="<?php echo base_url('/admin/staff/login'); ?>" class="btn btn-primary">Login</a>
             </div>
         <?php } ?>
     </div>
