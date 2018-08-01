@@ -111,8 +111,6 @@ class Student extends CI_Controller {
 
 	}
 
-
-
 	public function profile()
 	{
 		$data = array(
@@ -167,7 +165,6 @@ class Student extends CI_Controller {
 			$data['user'] = $this->studentModel->get_user($_SESSION['user_id']);
 
 			//set validation rules
-	        $this->form_validation->set_rules('old_stud_pass', 'Current Password', 'required');
 	        $this->form_validation->set_rules('new_stud_pass', 'New Password', 'required|min_length[6]');
 	        $this->form_validation->set_rules('confirm_new_stud_pass', 'Confirm New Password', 'required|matches[new_stud_pass]');
 
@@ -177,10 +174,8 @@ class Student extends CI_Controller {
 
 	        } else {
 
-				$password           = $this->input->post('old_stud_pass');
-				$password     = $this->input->post('new_stud_pass');
-				$password          = $this->input->post('confirm_new_stud_pass');
-				$id             = $_SESSION['user_id'];
+				$password = $this->input->post('new_stud_pass');
+				$id       = $_SESSION['user_id'];
 
 				if ($this->studentModel->update_userpass($id, $password)) {
 

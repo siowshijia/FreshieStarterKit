@@ -46,8 +46,6 @@ class studentModel extends CI_Model
 
 	}
 
-
-
     public function get_user($user_id) {
 
 		$this->db->from('student');
@@ -57,11 +55,11 @@ class studentModel extends CI_Model
 
     }
 
-    public function get_student_points_statement($user_id)
-     {
+    public function get_student_points_statement($user_id) {
+        
          $this->db->select('*');
          $this->db->from('reward_transaction');
-         $this->db->join('student', 'reward_transaction.student_id = student.student_id');  
+         $this->db->join('student', 'reward_transaction.student_id = student.student_id');
          $this->db->where('reward_transaction.student_id', $user_id);
          $query = $this->db->get();
          return $query->result();
