@@ -51,7 +51,7 @@
                 </div>
                 <div class="form-group">
                     <label for="expired_date" class="sr-only">Expired Date</label>
-                    <input type="text" name="expired_date" id="expired_date" class="form-control" placeholder="Expired Date" value="<?php echo $reward->expired_date; ?>">
+                    <input type="text" name="expired_date" id="expired_date" class="form-control datepicker" placeholder="Expired Date" value="<?php echo $reward->expired_date; ?>">
                 </div>
                 <button class="btn btn-primary btn-block" type="submit">Save</button>
                 <a href="<?php echo base_url('/reward/dashboard'); ?>" class="btn btn-primary btn-block m-t-sm">Back</a>

@@ -50,7 +50,7 @@
                 </div>
                 <div class="form-group">
                     <label for="expired_date" class="sr-only">Expired Date</label>
-                    <input type="text" name="expired_date" id="expired_date" class="form-control" placeholder="Expired Date">
+                    <input type="text" name="expired_date" id="expired_date" class="form-control datepicker" placeholder="Expired Date">
                 </div>
                 <button class="btn btn-primary btn-block" type="submit">Add</button>
                 <a href="<?php echo base_url('/admin/reward/dashboard'); ?>" class="btn btn-primary btn-block m-t-sm">Back</a>
