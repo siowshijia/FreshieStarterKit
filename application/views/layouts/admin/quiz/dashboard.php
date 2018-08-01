@@ -27,7 +27,7 @@
         
         <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) { ?>
             <div class="m-b-md">
-                <a href="<?php echo base_url('/quiz/add'); ?>" class="btn btn-primary">Add Quiz</a>
+                <a href="<?php echo base_url('/admin/quiz/add'); ?>" class="btn btn-primary">Add Quiz</a>
             </div>
 
             <table class="table table-bordered table-striped data-table">
@@ -35,8 +35,10 @@
                     <tr>
                         <th>Quiz ID</th>
                         <th>Question</th>
+                        <th>Answer</th>
                         <th>Category</th>
                         <th>Created By</th>
+                        <th>Updated By</th>
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
@@ -45,11 +47,13 @@
                         <tr>
                             <td><?php echo $quiz->quiz_id; ?></td>
                             <td><?php echo $quiz->quiz_question; ?></td>
+                            <td><?php echo $quiz->quiz_answer; ?></td>
                             <td><?php echo $quiz->quiz_cat_id; ?></td>
-                            <td><?php echo $quiz->created_by; ?></td>
+                            <td><?php echo $quiz->staff_name; ?></td>
+                            <td><?php echo $quiz->staff_name; ?></td>
                             <td>
-                                <a href="<?php echo base_url('/quiz/edit') . '/' . $quiz->quiz_id; ?>" class="btn btn-primary">Edit</a>
-                                <a href="<?php echo base_url('/quiz/delete') . '/' . $quiz->quiz_id; ?>" class="btn btn-primary">Delete</a>
+                                <a href="<?php echo base_url('/admin/quiz/edit') . '/' . $quiz->quiz_id; ?>" class="btn btn-primary">Edit</a>
+                                <a href="<?php echo base_url('/admin/quiz/delete') . '/' . $quiz->quiz_id; ?>" class="btn btn-primary">Delete</a>
                             </td>
                         </tr>
                     <?php } ?>

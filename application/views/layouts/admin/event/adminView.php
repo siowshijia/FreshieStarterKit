@@ -25,7 +25,7 @@
 
         <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) { ?>
             <div class="m-b-md">
-            <a href="<?php echo base_url('/admin_event/create')?>" class="btn btn-primary">Add Event</a>
+            <a href="<?php echo base_url('/admin_event/adminCreate')?>" class="btn btn-primary">Add Event</a>
             </div>
 
             <table class="table table-bordered table-striped data-table">

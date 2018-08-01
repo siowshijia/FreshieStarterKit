@@ -26,11 +26,10 @@ class Admin_Event extends CI_Controller {
 		
 		//set validation rules
 		$this->form_validation->set_rules('eventname', 'Event Name',
-		'trim|required|callback_alpha_only_space');
+		'trim|required');
 		$this->form_validation->set_rules('eventvenue', 'Event Venue',
-		'trim|required|callback_alpha_only_space');
-		$this->form_validation->set_rules('category', 'Category',
-		'callback_combo_check');
+		'trim|required');
+		$this->form_validation->set_rules('category', 'Category');
 		$this->form_validation->set_rules('eventDate', 'Event Date',
 		'required');
 		
@@ -57,40 +56,58 @@ class Admin_Event extends CI_Controller {
 		   //display success message
 		   $this->session->set_flashdata('msg', '<div class="alert alert-success textcenter">Event
 		   sent to Admin for approval</div>');
-		   redirect('event/Create');
+		   redirect('admin_event/managerView');
+		}
+	}
+
+
+	function adminCreate()
+	{
+		$data = array(
+			'view_name' => 'Create Event',
+		);
+		//$data['category'] = $this->eventModel->get_category();
+		
+		
+		//set validation rules
+		$this->form_validation->set_rules('eventname', 'Event Name',
+		'trim|required|callback_alpha_only_space');
+		$this->form_validation->set_rules('eventvenue', 'Event Venue',
+		'trim|required|callback_alpha_only_space');
+		$this->form_validation->set_rules('category', 'Category',
+		'callback_combo_check');
+		$this->form_validation->set_rules('eventDate', 'Event Date',
+		'required');
+		
+		if ($this->form_validation->run() == FALSE)
+		{
+			//fail validation
+			$this->load->template('layouts/admin/event/adminCreate', $data);
+		}	
+		else
+		{
+			$data = array(
+
+			'event_name' => $this->input->post('eventname'),
+			'event_venue' => $this->input->post('eventvenue'),
+			'event_category' => $this->input->post('category'),
+			'event_datetime' => @date('Y-m-d', @strtotime($this->input->post('eventDate'))),
+			'description' => $this->input->post('eventDescription'),
+			'event_status' => $this->input->post('status'),
+			'event_approval' => 'Approved',
+			'event_owner' => $_SESSION['user_id']
+		   );
+		   //insert the form data into database
+		   $this->db->insert('event', $data);
+		   //display success message
+		   $this->session->set_flashdata('msg', '<div class="alert alert-success textcenter">Event
+		   sent to Admin for approval</div>');
+		   redirect('admin_event/adminView');
 		}
 	}
 
 	//custom validation function for dropdown input
-	function combo_check($str)
-	{
-		if ($str == "-SELECT-")
-		{
-		$this->form_validation->set_message('combo_check', 'Valid %s Name
-		is required');
-		return FALSE;
-		}
-		else
-		{
-		return TRUE;
-		}
-	}
-		//custom validation function to accept only alpha and space input
-		function alpha_only_space($str)
-		{
-		if (!preg_match("/^([-a-z ])+$/i", $str))
-		{
-		$this->form_validation->set_message('alpha_only_space', 'The %s field
-		must contain only alphabets or spaces');
-		return FALSE;
-		}
-	else
-	{
-	return TRUE;
-	}
 
-	
-}
 	public function update($id)
 	{
 	$data = array(
@@ -122,8 +139,8 @@ class Admin_Event extends CI_Controller {
 			'event_category' => $this->input->post('category'),
 			'event_datetime' => @date('Y-m-d', @strtotime($this->input->post('eventDate'))),
 			'description' => $this->input->post('eventDescription'),
-			'event_approval' => $this->input->post('Status'),
-			'event_status' => 'Active',
+			'event_approval' => $this->input->post('approval'),
+			'event_status' => $this->input->post('status'),
 			'admin_remarks' => $this->input->post('adminRemarks'),
 		   );
 		   //insert the form data into database
@@ -155,7 +172,7 @@ class Admin_Event extends CI_Controller {
 	public function adminPending()
 	{	
 		$data = array(
-			'view_name' => 'Events',
+			'view_name' => 'Pending Events',
 		);
 
 		$this->load->model("eventModel");
@@ -168,7 +185,7 @@ class Admin_Event extends CI_Controller {
 	public function managerUpdate($id)
 	{
 	$data = array(
-		'view_name' => 'Approve Event',
+		'view_name' => 'Edit Event',
 	);
 	
 	$this->load->model("eventModel");
@@ -176,11 +193,10 @@ class Admin_Event extends CI_Controller {
 	$events = $this->eventModel->get_event_details($db_Id);
 	$data["events"] = $events;
 	$this->form_validation->set_rules('eventname', 'Event Name',
-		'trim|required|callback_alpha_only_space');
+		'trim|required');
 		$this->form_validation->set_rules('eventvenue', 'Event Venue',
-		'trim|required|callback_alpha_only_space');
-		$this->form_validation->set_rules('category', 'Category',
-		'callback_combo_check');
+		'trim|required');
+		$this->form_validation->set_rules('category', 'Category');
 		$this->form_validation->set_rules('eventDate', 'Event Date',
 		'required');
 		
@@ -193,9 +209,14 @@ class Admin_Event extends CI_Controller {
 		{	
 			$id = $this->input->post('eventId');
 			$data = array(
-
-			'event_approval' => $this->input->post('Status'),
-			'admin_remarks' => $this->input->post('adminRemarks'),
+			
+				'event_name' => $this->input->post('eventname'),
+				'event_venue' => $this->input->post('eventvenue'),
+				'event_category' => $this->input->post('category'),
+				'event_datetime' => @date('Y-m-d', @strtotime($this->input->post('eventDate'))),
+				'description' => $this->input->post('eventDescription'),
+				'event_status' => $this->input->post('Status'),
+			
 			
 		   );
 		   //insert the form data into database
@@ -204,7 +225,8 @@ class Admin_Event extends CI_Controller {
 		   //display success message
 		   $this->session->set_flashdata('msg', '<div class="alert alert-success textcenter">Event
 		   Updated</div>');
-		   redirect('admin/event/managerUpdate/');
+		   redirect('admin_event/managerUpdate/'.$id);
+		
 		
 
 		}
@@ -214,7 +236,7 @@ class Admin_Event extends CI_Controller {
 	public function viewAttendance($id)
 	{	
 		$data = array(
-			'view_name' => 'Event Attendanc7e',
+			'view_name' => 'Event Attendance',
 		);
 
 		$this->load->model("eventModel");
@@ -233,6 +255,13 @@ class Admin_Event extends CI_Controller {
 		$events = $this->eventModel->get_event_list_by_manager($id);
 		$data["events"] = $events;
 		$this->load->template('layouts/admin/event/managerView', $data);
+	}
+
+	public function approve_event($id) {
+		$eventid = $id;
+		$this->eventModel->approve_event($eventid);
+		redirect('/admin_event/adminPending');
+
 	}
 
 }

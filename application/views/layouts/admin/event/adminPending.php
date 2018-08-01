@@ -1,38 +1,66 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-
-
-<section id="action" class="responsive">
-    <div class="vertical-center">
+<section id="page-breadcrumb">
+    <div class="vertical-center sun">
          <div class="container">
             <div class="row">
-                <div class="action take-tour">
-                    <div class="col-sm-7 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
-                    
-                        <h1 class="title">Events in NYP</h1>
-                        <p>Interesting events waiting for you to explore!</p>
-                        <?php
-                        foreach($events as $event)
-                        {
-                        ?>
-                        <h3><?php echo $event->eventId; ?></h3>
-                        <h3><?php echo $event->eventname; ?></h3>
-                        By <strong><?php echo $event->eventvenue  ; ?></strong>
-                        <a href="<?php echo base_url().'admin_event/adminUpdate/'.$id = $event->eventId;?>" rel="stylesheet">Update</a>
-                        <?php
-                        }
-                        ?>
-                        </div>
-                    <div class="text-center visible-xs">
-                        <a href="#" class="btn btn-common">TAKE ME TO THE EVENTS</a>
+                <div class="action">
+                    <div class="col-sm-12">
+                        <h1 class="title"><?php echo $view_name; ?></h1>
                     </div>
-                    <div class="col-sm-5 text-center wow fadeInRight hidden-xs" data-wow-duration="500ms" data-wow-delay="300ms">
-                        <div class="tour-button">
-                            <a href="#" class="btn btn-common">TAKE ME TO THE EVENTS</a>
-                         </div>
-                    </div>
-                </div>
+                 </div>
             </div>
         </div>
     </div>
 </section>
-<!--/#action-->
+<!--/#page-breadcrumb-->
+
+<section class="section-base">
+    <div class="container-md">
+        <?php if(validation_errors()) { ?>
+            <div class="alert alert-danger"><?= validation_errors();?></div>
+        <?php } ?>
+        <?php if(isset($msg) && $msg != '') { ?>
+            <div class="alert alert-success"><?php echo $msg; ?></div>
+        <?php } ?>
+
+        <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) { ?>
+
+
+            <table class="table table-bordered table-striped data-table">
+                <thead>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Venue</th>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <?php echo $_SESSION['user_role']?><th>Created By</th>
+                        
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                    <?php foreach ($events as $event) { ?>
+                        <tr>
+                            <td><?php echo $event->eventname; ?></td>
+                            <td><?php echo $event->eventvenue; ?></td>
+                            <td><?php echo $event->eventDatetime; ?></td>
+                            <td><?php echo $event->eventCategory; ?></td>
+                            <td><?php echo $event->description; ?></td>
+                            <td><?php echo $event->eventOwner; ?></td>
+                            <td>
+                            <a href="<?php echo base_url('/admin_event/approve_event') . '/' . $event->eventId; ?>" class="btn btn-primary">Edit</a>   
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        <?php } else { ?>
+            <div class="text-center">
+                <h4>Please login to view this page.</h4>
+                <a href="<?php echo base_url('/staff/login'); ?>" class="btn btn-primary">Login</a>
+            </div>
+        <?php } ?>
+    </div>
+</section>

@@ -22,6 +22,8 @@
                     <div class="alert alert-danger text-center"><?php echo $error_msg; ?></div>
                 <?php } ?>
                 <div class="form-group">
+                <input type="hidden" name="eventId" id="eventId" class="form-control" valueplaceholder="Event Name"
+                    value="<?php echo set_value('eventId'); echo $events[0]->eventId; ?>">
                     <label for="name" class="sr-only">Event Name</label>
                     <input type="text" name="eventname" id="eventname" class="form-control" valueplaceholder="Event Name"
                     value="<?php echo set_value('eventname'); echo $events[0]->eventname; ?>">
@@ -45,11 +47,15 @@
                 </div>
                 <div class="form-group">
                     <label for="eventDescription" class="sr-only">Event Description</label>
-                    <textarea type="text" name="eventDescription" id="eventDescription" class="form-control" placeholder="Description"
-                    value="<?php echo set_value('description');?>"><?php echo $events[0]->description; ?>"</textarea>
+                    <textarea rows ="5" type="text" name="eventDescription" id="eventDescription" class="form-control" placeholder="Description"
+                    value="<?php echo set_value('description');?>"><?php echo $events[0]->description; ?></textarea>
                     
                 </div>
-
+                <div class="form-group">
+                    <label for="eventDate" class="sr-only">Contact Number</label>
+                    <input type="text" name="eventApproval" id="eventApproval" class="form-control" placeholder="Event Approval"
+                    value="<?php echo set_value('eventApproval'); echo $events[0]->eventApproval; ?>" readonly>
+                </div>
                 <div class="form-group">
                 <label for="Status" class="sr-only">Status</label>
                     <select name="Status" class="form-control">

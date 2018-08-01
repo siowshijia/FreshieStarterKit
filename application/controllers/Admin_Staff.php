@@ -105,11 +105,11 @@ class Admin_Staff extends CI_Controller {
 
 			if ($this->adminStaffModel->add_staff($name, $staff_number, $email, $contact_number, $user_role, $password)) {
 
-				redirect('/staff/dashboard');
+				redirect('/admin/staff/dashboard');
 
 			} else {
 
-				redirect('/staff/add');
+				redirect('/admin/staff/add');
 
 			}
         }
@@ -145,7 +145,7 @@ class Admin_Staff extends CI_Controller {
 
 				if ($this->adminStaffModel->update_staff($id, $name, $staff_number, $email, $contact_number, $user_role)) {
 
-					redirect('/staff/dashboard');
+					redirect('/admin/staff/dashboard');
 
 				} else {
 
@@ -164,7 +164,7 @@ class Admin_Staff extends CI_Controller {
 	public function delete($id) {
 
 		$this->adminStaffModel->delete_staff($id);
-		redirect('/staff/dashboard');
+		redirect('/admin/staff/dashboard');
 
 	}
 

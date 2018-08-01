@@ -26,6 +26,10 @@ jQuery(function($) {'use strict';
 		responsive: true,
 	});
 
+	$('.datepicker').datepicker({
+		format: 'd-M-yyyy'
+	});
+
 	// portfolio filter
 	$(window).load(function(){
 

@@ -30,6 +30,7 @@
             <table class="table table-bordered table-striped data-table">
                 <thead>
                     <tr>
+                        <th>Event Name</th>
                         <th>Admission Number</th>
                         <th>Name</th>
 
@@ -38,6 +39,7 @@
                 <tbody>
                     <?php foreach ($events as $event) { ?>
                         <tr>
+                            <td><?php echo $event->eventname; ?></td>
                             <td><?php echo $event->studentNo; ?></td>
                             <td><?php echo $event->studentname; ?></td>
 

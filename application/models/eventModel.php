@@ -60,6 +60,7 @@ class eventModel extends CI_Model{
         $this->db->select('event_id');
         $this->db->select('description');
         $this->db->select('admin_remarks');
+        $this->db->select('event_approval');
         $this->db->select('student_name');
         $this->db->join('student', 'event.event_owner = student.student_id');
         
@@ -77,6 +78,7 @@ class eventModel extends CI_Model{
         $list[$i]->eventCategory = $result[$i]->event_category;
         $list[$i]->studentName = $result[$i]->student_name;
         $list[$i]->description = $result[$i]->description;
+        $list[$i]->eventApproval = $result[$i]->event_approval;
         $list[$i]->eventId = $result[$i]->event_id;
         $list[$i]->adminRemarks = $result[$i]->admin_remarks;
         }
@@ -88,8 +90,11 @@ class eventModel extends CI_Model{
         $this->db->select('event_venue');
         $this->db->select('event_datetime');
         $this->db->select('event_category');
+        $this->db->select('description');
         $this->db->select('event_id');
+        $this->db->select('staff_name');
         $this->db->where('event_approval','Not Approved');
+        $this->db->join('staff', 'event.event_owner = staff.staff_id');
         $this->db->from('event');
         $query = $this->db->get();
         $result = $query->result();
@@ -101,7 +106,9 @@ class eventModel extends CI_Model{
         $list[$i]->eventvenue = $result[$i]->event_venue;
         $list[$i]->eventDatetime = $result[$i]->event_datetime;
         $list[$i]->eventCategory = $result[$i]->event_category;
+        $list[$i]->eventOwner = $result[$i]->staff_name;
         $list[$i]->eventId = $result[$i]->event_id;
+        $list[$i]->description = $result[$i]->description;
         }
         return $list;
     }
@@ -206,7 +213,7 @@ class eventModel extends CI_Model{
         $list[$i]->eventCategory = $result[$i]->event_category;
         $list[$i]->studentname = $result[$i]->student_name;
         $list[$i]->studentNo = $result[$i]->admission_number;
-        $list[$i]->datetime = $result[$i]->datetime;
+        $list[$i]->datetime = $result[$i]->event_datetime;
         }
         return $list;
         
@@ -239,5 +246,17 @@ class eventModel extends CI_Model{
         return $list;
     }
 
+    public function approve_event($id) {
+
+        $data = array(
+            'event_approval' => 'Approved',
+
+        );
+
+        $this->db->where('event_id', $id);
+
+        return $this->db->update('event', $data);
+
+    }
 
 }

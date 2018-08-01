@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group">
                     <label for="eventDescription" class="sr-only">Event Description</label>
-                    <input type="text" name="eventDescription" id="eventDescription" class="form-control" placeholder="Description">
+                    <textarea rows="5" type="text" name="eventDescription" id="eventDescription" class="form-control"></textarea>
                 </div>
                 <button class="btn btn-primary btn-block" type="submit">Add</button>
             </form>

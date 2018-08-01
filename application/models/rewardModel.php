@@ -12,70 +12,74 @@ class rewardModel extends CI_Model
         parent::__construct();
     }
 
-    public function create_user($name, $email, $password) {
+    public function get_all_reward() {
 
-        $data = array(
-            'student_name'  => $name,
-            'student_email' => $email,
-            'password'      => $this->hash_password($password),
-        );
-
-        return $this->db->insert('student', $data);
+        $this->db->select('*');
+        $this->db->from('rewards');
+        return $this->db->get()->result();
 
     }
 
-    public function resolve_user_login($email, $password) {
+    public function redeem_reward($user_id, $reward_id) {
 
-		$this->db->select('password');
-		$this->db->from('student');
-		$this->db->where('student_email', $email);
-		$hash = $this->db->get()->row('password');
+        $student_points = $this->rewardModel->_retrieve_student_points($user_id);
+        $reward_points = $this->rewardModel->_retrieve_reward_points($reward_id);
 
-		return $this->verify_password_hash($password, $hash);
-	}
+        if ($reward_points < $student_points) {
 
-    public function get_user_id_from_username($email) {
+            $data = array(
+                'points' => $student_points - $reward_points,
+            );
 
-		$this->db->select('student_id');
-		$this->db->from('student');
-		$this->db->where('student_email', $email);
-		return $this->db->get()->row('student_id');
+            $this->db->where('student_id', $user_id);
+            $this->db->update('student', $data);
 
-	}
+            $data2 = array(
+                'reward_id'  => $reward_id,
+                'student_id' => $user_id,
+                'amount'     => $reward_points,
+            );
 
-    public function get_user($user_id) {
+            $this->db->insert('reward_transaction', $data2);
 
+            return true;
+
+        } else {
+
+            return false;
+
+        }
+    }
+
+    public function _retrieve_reward_points($reward_id) {
+
+        $this->db->select('cost_points');
+		$this->db->from('rewards');
+		$this->db->where('reward_id', $reward_id);
+		$points = $this->db->get()->row('cost_points');
+
+        return $points;
+    }
+
+    public function _retrieve_reward_name($reward_id) {
+
+        $this->db->select('reward_name');
+		$this->db->from('rewards');
+		$this->db->where('reward_id', $reward_id);
+		$name = $this->db->get()->row('reward_name');
+
+        return $name;
+    }
+
+    public function _retrieve_student_points($user_id) {
+
+        $this->db->select('points');
 		$this->db->from('student');
 		$this->db->where('student_id', $user_id);
-		return $this->db->get()->row();
+		$points = $this->db->get()->row('points');
 
-	}
-
-    public function update_user($name, $adm_number, $email, $contact_number, $interest) {
-
-        $data = array(
-            'student_name'           => $name,
-            'admission_number'       => $adm_number,
-            'student_email'          => $email,
-            'student_contact_number' => $contact_number,
-            'interest'                => $interest,
-        );
-
-        return $this->db->update('student', $data);
-
+        return $points;
     }
-
-    private function hash_password($password) {
-
-        return password_hash($password, PASSWORD_BCRYPT);
-
-    }
-
-    private function verify_password_hash($password, $hash) {
-
-		return password_verify($password, $hash);
-
-	}
 }
 
 ?>

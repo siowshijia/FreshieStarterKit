@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" href="<?php echo base_url('/favicon.png'); ?>" type="image/png">
+
     <title><?php echo isset($view_name) ? $view_name : 'Page'; ?> | NYPFreshmanStarterKit</title>
+
     <link href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>" rel="stylesheet">
     <link href="<?php echo base_url("assets/css/jasny-bootstrap.min.css"); ?>" rel="stylesheet">
     <link href="<?php echo base_url("assets/css/datatables.min.css"); ?>" rel="stylesheet">
     <link href="<?php echo base_url("assets/css/responsive.dataTables.min.css"); ?>" rel="stylesheet">
+    <link href="<?php echo base_url("assets/css/bootstrap-datepicker3.min.css"); ?>" rel="stylesheet">
     <link href="<?php echo base_url("assets/css/font-awesome.min.css"); ?>" rel="stylesheet">
     <link href="<?php echo base_url("assets/css/animate.min.css"); ?>" rel="stylesheet">
     <link href="<?php echo base_url("assets/css/lightbox.css"); ?>" rel="stylesheet">
@@ -23,7 +27,7 @@
 	    <script src="js/respond.min.js"></script>
     <![endif]-->
 
-    <link rel="shortcut icon" href="<?php echo base_url() . 'assets/images/ico/favicon.ico'; ?>">
+    <link rel="icon" href="<?php echo base_url('assets/images/favicon.png'); ?>" type="image/png">
 </head><!--/head-->
 
 <body>

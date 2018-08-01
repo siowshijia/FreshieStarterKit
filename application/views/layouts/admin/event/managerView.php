@@ -51,7 +51,7 @@
                             <td><?php echo $event->description; ?></td>
                             <td><?php echo $event->eventId; ?></td>
                             <td>
-                            <a href="<?php echo base_url('/event/managerUpdate') . '/' . $event->eventId; ?>" class="btn btn-primary">Edit</a>
+                            <a href="<?php echo base_url('/admin_event/managerUpdate') . '/' . $event->eventId; ?>" class="btn btn-primary">Edit</a>
                             
                             </td>
                         </tr>
