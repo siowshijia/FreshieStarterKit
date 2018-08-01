@@ -47,7 +47,7 @@ class Student extends CI_Controller {
 					'message'   => 'You have successfully logged in.'
 				);
 
-				$this->load->template('layouts/student/success', $success_data);
+				redirect('student/profile');
 
 			} else {
 
