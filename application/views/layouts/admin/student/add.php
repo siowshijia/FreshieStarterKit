@@ -22,38 +22,38 @@
                     <div class="alert alert-danger text-center"><?php echo $error_msg; ?></div>
                 <?php } ?>
                 <div class="form-group">
-                    <label for="name" class="sr-only">Name</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="Name">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" class="form-control" value="<?php echo set_value('name'); ?>">
                     <span class="text-danger"><?php echo form_error('name'); ?></span>
                 </div>
                 <div class="form-group">
-                    <label for="admission_number" class="sr-only">Admission Number</label>
-                    <input type="text" name="admission_number" id="admission_number" class="form-control" placeholder="Admission Number">
+                    <label for="admission_number">Admission Number</label>
+                    <input type="text" name="admission_number" id="admission_number" class="form-control" value="<?php echo set_value('admission_number'); ?>">
                     <span class="text-danger"><?php echo form_error('admission_number'); ?></span>
                 </div>
                 <div class="form-group">
-                    <label for="email" class="sr-only">Email address</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="Email address">
+                    <label for="email">Email address</label>
+                    <input type="email" name="email" id="email" class="form-control" value="<?php echo set_value('email'); ?>">
                     <span class="text-danger"><?php echo form_error('email'); ?></span>
                 </div>
                 <div class="form-group">
-                    <label for="contact_number" class="sr-only">Contact Number</label>
-                    <input type="text" name="contact_number" id="contact_number" class="form-control" placeholder="Contact Number">
+                    <label for="contact_number">Contact Number</label>
+                    <input type="text" name="contact_number" id="contact_number" class="form-control" value="<?php echo set_value('contact_number'); ?>">
                     <span class="text-danger"><?php echo form_error('contact_number'); ?></span>
                 </div>
                 <div class="form-group">
-                    <label for="interest" class="sr-only">Interest</label>
-                    <textarea name="interest" id="interest" class="form-control" rows="8" cols="80" placeholder="Interest"></textarea>
+                    <label for="interest">Interest</label>
+                    <textarea name="interest" id="interest" class="form-control" rows="8" cols="80"><?php echo set_value('interest'); ?></textarea>
                     <span class="text-danger"><?php echo form_error('interest'); ?></span>
                 </div>
                 <div class="form-group">
-                    <label for="points" class="sr-only">Points</label>
-                    <input type="text" name="points" id="points" class="form-control" placeholder="Points">
+                    <label for="points">Points</label>
+                    <input type="text" name="points" id="points" class="form-control" value="<?php echo set_value('points'); ?>">
                     <span class="text-danger"><?php echo form_error('points'); ?></span>
                 </div>
                 <div class="form-group">
-                    <label for="password" class="sr-only">Password</label>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control">
                     <span class="text-danger"><?php echo form_error('password'); ?></span>
                 </div>
                 <button class="btn btn-primary btn-block" type="submit">Add</button>

@@ -77,8 +77,8 @@ class Admin_Staff extends CI_Controller {
 		);
 
         //set validation rules
-        $this->form_validation->set_rules('name', 'Name', 'required');
-        $this->form_validation->set_rules('staff_number', 'Staff Number', 'required');
+        $this->form_validation->set_rules('name', 'Name', 'required|callback_alpha_only_space');
+        $this->form_validation->set_rules('staff_number', 'Staff Number', 'required|callback_alpha_only_space');
         $this->form_validation->set_rules(
 			'email', 'Email',
 			'required|valid_email|is_unique[student.student_email]',
@@ -87,7 +87,7 @@ class Admin_Staff extends CI_Controller {
 	                'is_unique'     => 'This %s already exists.'
 	        )
 		);
-		$this->form_validation->set_rules('contact_number', 'Contact Number', 'required');
+		$this->form_validation->set_rules('contact_number', 'Contact Number', 'required|numeric');
 		$this->form_validation->set_rules('user_role', 'User role', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
 
@@ -128,11 +128,11 @@ class Admin_Staff extends CI_Controller {
 			$data['user'] = $this->adminStaffModel->get_user($id);
 
 			//set validation rules
-	        $this->form_validation->set_rules('name', 'Name', 'required');
-	        $this->form_validation->set_rules('staff_number', 'Admission Number', 'required');
-	        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-			$this->form_validation->set_rules('contact_number', 'Contact Number', 'required');
-			$this->form_validation->set_rules('user_role', 'User Role', 'required');
+			$this->form_validation->set_rules('name', 'Name', 'required|callback_alpha_only_space');
+	        $this->form_validation->set_rules('staff_number', 'Staff Number', 'required|callback_alpha_only_space');
+	        $this->form_validation->set_rules('email', 'Email','required|valid_email');
+			$this->form_validation->set_rules('contact_number', 'Contact Number', 'required|numeric');
+			$this->form_validation->set_rules('user_role', 'User role', 'required');
 
 	        if ($this->form_validation->run() == FALSE) {
 
@@ -194,5 +194,18 @@ class Admin_Staff extends CI_Controller {
 
 		}
 
+	}
+
+	public function alpha_only_space($str)
+	{
+		if (!preg_match("/^([-a-z ])+$/i", $str))
+		{
+			$this->form_validation->set_message('alpha_only_space', 'The %s field must contain only alphabets or spaces');
+			return FALSE;
+		}
+		else
+		{
+			return TRUE;
+		}
 	}
 }

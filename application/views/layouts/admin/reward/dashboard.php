@@ -53,7 +53,7 @@
                             <td><?php echo $reward->expired_date; ?></td>
                             <td>
                                 <a href="<?php echo base_url('/admin/reward/edit') . '/' . $reward->reward_id; ?>" class="btn btn-primary">Edit</a>
-                                <a href="<?php echo base_url('/admin/reward/delete') . '/' . $reward->reward_id; ?>" class="btn btn-primary">Delete</a>
+                                <a href="<?php echo base_url('/admin/reward/delete') . '/' . $reward->reward_id; ?>" class="btn btn-primary" onclick="return confirm('Are you sure you want to delete?');">Delete</a>
                             </td>
                         </tr>
                     <?php } ?>
