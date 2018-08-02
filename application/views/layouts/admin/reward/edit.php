@@ -54,14 +54,9 @@
                     <span class="text-danger"><?php echo form_error('description'); ?></span>
                 </div>
                 <div class="form-group">
-<<<<<<< HEAD
-                    <label for="expired_date" class="sr-only">Expired Date</label>
-                    <input type="text" name="expired_date" id="expired_date" class="form-control datepicker" placeholder="Expired Date" value="<?php echo $reward->expired_date; ?>">
-=======
                     <label for="expired_date">Expired Date</label>
                     <input type="text" name="expired_date" id="expired_date" class="form-control datepicker" value="<?php echo $reward->expired_date; ?>">
                     <span class="text-danger"><?php echo form_error('expired_date'); ?></span>
->>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
                 </div>
                 <button class="btn btn-primary btn-block" type="submit">Save</button>
                 <a href="<?php echo base_url('/admin/reward/dashboard'); ?>" class="btn btn-primary btn-block m-t-sm">Back</a>

@@ -27,19 +27,7 @@ class Reward extends CI_Controller {
 		if ($boolean) {
 
 			$reward_name = $this->rewardModel->_retrieve_reward_name($reward_id);
-<<<<<<< HEAD
-            $msg = 'You have successfully redeemed ' . $reward_name . '.';
 
-		} else {
-
-			$msg = 'You do not have sufficient points to redeem this reward.';
-
-		}
-
-		echo $msg;
-
-		//redirect('/rewards');
-=======
             $msg = '<div class="alert alert-success text-center">You have successfully redeemed ' . $reward_name . '.</div>';
 
 		} else {
@@ -51,6 +39,5 @@ class Reward extends CI_Controller {
 		$this->session->set_flashdata('msg', $msg);
 
 		redirect('/reward');
->>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
 	}
 }
