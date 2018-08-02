@@ -261,8 +261,7 @@ class Student extends CI_Controller {
 	{
 		if (!preg_match("/^([-a-z ])+$/i", $str))
 		{
-			$this->form_validation->set_message('alpha_only_space', 'The %s field must
-			contain only alphabets or spaces');
+			$this->form_validation->set_message('alpha_only_space', 'The %s field must contain only alphabets or spaces');
 			return FALSE;
 		}
 		else
@@ -275,8 +274,7 @@ class Student extends CI_Controller {
 	{
 		if (!preg_match("/^([1]\d{5}[A-Z])+$/i", $str))
 		{
-			$this->form_validation->set_message('valid_admin_no', 'The %s field must
-			be in this format: 123456A');
+			$this->form_validation->set_message('valid_admin_no', 'The %s field must be in this format: 123456A');
 			return FALSE;
 		}
 		else

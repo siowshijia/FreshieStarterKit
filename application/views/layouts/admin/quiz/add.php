@@ -39,7 +39,7 @@
                 </div>
                 <div class="form-group">
                     <label for="question_2">Question 2</label>
-                    <textarea name="question_2" cols="40" rows="3" id="question_2" class="form-control" placeholder="Question 2"></textarea>
+                    <textarea name="question_2" cols="40" rows="3" id="question_2" class="form-control" placeholder="Question 2" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="answer_2">Answer</label>
