@@ -16,7 +16,7 @@
 <!--/#page-breadcrumb-->
 
 <section class="section-base">
-    <div class="container-xs">
+    <div class="container-md">
         <h3 class="ds-blue-title">ATTENDANCE POLICY</h3></hr>
         <ol>
             <li><p>
