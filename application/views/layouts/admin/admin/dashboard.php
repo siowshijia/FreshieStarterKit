@@ -15,18 +15,46 @@
 <!--/#page-breadcrumb-->
 
 <section class="section-base">
-    <div class="container-xs">
+    <div class="container-md">
 
-        <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) { ?>
-            <div class="categories">
-                <h3>Admin Site Map</h3>
-                <ul class="nav navbar-stacked">
-                    <li><a href="<?php echo base_url('/admin/staff/dashboard'); ?>">Staff</a></li>
-                    <li><a href="<?php echo base_url('/admin/student/dashboard'); ?>">Student</a></li>
-                    <li><a href="<?php echo base_url('/admin/quiz'); ?>">Quizzes</a></li>
-                    <li><a href="<?php echo base_url('/admin/event'); ?>">Events</a></li>
-                    <li><a href="<?php echo base_url('/admin/reward/dashboard'); ?>">Reward</a></li>
-                </ul>
+        <?php if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Admin')) { ?>
+            <div class="row">
+                <div class="col-xs-12 col-md-4">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Events</h3>
+                        </div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                    </div>
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Quizzes</h3>
+                        </div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                    </div>
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Rewards</h3>
+                        </div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-8">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Adminstrator</h3>
+                        </div>
+                        <div class="panel-body">
+                            Panel content
+                        </div>
+                    </div>
+                </div>
             </div>
         <?php } else { ?>
             <div class="text-center">

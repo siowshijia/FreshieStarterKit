@@ -2674,10 +2674,10 @@ span.stButton_gradient,
 .panel-group{
   border: 1px solid #eee;
 }
-.panel-default{
+/* .panel-default{
   border: 0;
-}
-.panel-group .panel{
+} */
+/* .panel-group .panel{
   border-radius: 0;
 }
 .panel-group .panel+.panel{
@@ -2695,7 +2695,7 @@ span.stButton_gradient,
 
 .panel-default>.panel-heading+.panel-collapse .panel-body{
   border-top-color: #eee;
-}
+} */
 
 
 .nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus{
