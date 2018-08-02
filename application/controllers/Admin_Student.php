@@ -42,7 +42,6 @@ class Admin_Student extends CI_Controller {
 			'email', 'Email',
 			'required|valid_email|is_unique[student.student_email]',
 				array(
-	                'required'      => 'You have not provided %s.',
 	                'is_unique'     => 'This %s already exists.'
 	        )
 		);
