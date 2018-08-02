@@ -20,7 +20,7 @@
         <?php if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Admin')) { ?>
             <div class="row">
                 <div class="col-xs-12 col-md-4">
-                    <div class="panel panel-info">
+                    <div class="panel panel-danger">
                         <div class="panel-heading">
                             <h3 class="panel-title">Events</h3>
                         </div>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-8">
-                    <div class="panel panel-default">
+                    <div class="panel panel-info">
                         <div class="panel-heading">
                             <h3 class="panel-title">Adminstrator</h3>
                         </div>
