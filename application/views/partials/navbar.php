@@ -17,17 +17,31 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="<?php echo activate_menu('home'); ?>"><a href="<?php echo base_url(); ?>">Home</a></li>
-                    <li class="<?php echo activate_menu('student'); ?>">
-                        <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) { ?>
-                            <a href="<?php echo base_url('/student/profile'); ?>">Profile</a>
-                        <?php } else { ?>
-                            <a href="<?php echo base_url('/student/login'); ?>">Profile</a>
-                        <?php } ?>
-                    </li>
-                    <li class="<?php echo activate_menu('quiz'); ?>"><a href="<?php echo base_url('/quiz'); ?>">Quizzes</a></li>
-                    <li class="<?php echo activate_menu('event'); ?>"><a href="<?php echo base_url('/event'); ?>">Event</a></li>
-                    <li class="<?php echo activate_menu('reward'); ?>"><a href="<?php echo base_url('/reward'); ?>">Reward</a></li>
+                    <?php if ($_SESSION['user_role'] === 'Admin') { ?>
+
+                        <li class="<?php echo activate_menu('home'); ?>"><a href="<?php echo base_url(); ?>">Home</a></li>
+                        <li class="<?php echo activate_menu('student'); ?>"><a href="<?php echo base_url('/admin/student/dashboard'); ?>">Student</a></li>
+                        <li class="<?php echo activate_menu('student'); ?>"><a href="<?php echo base_url('/admin/staff/dashboard'); ?>">Staff</a></li>
+                        <li class="<?php echo activate_menu('quiz'); ?>"><a href="<?php echo base_url('/quiz'); ?>">Quizzes</a></li>
+                        <li class="<?php echo activate_menu('event'); ?>"><a href="<?php echo base_url('/event'); ?>">Event</a></li>
+                        <li class="<?php echo activate_menu('reward'); ?>"><a href="<?php echo base_url('/admin/reward/dashboard'); ?>">Reward</a></li>
+
+                    <?php } else { ?>
+
+                        <li class="<?php echo activate_menu('home'); ?>"><a href="<?php echo base_url(); ?>">Home</a></li>
+                        <li class="<?php echo activate_menu('student'); ?>">
+                            <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) { ?>
+                                <a href="<?php echo base_url('/student/profile'); ?>">Profile</a>
+                            <?php } else { ?>
+                                <a href="<?php echo base_url('/student/login'); ?>">Profile</a>
+                            <?php } ?>
+                        </li>
+                        <li class="<?php echo activate_menu('quiz'); ?>"><a href="<?php echo base_url('/quiz'); ?>">Quizzes</a></li>
+                        <li class="<?php echo activate_menu('event'); ?>"><a href="<?php echo base_url('/event'); ?>">Event</a></li>
+                        <li class="<?php echo activate_menu('reward'); ?>"><a href="<?php echo base_url('/reward'); ?>">Reward</a></li>
+
+                    <?php } ?>
+
                     <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) { ?>
                         <li><a href="<?php echo base_url('/logout'); ?>">Log Out</a></li>
                     <?php } ?>
