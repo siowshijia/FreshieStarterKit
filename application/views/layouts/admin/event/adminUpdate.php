@@ -16,7 +16,7 @@
 
 <section class="section-base">
     <div class="container-xs">
-        <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) { ?>
+    <?php if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Admin')) { ?>
             <form action="" method="post">
                 <?php if (isset($error_msg)) { ?>
                     <div class="alert alert-danger text-center"><?php echo $error_msg; ?></div>
@@ -34,10 +34,11 @@
                     value="<?php echo set_value('eventvenue'); echo $events[0]->eventvenue; ?>">
                 </div>
                 <div class="form-group">
+                <?php  $category =  $events[0]->eventCategory;?>
                 <label for="category" class="sr-only">Category</label>
-                    <select name="category" class="form-control">
-                        <option value="sports">Sports</option>
-                        <option value="arts">Arts</option>
+                    <select name="category" class="form-control" selected="<?php echo $events[0]->eventCategory; ?>">
+                        <option value="Sports" <?php if( $category=="Sports"){ echo'selected="selected"';}?>>Sports</option>
+                        <option value="Arts" <?php if( $category=="Arts"){ echo'selected="selected"';}?>>Arts</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -52,10 +53,11 @@
                     
                 </div>
                 <div class="form-group">
-                <label for="Approval" class="sr-only">Approval</label>
-                    <select name="approval" class="form-control">
-                        <option value="Approved">Approve</option>
-                        <option value="Denied">Deny</option>
+                    <?php  $status =  $events[0]->eventStatus;?>
+                <label for="Status" class="sr-only">Status</label>
+                    <select name="Status" class="form-control">
+                        <option value="Active" <?php if($status=="Active"){ echo'selected="selected"';}?>>Active</option>
+                        <option value="Inactive" <?php if( $status=="Inactive"){ echo'selected="selected"';}?>>Inactive</option>
                     </select>
                 </div>
 

@@ -23,7 +23,7 @@
             <div class="alert alert-success"><?php echo $msg; ?></div>
         <?php } ?>
 
-        <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) { ?>
+        <?php if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Admin')) { ?>
 
 
             <table class="table table-bordered table-striped data-table">
@@ -34,7 +34,7 @@
                         <th>Date</th>
                         <th>Category</th>
                         <th>Description</th>
-                        <?php echo $_SESSION['user_role']?><th>Created By</th>
+                        <th>Created By</th>
                         
                         <th>&nbsp;</th>
                     </tr>

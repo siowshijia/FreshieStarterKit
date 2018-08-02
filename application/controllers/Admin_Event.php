@@ -47,7 +47,7 @@ class Admin_Event extends CI_Controller {
 			'event_category' => $this->input->post('category'),
 			'event_datetime' => @date('Y-m-d', @strtotime($this->input->post('eventDate'))),
 			'description' => $this->input->post('eventDescription'),
-			'event_status' => 'Pending',
+			'event_status' => 'Inactive',
 			'event_approval' => 'Not Approved',
 			'event_owner' => $_SESSION['user_id']
 		   );
@@ -71,11 +71,10 @@ class Admin_Event extends CI_Controller {
 		
 		//set validation rules
 		$this->form_validation->set_rules('eventname', 'Event Name',
-		'trim|required|callback_alpha_only_space');
+		'trim|required');
 		$this->form_validation->set_rules('eventvenue', 'Event Venue',
-		'trim|required|callback_alpha_only_space');
-		$this->form_validation->set_rules('category', 'Category',
-		'callback_combo_check');
+		'trim|required');
+		$this->form_validation->set_rules('category', 'Category');
 		$this->form_validation->set_rules('eventDate', 'Event Date',
 		'required');
 		
@@ -225,7 +224,7 @@ class Admin_Event extends CI_Controller {
 		   //display success message
 		   $this->session->set_flashdata('msg', '<div class="alert alert-success textcenter">Event
 		   Updated</div>');
-		   redirect('admin_event/managerUpdate/'.$id);
+		   redirect('admin_event/managerView');
 		
 		
 
@@ -262,6 +261,17 @@ class Admin_Event extends CI_Controller {
 		$this->eventModel->approve_event($eventid);
 		redirect('/admin_event/adminPending');
 
+	}
+
+	public function viewStatus()
+	{	
+		$data = array(
+			'view_name' => 'Events',
+		);
+		$this->load->model("eventModel");
+		$events = $this->eventModel->get_event_status();
+		$data["events"] = $events;
+		$this->load->template('layouts/event/viewStatus', $data);
 	}
 
 }

@@ -16,7 +16,7 @@
 
 <section class="section-base">
     <div class="container-xs">
-        <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) { ?>
+    <?php if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Event Manager')) { ?>
             <form action="" method="post">
                 <?php if (isset($error_msg)) { ?>
                     <div class="alert alert-danger text-center"><?php echo $error_msg; ?></div>
@@ -37,8 +37,8 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="eventDate" class="sr-only">Contact Number</label>
-                    <input type="text" name="eventDate" id="eventDate" class="form-control" placeholder="Event Date">
+                    <label for="eventDate" class="sr-only">Event Date</label>
+                    <input type="text" name="eventDate" id="eventDate" class="form-control" placeholder="Event Date" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label for="eventDescription" class="sr-only">Event Description</label>
@@ -54,3 +54,10 @@
         <?php } ?>
     </div>
 </section>
+<script type="text/javascript">
+$(function () {
+    $('#eventDate').datepicker({
+        format: 'd-M-yyyy'
+    });
+});
+</script>

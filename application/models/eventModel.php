@@ -15,8 +15,11 @@ class eventModel extends CI_Model{
         $this->db->select('event_category');
         $this->db->select('student_name');
         $this->db->select('description');
+        $this->db->where('event_approval','Approved');
+        $this->db->where('event_status','Active');
         $this->db->join('student', 'event.event_owner = student.student_id');
         $this->db->select('event_id');
+
         $this->db->from('event');
         $query = $this->db->get();
         $result = $query->result();
@@ -61,6 +64,7 @@ class eventModel extends CI_Model{
         $this->db->select('description');
         $this->db->select('admin_remarks');
         $this->db->select('event_approval');
+        $this->db->select('event_status');
         $this->db->select('student_name');
         $this->db->join('student', 'event.event_owner = student.student_id');
         
@@ -79,6 +83,7 @@ class eventModel extends CI_Model{
         $list[$i]->studentName = $result[$i]->student_name;
         $list[$i]->description = $result[$i]->description;
         $list[$i]->eventApproval = $result[$i]->event_approval;
+        $list[$i]->eventStatus = $result[$i]->event_status;
         $list[$i]->eventId = $result[$i]->event_id;
         $list[$i]->adminRemarks = $result[$i]->admin_remarks;
         }
@@ -113,7 +118,7 @@ class eventModel extends CI_Model{
         return $list;
     }
 
-    function get_event_status(){
+    function get_event_status($id){
         $this->db->select('event_name');
         $this->db->select('event_venue');
         $this->db->select('event_datetime');
@@ -123,7 +128,7 @@ class eventModel extends CI_Model{
         
         
         
-        $this->db->where('event_owner');
+        $this->db->where('event_owner',$id);
         $this->db->from('event');
         $query = $this->db->get();
         $result = $query->result();
@@ -226,6 +231,8 @@ class eventModel extends CI_Model{
         $this->db->select('event_datetime');
         $this->db->select('event_category');
         $this->db->select('event_id');
+        $this->db->select('event_approval');
+        $this->db->select('event_status');
         $this->db->select('description');
         
         $this->db->where('event_owner',$id);
@@ -241,6 +248,8 @@ class eventModel extends CI_Model{
         $list[$i]->eventDatetime = $result[$i]->event_datetime;
         $list[$i]->eventCategory = $result[$i]->event_category;
         $list[$i]->description = $result[$i]->description;
+        $list[$i]->eventApproval = $result[$i]->event_approval;
+        $list[$i]->eventStatus = $result[$i]->event_status;
         $list[$i]->eventId = $result[$i]->event_id;
         }
         return $list;

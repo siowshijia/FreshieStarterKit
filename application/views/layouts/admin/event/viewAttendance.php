@@ -23,7 +23,7 @@
             <div class="alert alert-success"><?php echo $msg; ?></div>
         <?php } ?>
 
-        <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) { ?>
+        <?php if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Event Manager')) { ?>
             <div class="m-b-md">
             </div>
 
@@ -39,7 +39,7 @@
                 <tbody>
                     <?php foreach ($events as $event) { ?>
                         <tr>
-                            <td><?php echo $event->eventname; ?></td>
+                            <td><?php echo $event->eventname; ?></td>   
                             <td><?php echo $event->studentNo; ?></td>
                             <td><?php echo $event->studentname; ?></td>
 

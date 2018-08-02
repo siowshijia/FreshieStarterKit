@@ -23,7 +23,7 @@
             <div class="alert alert-success"><?php echo $msg; ?></div>
         <?php } ?>
 
-        <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) { ?>
+        <?php if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Event Manager')) { ?>
             <div class="m-b-md">
             <a href="<?php echo base_url('/admin_event/managerCreate')?>" class="btn btn-primary">Add Event</a>
             </div>
@@ -35,8 +35,8 @@
                         <th>Venue</th>
                         <th>Date</th>
                         <th>Category</th>
-                        <th>Description</th>
-                        <th>User Role</th>
+                        <th>Event Status</th>
+                        <th>Approval Status</th>
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
@@ -48,8 +48,8 @@
                             <td><?php echo $event->eventvenue; ?></td>
                             <td><?php echo $event->eventDatetime; ?></td>
                             <td><?php echo $event->eventCategory; ?></td>
-                            <td><?php echo $event->description; ?></td>
-                            <td><?php echo $event->eventId; ?></td>
+                            <td><?php echo $event->eventStatus; ?></td>
+                            <td><?php echo $event->eventApproval; ?></td>
                             <td>
                             <a href="<?php echo base_url('/admin_event/managerUpdate') . '/' . $event->eventId; ?>" class="btn btn-primary">Edit</a>
                             

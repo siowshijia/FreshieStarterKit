@@ -23,9 +23,10 @@
             <div class="alert alert-success"><?php echo $msg; ?></div>
         <?php } ?>
 
-        <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) { ?>
+        <?php if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Admin')) { ?>
             <div class="m-b-md">
             <a href="<?php echo base_url('/admin_event/adminCreate')?>" class="btn btn-primary">Add Event</a>
+            <a href="<?php echo base_url('/admin_event/adminPending')?>" class="btn btn-primary">Pending Event</a>
             </div>
 
             <table class="table table-bordered table-striped data-table">
