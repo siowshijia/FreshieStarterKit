@@ -76,6 +76,15 @@ $route['admin/quiz/add'] = 'admin_quiz/add';
 $route['admin/quiz/edit/(:num)'] = 'admin_quiz/edit/$1';
 $route['admin/quiz/delete/(:num)'] = 'admin_quiz/delete/$1';
 
+// Event
+$route['admin/event/manager'] = 'admin_event/managerview';
+$route['admin/event/manager/create'] = 'admin_event/managerCreate';
+$route['admin/event/manager/edit(:num)'] = 'admin_event/managerUpdate/$1';
+$route['admin/event/manager/attendance(:num)'] = 'admin_event/viewAttendance/$1';
+$route['admin/event/dashboard'] = 'admin_event/adminview';
+
 $route['default_controller'] = 'home';
 $route['404_override'] = 'home/error404';
 $route['translate_uri_dashes'] = FALSE;
+
+

@@ -274,4 +274,11 @@ class Admin_Event extends CI_Controller {
 		$this->load->template('layouts/event/viewStatus', $data);
 	}
 
+	public function markAttendance($eventId,$studentId) {
+		
+		$this->eventModel->mark_attendance($eventId,$studentId);
+		$this->eventModel->add_points($studentId);
+		redirect('/admin_event/viewAttendance/'. $eventId);
+
+	}
 }
