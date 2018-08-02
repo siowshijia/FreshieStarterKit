@@ -16,11 +16,18 @@
 
 <section class="section-base">
     <div class="container-md">
+<<<<<<< HEAD
+        <?php if ($rewards) { ?>
+            <div class="row">
+                <?php foreach ($rewards as $reward) { ?>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+=======
         <?php echo $this->session->flashdata('msg'); ?>
         <?php if ($rewards) { ?>
             <div class="row flex-row">
                 <?php foreach ($rewards as $reward) { ?>
                     <div class="col-xs-12 col-sm-6 col-md-4 m-b-md">
+>>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
                         <div class="product">
                             <img src="<?php echo base_url('/uploads/' . $reward->image); ?>" alt="">
                             <h2><?php echo $reward->reward_name; ?></h2>

@@ -23,15 +23,15 @@
         <?php if(isset($msg) && $msg != '') { ?>
             <div class="alert alert-success"><?php echo $msg; ?></div>
         <?php } ?>
+           
+        <div> <a href="<?php echo base_url('/event/Attendance')?>" class="btn btn-primary">Registered Events</a></div><br>
 
-
-         
                     <?php foreach ($events as $event) { ?>
                         
                             <div class="panel panel-primary">
-                            <div class="panel-heading"><?php echo $event->eventname; ?>@<?php echo $event->eventvenue; ?></div>
+                            <div class="panel-heading"><?php echo $event->eventname; ?><div class='pull-right'><?php echo $event->eventCategory; ?></div></div>
                             <div class="panel-body">
-                            <?php echo $event->eventCategory; ?> <a class='pull-right' href="<?php echo base_url('/event/details') . '/' . $event->eventId; ?>" class="btn btn-primary">View Details</a>
+                            <?php echo $event->eventvenue; ?>@<?php echo $event->eventDatetime; ?> <a class='pull-right' href="<?php echo base_url('/event/details') . '/' . $event->eventId; ?>" class="btn btn-primary">View Details</a>
                             </div>
 </div>
                            

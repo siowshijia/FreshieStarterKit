@@ -34,6 +34,14 @@
             <table class="table table-bordered table-striped data-table">
                 <thead>
                     <tr>
+<<<<<<< HEAD
+                        <th>Quiz ID</th>
+                        <th>Question</th>
+                        <th>Answer</th>
+                        <th>Category</th>
+                        <th>Created By</th>
+                        <th>Updated By</th>
+=======
                         <th>ID</th>
                         <th>Name</th>
                         <th>Description</th>
@@ -43,6 +51,7 @@
                         <th>Answer 2</th>
                         <th>Question 3</th>
                         <th>Answer 3</th>
+>>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
@@ -50,6 +59,16 @@
                     <?php foreach ($quizzes as $quiz) { ?>
                         <tr>
                             <td><?php echo $quiz->quiz_id; ?></td>
+<<<<<<< HEAD
+                            <td><?php echo $quiz->quiz_question; ?></td>
+                            <td><?php echo $quiz->quiz_answer; ?></td>
+                            <td><?php echo $quiz->quiz_cat_id; ?></td>
+                            <td><?php echo $quiz->staff_name; ?></td>
+                            <td><?php echo $quiz->staff_name; ?></td>
+                            <td>
+                                <a href="<?php echo base_url('/admin/quiz/edit') . '/' . $quiz->quiz_id; ?>" class="btn btn-primary">Edit</a>
+                                <a href="<?php echo base_url('/admin/quiz/delete') . '/' . $quiz->quiz_id; ?>" class="btn btn-primary">Delete</a>
+=======
                             <td><?php echo $quiz->quiz_name; ?></td>
                             <td><?php echo $quiz->description; ?></td>
                             <td><?php echo $quiz->question_1; ?></td>
@@ -61,6 +80,7 @@
                             <td>
                                 <a href="<?php echo base_url('/admin/quiz/edit') . '/' . $quiz->quiz_id; ?>" class="btn btn-primary">Edit</a>
                                 <a href="<?php echo base_url('/admin/quiz/delete') . '/' . $quiz->quiz_id; ?>" class="btn btn-primary" onclick="return confirm('Are you sure you want to delete?') ;">Delete</a>
+>>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
                             </td>
                         </tr>
                     <?php } ?>

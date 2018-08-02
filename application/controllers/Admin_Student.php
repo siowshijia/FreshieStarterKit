@@ -36,12 +36,26 @@ class Admin_Student extends CI_Controller {
 		);
 
         //set validation rules
+<<<<<<< HEAD
+        $this->form_validation->set_rules('name', 'Name', 'required');
+        $this->form_validation->set_rules('admission_number', 'Admission Number', 'required');
+=======
         $this->form_validation->set_rules('name', 'Name', 'required|callback_alpha_only_space');
         $this->form_validation->set_rules('admission_number', 'Admission Number', 'required|callback_valid_admin_no');
+>>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
         $this->form_validation->set_rules(
 			'email', 'Email',
 			'required|valid_email|is_unique[student.student_email]',
 				array(
+<<<<<<< HEAD
+	                'required'      => 'You have not provided %s.',
+	                'is_unique'     => 'This %s already exists.'
+	        )
+		);
+		$this->form_validation->set_rules('contact_number', 'Contact Number', 'required');
+		$this->form_validation->set_rules('interest', 'Interest', 'required');
+		$this->form_validation->set_rules('points', 'Points', 'required');
+=======
 	                'is_unique'     => 'This %s already exists.'
 	        )
 		);
@@ -49,6 +63,7 @@ class Admin_Student extends CI_Controller {
 		$this->form_validation->set_rules('interest', 'Interest', 'required');
 		$this->form_validation->set_rules('points', 'Points', 'required|numeric');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
+>>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
 
         if ($this->form_validation->run() == FALSE) {
 
@@ -61,11 +76,16 @@ class Admin_Student extends CI_Controller {
 			$contact_number   = $this->input->post('contact_number');
 			$interest         = $this->input->post('interest');
 			$points           = $this->input->post('points');
+<<<<<<< HEAD
+
+			if ($this->adminStudentModel->add_student($name, $admission_number, $email, $contact_number, $interest, $points)) {
+=======
 			$password         = $this->input->post('password');
 
 			if ($this->adminStudentModel->add_student($name, $admission_number, $email, $contact_number, $interest, $points, $password)) {
 
 				$this->session->set_flashdata('add-student-msg', '<div class="alert alert-success text-center">You have successfully added a student.</div>');
+>>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
 
 				redirect('/admin/student/dashboard');
 
@@ -88,12 +108,21 @@ class Admin_Student extends CI_Controller {
 			$data['user'] = $this->adminStudentModel->get_user($id);
 
 			//set validation rules
+<<<<<<< HEAD
+			$this->form_validation->set_rules('name', 'Name', 'required');
+	        $this->form_validation->set_rules('admission_number', 'Admission Number', 'required');
+	        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+			$this->form_validation->set_rules('contact_number', 'Contact Number', 'required');
+			$this->form_validation->set_rules('interest', 'Interest', 'required');
+			$this->form_validation->set_rules('points', 'Points', 'required');
+=======
 			$this->form_validation->set_rules('name', 'Name', 'required|callback_alpha_only_space');
 	        $this->form_validation->set_rules('admission_number', 'Admission Number', 'required|callback_valid_admin_no');
 	        $this->form_validation->set_rules('email', 'Email','required|valid_email');
 			$this->form_validation->set_rules('contact_number', 'Contact Number', 'required|callback_valid_contact_no');
 			$this->form_validation->set_rules('interest', 'Interest', 'required');
 			$this->form_validation->set_rules('points', 'Points', 'required|numeric');
+>>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
 
 	        if ($this->form_validation->run() == FALSE) {
 
@@ -109,8 +138,11 @@ class Admin_Student extends CI_Controller {
 
 				if ($this->adminStudentModel->update_student($id, $name, $admission_number, $email, $contact_number, $interest, $points)) {
 
+<<<<<<< HEAD
+=======
 					$this->session->set_flashdata('edit-student-msg', '<div class="alert alert-success text-center">The student&apos;s details has been updated.</div>');
 
+>>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
 					redirect('/admin/student/dashboard');
 
 				} else {
@@ -130,6 +162,11 @@ class Admin_Student extends CI_Controller {
 	public function delete($id) {
 
 		$this->adminStudentModel->delete_student($id);
+<<<<<<< HEAD
+		redirect('/admin/student/dashboard');
+
+	}
+=======
 		$this->session->set_flashdata('delete-student-msg', '<div class="alert alert-success text-center">Delete successfully.</div>');
 		redirect('/admin/student/dashboard');
 
@@ -173,4 +210,5 @@ class Admin_Student extends CI_Controller {
 			return TRUE;
 		}
 	}
+>>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
 }

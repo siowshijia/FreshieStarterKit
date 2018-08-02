@@ -50,7 +50,7 @@ class="form-control" value="<?php echo set_value('eventvenue'); echo $events[0]-
  <div class="col-lg-8 col-sm-8">
  <?php
  $attributes = 'class = "form-control" id = "events"';?>
- <select name="category">
+ <select name="category" >
   <option value="sports">Sports</option>
   <option value="arts">Arts</option>
  </select>
@@ -86,6 +86,12 @@ value="Cancel" />
  </div>
  </div>
 </div>
-
+<script type="text/javascript">
+$(function () {
+    $('#eventDate').datepicker({
+        format: 'd-M-yyyy'
+    });
+});
+</script>
 
 <!--/#action-->
