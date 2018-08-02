@@ -17,15 +17,16 @@
 
 <section class="section-base">
     <div class="container-md">
-        <?php if(validation_errors()) { ?>
-            <div class="alert alert-danger"><?= validation_errors();?></div>
-        <?php } ?>
-        <?php if(isset($msg) && $msg != '') { ?>
-            <div class="alert alert-success"><?php echo $msg; ?></div>
-        <?php } ?>
+        <?php if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Admin')) { ?>
+            <form action="" method="post">
+                <?php if (isset($error_msg)) { ?>
+                    <div class="alert alert-danger text-center"><?php echo $error_msg; ?></div>
+                <?php } ?>
 
-        
-        <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) { ?>
+        <?php echo $this->session->flashdata('add-quiz-msg'); ?>
+        <?php echo $this->session->flashdata('edit-quiz-msg'); ?>
+        <?php echo $this->session->flashdata('delete-quiz-msg'); ?>
+
             <div class="m-b-md">
                 <a href="<?php echo base_url('/admin/quiz/add'); ?>" class="btn btn-primary">Add Quiz</a>
             </div>
@@ -59,7 +60,7 @@
                             <td><?php echo $quiz->answer_3; ?></td>
                             <td>
                                 <a href="<?php echo base_url('/admin/quiz/edit') . '/' . $quiz->quiz_id; ?>" class="btn btn-primary">Edit</a>
-                                <a href="<?php echo base_url('/admin/quiz/delete') . '/' . $quiz->quiz_id; ?>" class="btn btn-primary">Delete</a>
+                                <a href="<?php echo base_url('/admin/quiz/delete') . '/' . $quiz->quiz_id; ?>" class="btn btn-primary" onclick="return confirm('Are you sure you want to delete?') ;">Delete</a>
                             </td>
                         </tr>
                     <?php } ?>
@@ -68,7 +69,7 @@
         <?php } else { ?>
             <div class="text-center">
                 <h4>Please login to view this page.</h4>
-                <a href="<?php echo base_url('/staff/login'); ?>" class="btn btn-primary">Login</a>
+                <a href="<?php echo base_url('/admin/staff/login'); ?>" class="btn btn-primary">Login</a>
             </div>
         <?php } ?>
     </div>

@@ -35,6 +35,7 @@ class Admin_Quiz extends CI_Controller {
 	public function delete($id) {
 
 		$this->adminQuizModel->delete_quiz($id);
+		$this->session->set_flashdata('delete-quiz-msg', '<div class="alert alert-success text-center">Deleted Successfully.</div>');
 		redirect('/admin/quiz/dashboard');
 
 	}
@@ -46,7 +47,7 @@ class Admin_Quiz extends CI_Controller {
 		);
 
 		//set validation rules
-       	$this->form_validation->set_rules('quiz_name', 'quiz_name', 'required|blank');
+       	$this->form_validation->set_rules('quiz_name', 'quiz_name', 'required');
 		$this->form_validation->set_rules('quiz_description', 'quiz_description', 'required');
 		$this->form_validation->set_rules('question_1', 'question_1', 'required');
 		$this->form_validation->set_rules('answer_1', 'answer_1', 'required');
@@ -72,6 +73,7 @@ class Admin_Quiz extends CI_Controller {
 
 			if ($this->adminQuizModel->add_quiz($quiz_name, $quiz_description, $question_1, $answer_1, $question_2, $answer_2, $question_3, $answer_3, $created_by)) {
 
+				$this->session->set_flashdata('add-quiz-msg', '<div class="alert alert-success text-center">You have successfully added a quiz record.</div>');				
 				redirect('/admin/quiz/dashboard');
 
 			} else {
@@ -117,6 +119,8 @@ class Admin_Quiz extends CI_Controller {
 
 				if ($this->adminQuizModel->update_quiz($id, $quiz_name, $quiz_description, $question_1, $answer_1, $question_2, $answer_2, $question_3, $answer_3)) {
 
+					$this->session->set_flashdata('edit-quiz-msg', '<div class="alert alert-success text-center">The quiz&apos;s details has been updated.</div>');
+
 					redirect('/admin/quiz/dashboard');
 
 				} else {
@@ -133,58 +137,5 @@ class Admin_Quiz extends CI_Controller {
 		}
 	}
 
-
-	public function blank($str)
-	{
-		if (!preg_match($str == " ", $str))
-		{
-			$this->form_validation->set_message('blank', 'The %s field must be filled');
-			return FALSE;
-		}
-		else
-		{
-			return TRUE;
-		}
-	}
-
-	public function alpha_only_space($str)
-	{
-		if (!preg_match("/^([-a-z ])+$/i", $str))
-		{
-			$this->form_validation->set_message('alpha_only_space', 'The %s field must contain only alphabets or spaces');
-			return FALSE;
-		}
-		else
-		{
-			return TRUE;
-		}
-	}
-
-	public function valid_admin_no($str)
-	{
-		if (!preg_match("/^([1]\d{5}[A-Z])+$/i", $str))
-		{
-			$this->form_validation->set_message('valid_admin_no', 'The %s field must be in this format: 123456A');
-			return FALSE;
-		}
-		else
-		{
-			return TRUE;
-		}
-	}
-
-	public function valid_contact_no($str)
-	{
-		if (!preg_match("/^([6|8|9]\d{7})+$/i", $str))
-		{
-			$this->form_validation->set_message('valid_contact_no', 'Please enter a valid contact
-			no. in the %s field.');
-			return FALSE;
-		}
-		else
-		{
-			return TRUE;
-		}
-	}
 
 }
