@@ -17,7 +17,7 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <?php if ($_SESSION['user_role'] === 'Admin') { ?>
+                    <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'Admin') { ?>
 
                         <li class="<?php echo activate_menu('home'); ?>"><a href="<?php echo base_url(); ?>">Home</a></li>
                         <li class="<?php echo activate_menu('student'); ?>"><a href="<?php echo base_url('/admin/student/dashboard'); ?>">Student</a></li>
