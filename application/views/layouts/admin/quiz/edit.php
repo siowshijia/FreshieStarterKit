@@ -62,6 +62,7 @@
                     <input type="text" name="answer_3" id="answer_3" class="form-control" value="<?php echo $quiz->answer_3; ?>">
                     <span class="text-danger"><?php echo form_error('answer_3'); ?></span>
                 </div>
+
                 <button class="btn btn-primary btn-block" type="submit">Save</button>
                 <a href="<?php echo base_url('/admin/quiz/dashboard'); ?>" class="btn btn-primary btn-block m-t-sm">Back</a>
             </form>

@@ -95,6 +95,12 @@
     </div>
     </div>
 </div>
-
+<script type="text/javascript">
+$(function () {
+    $('#eventDate').datepicker({
+        format: 'd-M-yyyy'
+    });
+});
+</script>
 
 <!--/#action-->

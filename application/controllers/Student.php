@@ -162,7 +162,7 @@ class Student extends CI_Controller {
 			$data['user'] = $this->studentModel->get_user($_SESSION['user_id']);
 
 			//set validation rules
-	        $this->form_validation->set_rules('stud_name', 'Name', 'required');
+	        $this->form_validation->set_rules('stud_name', 'Name', 'required|callback_alpha_only_space');
 	        $this->form_validation->set_rules('adm_number', 'Admission Number', 'required|callback_valid_admin_no');
 	        $this->form_validation->set_rules('stud_email', 'Email', 'required|valid_email');
 			$this->form_validation->set_rules('contact_number', 'Contact Number','required|callback_valid_contact_no');

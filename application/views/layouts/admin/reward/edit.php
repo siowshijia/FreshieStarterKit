@@ -42,7 +42,7 @@
                             <span class="btn btn-default btn-file">
                                 <span class="fileinput-new">Select image</span>
                                 <span class="fileinput-exists">Change</span>
-                                <input type="file" name="image">
+                                <input type="file" name="image" value="<?php echo $reward->image; ?>">
                             </span>
                         </div>
                         <p class="small m-b-none"><i>*Max. file size: 1MB</i></p>

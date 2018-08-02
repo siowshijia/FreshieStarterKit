@@ -16,7 +16,7 @@
 
 <section class="section-base">
     <div class="container-xs">
-    <?php if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Admin')) { ?>
+    <?php if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Event Manager')) { ?>
             <form action="" method="post">
                 <?php if (isset($error_msg)) { ?>
                     <div class="alert alert-danger text-center"><?php echo $error_msg; ?></div>
@@ -42,15 +42,20 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="eventDate" class="sr-only">Event Date</label>
+                    <label for="eventDate" class="sr-only">Contact Number</label>
                     <input type="text" name="eventDate" id="eventDate" class="form-control" placeholder="Event Date"
                     value="<?php echo set_value('eventDatetime'); echo $events[0]->eventDatetime; ?>">
                 </div>
                 <div class="form-group">
                     <label for="eventDescription" class="sr-only">Event Description</label>
-                    <textarea rows="5" type="text" name="eventDescription" id="eventDescription" class="form-control" placeholder="Description"
+                    <textarea rows ="5" type="text" name="eventDescription" id="eventDescription" class="form-control" placeholder="Description"
                     value="<?php echo set_value('description');?>"><?php echo $events[0]->description; ?></textarea>
                     
+                </div>
+                <div class="form-group">
+                    <label for="eventDate" class="sr-only">Contact Number</label>
+                    <input type="text" name="eventApproval" id="eventApproval" class="form-control" placeholder="Event Approval"
+                    value="<?php echo set_value('eventApproval'); echo $events[0]->eventApproval; ?>" readonly>
                 </div>
                 <div class="form-group">
                     <?php  $status =  $events[0]->eventStatus;?>
@@ -58,14 +63,6 @@
                     <select name="Status" class="form-control">
                         <option value="Active" <?php if($status=="Active"){ echo'selected="selected"';}?>>Active</option>
                         <option value="Inactive" <?php if( $status=="Inactive"){ echo'selected="selected"';}?>>Inactive</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                <label for="Status" class="sr-only">Status</label>
-                    <select name="status" class="form-control">
-                        <option value="Active">Active</option>
-                        <option value="Inactive">Inactive</option>
                     </select>
                 </div>
                 <button class="btn btn-primary btn-block" type="submit">Update</button>
@@ -78,3 +75,11 @@
         <?php } ?>
     </div>
 </section>
+<script type="text/javascript">
+$(function () {
+    $('#eventDate').datepicker({
+        format: 'd-M-yyyy'
+    });
+});
+</script>
+

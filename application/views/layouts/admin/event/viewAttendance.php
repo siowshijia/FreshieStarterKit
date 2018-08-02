@@ -23,37 +23,28 @@
             <div class="alert alert-success"><?php echo $msg; ?></div>
         <?php } ?>
 
-        <?php if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Admin')) { ?>
+        <?php if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Event Manager')) { ?>
             <div class="m-b-md">
-            <a href="<?php echo base_url('/admin_event/adminCreate')?>" class="btn btn-primary">Add Event</a>
-            <a href="<?php echo base_url('/admin_event/adminPending')?>" class="btn btn-primary">Pending Event</a>
             </div>
 
             <table class="table table-bordered table-striped data-table">
                 <thead>
                     <tr>
                         <th>Event Name</th>
-                        <th>Venue</th>
-                        <th>Date</th>
-                        <th>Category</th>
-                        <th>Created By</th>
-                        <th>Status</th>
+                        <th>Admission Number</th>
+                        <th>Name</th>
+                        <th>Attended Event</th>
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
                 <tbody>
-                
                     <?php foreach ($events as $event) { ?>
                         <tr>
-                            <td><?php echo $event->eventname; ?></td>
-                            <td><?php echo $event->eventvenue; ?></td>
-                            <td><?php echo $event->eventDatetime; ?></td>
-                            <td><?php echo $event->eventCategory; ?></td>
-                            <td><?php echo $event->studentName; ?></td>
-                            <td><?php echo $event->eventStatus; ?></td>     
-                            <td>
-                            <a href="<?php echo base_url('/admin_event/Update') . '/' . $event->eventId; ?>" class="btn btn-primary">Edit</a>   
-                            </td>
+                            <td><?php echo $event->eventname; ?></td>   
+                            <td><?php echo $event->studentNo; ?></td>
+                            <td><?php echo $event->studentname; ?></td>
+                            <td><?php echo $event->attendance; ?></td>       
+                            <td><a href="<?php echo base_url('/admin_event/markAttendance') . '/' . $event->studentId; ?>" class="btn btn-primary">Edit</a></td>      
                         </tr>
                     <?php } ?>
                 </tbody>
