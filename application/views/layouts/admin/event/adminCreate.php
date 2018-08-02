@@ -38,7 +38,7 @@
                 </div>
                 <div class="form-group">
                     <label for="eventDate" class="sr-only">Contact Number</label>
-                    <input type="text" name="eventDate" id="eventDate" class="form-control" placeholder="Event Date" required>
+                    <input type="text" name="eventDate" id="eventDate" class="form-control datepicker" placeholder="Event Date" required>
                 </div>
                 <div class="form-group">
                     <label for="eventDescription" class="sr-only">Event Description</label>
@@ -58,15 +58,9 @@
         <?php } else { ?>
             <div class="text-center">
                 <h4>Please login to view this page.</h4>
-                <a href="<?php echo base_url('/staff/login'); ?>" class="btn btn-primary">Login</a>
+                <a href="<?php echo base_url('/admin/staff/login'); ?>" class="btn btn-primary">Login</a>
             </div>
         <?php } ?>
     </div>
 </section>
-<script type="text/javascript">
-$(function () {
-    $('#eventDate').datepicker({
-        format: 'd-M-yyyy'
-    });
-});
-</script>
+

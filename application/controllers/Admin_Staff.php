@@ -40,7 +40,13 @@ class Admin_Staff extends CI_Controller {
 				$_SESSION['user_role']    = (string)$user->user_role;
 				$_SESSION['logged_in']    = (bool)true;
 
-				redirect('/admin');
+				if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Admin')){
+
+					redirect('/admin');
+					}
+					else {
+						redirect('/admin/event/manager');	
+					}
 
 			} else {
 

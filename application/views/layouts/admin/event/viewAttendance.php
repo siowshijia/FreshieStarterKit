@@ -44,15 +44,15 @@
                             <td><?php echo $event->studentNo; ?></td>
                             <td><?php echo $event->studentname; ?></td>
                             <td><?php echo $event->attendance; ?></td>       
-                            <td><a href="<?php echo base_url('/admin_event/markAttendance') . '/' . $event->studentId; ?>" class="btn btn-primary">Edit</a></td>      
+                            <td><a href="<?php echo base_url('/admin_event/markAttendance/' )?><?php echo $event->eventId; ?>/<?php echo $event->studentId;?>" class="btn btn-primary">Mark Attendance</a></td>      
                         </tr>
                     <?php } ?>
                 </tbody>
             </table>
         <?php } else { ?>
-            <div class="text-center">
+            <div class="text-center"
                 <h4>Please login to view this page.</h4>
-                <a href="<?php echo base_url('/staff/login'); ?>" class="btn btn-primary">Login</a>
+                <a href="<?php echo base_url('/admin/staff/login'); ?>" class="btn btn-primary">Login</a>
             </div>
         <?php } ?>
     </div>

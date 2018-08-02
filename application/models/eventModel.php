@@ -197,6 +197,7 @@ class eventModel extends CI_Model{
         $this->db->select('event_datetime');
         $this->db->select('event_category');
         $this->db->select('event_attended');
+        $this->db->select('event_attendance.event_id');
         $this->db->select('student.student_name');
         $this->db->select('student.student_id');
         $this->db->select('student.admission_number');
@@ -219,7 +220,8 @@ class eventModel extends CI_Model{
         $list[$i]->eventDatetime = $result[$i]->event_datetime;
         $list[$i]->eventCategory = $result[$i]->event_category;
         $list[$i]->studentname = $result[$i]->student_name;
-        $list[$i]->studentid = $result[$i]->student_id;
+        $list[$i]->studentId = $result[$i]->student_id;
+        $list[$i]->eventId = $result[$i]->event_id;
         $list[$i]->attendance = $result[$i]->event_attended;
         $list[$i]->studentNo = $result[$i]->admission_number;
         $list[$i]->datetime = $result[$i]->event_datetime;
@@ -303,6 +305,31 @@ class eventModel extends CI_Model{
         $list[$i]->eventId = $result[$i]->event_id;
         }
         return $list;
+    }
+
+    public function mark_attendance($eventid,$studentid) {
+
+        $data = array(
+            'event_attended' => 'Yes',
+
+        );
+
+        $this->db->where('student_id', $studentid);
+        $this->db->where('event_id', $eventid);
+
+        return $this->db->update('event_attendance', $data);
+
+    }
+
+    public function add_points($studentid) {
+
+
+        $this->db->where('student_id', $studentid);
+        
+        
+        $this->db->set('points', 'points + ' . (int) 20, FALSE);
+        $this->db->update('student'); 
+
     }
 
 }
