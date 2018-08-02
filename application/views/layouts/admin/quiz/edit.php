@@ -23,35 +23,35 @@
                 <?php } ?>
 
                 <div class="form-group">
-                    <label for="quiz_name" class="sr-only">Quiz Name</label>
+                    <label for="quiz_name">Quiz Name</label>
                     <input type="text" name="quiz_name" id="quiz_name" class="form-control" placeholder="Quiz Name" value="<?php echo $quiz->quiz_name; ?>" readonly>
                 </div>
                 <div class="form-group">
-                    <label for="quiz_description" class="sr-only">Quiz Description</label>
+                    <label for="quiz_description">Quiz Description</label>
                     <textarea name="quiz_description" cols="40" rows="4" id="quiz_description" class="form-control" placeholder="Description"><?php echo $quiz->description; ?></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="question_1" class="sr-only">Question 1</label>
+                    <label for="question_1">Question 1</label>
                     <textarea name="question_1" cols="40" rows="3" id="question_1" class="form-control" placeholder="Question 1"><?php echo $quiz->question_1; ?></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="answer_1" class="sr-only">Answer 1</label>
+                    <label for="answer_1">Answer</label>
                     <input type="text" name="answer_1" id="answer_1" class="form-control" placeholder="Answer to Question 1" value="<?php echo $quiz->answer_1; ?>">
                 </div>
                 <div class="form-group">
-                    <label for="question_2" class="sr-only">Question 2</label>
+                    <label for="question_2">Question 2</label>
                     <textarea name="question_2" cols="40" rows="3" id="question_2" class="form-control" placeholder="Question 2"><?php echo $quiz->question_2; ?></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="answer_2" class="sr-only">Answer 2</label>
+                    <label for="answer_2">Answer</label>
                     <input type="text" name="answer_2" id="answer_2" class="form-control" placeholder="Answer to Question 2" value="<?php echo $quiz->answer_2; ?>">
                 </div>
                 <div class="form-group">
-                    <label for="question_3" class="sr-only">Question 3</label>
+                    <label for="question_3">Question 3</label>
                     <textarea name="question_3" cols="40" rows="3" id="question_3" class="form-control" placeholder="Question 3"><?php echo $quiz->question_3; ?></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="answer_3" class="sr-only">Answer 3</label>
+                    <label for="answer_3">Answer</label>
                     <input type="text" name="answer_3" id="answer_3" class="form-control" placeholder="Answer to Question 3" value="<?php echo $quiz->answer_3; ?>">
                 </div>
                 <button class="btn btn-primary btn-block" type="submit">Save</button>
