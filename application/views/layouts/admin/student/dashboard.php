@@ -16,14 +16,12 @@
 
 <section class="section-base">
     <div class="container-md">
-        <?php if(validation_errors()) { ?>
-            <div class="alert alert-danger"><?= validation_errors();?></div>
-        <?php } ?>
-        <?php if(isset($msg) && $msg != '') { ?>
-            <div class="alert alert-success"><?php echo $msg; ?></div>
-        <?php } ?>
-
         <?php if (isset($users)) { ?>
+
+            <?php echo $this->session->flashdata('add-student-msg'); ?>
+            <?php echo $this->session->flashdata('edit-student-msg'); ?>
+            <?php echo $this->session->flashdata('delete-student-msg'); ?>
+
             <div class="m-b-md">
                 <a href="<?php echo base_url('/admin/student/add'); ?>" class="btn btn-primary">Add Student</a>
             </div>

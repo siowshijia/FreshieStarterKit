@@ -128,6 +128,8 @@ class Student extends CI_Controller {
 
 				if ($this->studentModel->update_userpass($id, $password)) {
 
+					$this->session->set_flashdata('update-pw-msg', '<div class="alert alert-success text-center">You have successfully update your password.</div>');
+
 					redirect('student/profile');
 
 				} else {
@@ -180,6 +182,8 @@ class Student extends CI_Controller {
 				$id             = $_SESSION['user_id'];
 
 				if ($this->studentModel->update_user($id, $name, $adm_number, $email, $contact_number, $interest)) {
+
+					$this->session->set_flashdata('edit-profile-msg', '<div class="alert alert-success text-center">Your details has been saved.</div>');
 
 					redirect('student/profile');
 
@@ -253,6 +257,8 @@ class Student extends CI_Controller {
 				unset($_SESSION[$key]);
 
 			}
+
+			$this->session->set_flashdata('logout-msg', '<div class="alert alert-success text-center">You have successfully logged out.</div>');
 
 			redirect('/');
 

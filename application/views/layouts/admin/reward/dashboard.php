@@ -17,6 +17,11 @@
 <section class="section-base">
     <div class="container-md">
         <?php if (isset($rewards) && isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Admin')) { ?>
+
+            <?php echo $this->session->flashdata('add-reward-msg'); ?>
+            <?php echo $this->session->flashdata('edit-reward-msg'); ?>
+            <?php echo $this->session->flashdata('delete-reward-msg'); ?>
+
             <div class="m-b-md">
                 <a href="<?php echo base_url('/admin/reward/add'); ?>" class="btn btn-primary">Add Reward</a>
             </div>
