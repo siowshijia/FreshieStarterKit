@@ -43,8 +43,9 @@ class Admin_Student extends CI_Controller {
         $this->form_validation->set_rules(
 			'email', 'Email',
 			'required|valid_email|is_unique[student.student_email]',
-	                'is_unique'     => 'This %s already exists.'
-	        )
+            array(
+				'is_unique'     => 'This %s already exists.'
+			)
 		);
 		$this->form_validation->set_rules('contact_number', 'Contact Number', 'required|callback_valid_contact_no');
 		$this->form_validation->set_rules('interest', 'Interest', 'required');
