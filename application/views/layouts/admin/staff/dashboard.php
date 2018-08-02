@@ -16,12 +16,10 @@
 
 <section class="section-base">
     <div class="container-md">
-        <?php if(validation_errors()) { ?>
-            <div class="alert alert-danger"><?= validation_errors();?></div>
-        <?php } ?>
-        <?php if(isset($msg) && $msg != '') { ?>
-            <div class="alert alert-success"><?php echo $msg; ?></div>
-        <?php } ?>
+
+        <?php echo $this->session->flashdata('add-staff-msg'); ?>
+        <?php echo $this->session->flashdata('edit-staff-msg'); ?>
+        <?php echo $this->session->flashdata('delete-staff-msg'); ?>
 
         <?php if (isset($users)) { ?>
             <div class="m-b-md">

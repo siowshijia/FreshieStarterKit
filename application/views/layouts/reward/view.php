@@ -16,6 +16,7 @@
 
 <section class="section-base">
     <div class="container-md">
+        <?php echo $this->session->flashdata('msg'); ?>
         <?php if ($rewards) { ?>
             <div class="row">
                 <?php foreach ($rewards as $reward) { ?>

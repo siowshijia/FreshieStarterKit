@@ -65,6 +65,8 @@ class Admin_Reward extends CI_Controller {
 
 			if ($this->adminRewardModel->add_reward($name, $points, $qty, $image, $description, $expired_date)) {
 
+				$this->session->set_flashdata('add-reward-msg', '<div class="alert alert-success text-center">You have successfully added a reward.</div>');
+
 				redirect('/admin/reward/dashboard');
 
 			} else {
@@ -124,6 +126,8 @@ class Admin_Reward extends CI_Controller {
 
 				if ($this->adminRewardModel->update_reward($id, $name, $points, $qty, $image, $description, $expired_date)) {
 
+					$this->session->set_flashdata('edit-reward-msg', '<div class="alert alert-success text-center">The reward&apos;s details has been updated.</div>');
+
 					redirect('/admin/reward/dashboard');
 
 				} else {
@@ -143,6 +147,7 @@ class Admin_Reward extends CI_Controller {
 	public function delete($id) {
 
 		$this->adminRewardModel->delete_reward($id);
+		$this->session->set_flashdata('delete-reward-msg', '<div class="alert alert-success text-center">Deleted Successfully.</div>');
 		redirect('/admin/reward/dashboard');
 
 	}

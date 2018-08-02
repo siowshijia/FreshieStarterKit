@@ -64,6 +64,8 @@ class Admin_Student extends CI_Controller {
 
 			if ($this->adminStudentModel->add_student($name, $admission_number, $email, $contact_number, $interest, $points)) {
 
+				$this->session->set_flashdata('add-student-msg', '<div class="alert alert-success text-center">You have successfully added a student.</div>');
+
 				redirect('/admin/student/dashboard');
 
 			} else {
@@ -106,6 +108,8 @@ class Admin_Student extends CI_Controller {
 
 				if ($this->adminStudentModel->update_student($id, $name, $admission_number, $email, $contact_number, $interest, $points)) {
 
+					$this->session->set_flashdata('edit-student-msg', '<div class="alert alert-success text-center">The student&apos;s details has been updated.</div>');
+
 					redirect('/admin/student/dashboard');
 
 				} else {
@@ -125,6 +129,7 @@ class Admin_Student extends CI_Controller {
 	public function delete($id) {
 
 		$this->adminStudentModel->delete_student($id);
+		$this->session->set_flashdata('delete-student-msg', '<div class="alert alert-success text-center">Delete successfully.</div>');
 		redirect('/admin/student/dashboard');
 
 	}
