@@ -27,12 +27,8 @@ jQuery(function($) {'use strict';
 	});
 
 	$('.datepicker').datepicker({
-<<<<<<< HEAD
-		format: 'd-M-yyyy'
-=======
 		format: 'd-M-yyyy',
 		startDate : 'today'
->>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
 	});
 
 	// portfolio filter

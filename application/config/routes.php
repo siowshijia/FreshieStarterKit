@@ -86,5 +86,3 @@ $route['admin/event/dashboard'] = 'admin_event/adminview';
 $route['default_controller'] = 'home';
 $route['404_override'] = 'home/error404';
 $route['translate_uri_dashes'] = FALSE;
-
-
