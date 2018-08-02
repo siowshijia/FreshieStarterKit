@@ -20,11 +20,11 @@
                     <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'Admin') { ?>
 
                         <li class="<?php echo activate_menu('home'); ?>"><a href="<?php echo base_url(); ?>">Home</a></li>
-                        <li class="<?php echo activate_menu('student'); ?>"><a href="<?php echo base_url('/admin/student/dashboard'); ?>">Student</a></li>
+                        <li class="<?php echo activate_menu('student'); ?>"><a href="<?php echo base_url('/admin/student/dashboard'); ?>">Students</a></li>
                         <li class="<?php echo activate_menu('student'); ?>"><a href="<?php echo base_url('/admin/staff/dashboard'); ?>">Staff</a></li>
                         <li class="<?php echo activate_menu('quiz'); ?>"><a href="<?php echo base_url('/quiz'); ?>">Quizzes</a></li>
-                        <li class="<?php echo activate_menu('event'); ?>"><a href="<?php echo base_url('/event'); ?>">Event</a></li>
-                        <li class="<?php echo activate_menu('reward'); ?>"><a href="<?php echo base_url('/admin/reward/dashboard'); ?>">Reward</a></li>
+                        <li class="<?php echo activate_menu('event'); ?>"><a href="<?php echo base_url('/event'); ?>">Events</a></li>
+                        <li class="<?php echo activate_menu('reward'); ?>"><a href="<?php echo base_url('/admin/reward/dashboard'); ?>">Rewards</a></li>
 
                     <?php } else { ?>
 
@@ -37,8 +37,8 @@
                             <?php } ?>
                         </li>
                         <li class="<?php echo activate_menu('quiz'); ?>"><a href="<?php echo base_url('/quiz'); ?>">Quizzes</a></li>
-                        <li class="<?php echo activate_menu('event'); ?>"><a href="<?php echo base_url('/event'); ?>">Event</a></li>
-                        <li class="<?php echo activate_menu('reward'); ?>"><a href="<?php echo base_url('/reward'); ?>">Reward</a></li>
+                        <li class="<?php echo activate_menu('event'); ?>"><a href="<?php echo base_url('/event'); ?>">Events</a></li>
+                        <li class="<?php echo activate_menu('reward'); ?>"><a href="<?php echo base_url('/reward'); ?>">Rewards</a></li>
 
                     <?php } ?>
 
