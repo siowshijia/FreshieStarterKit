@@ -68,13 +68,6 @@
                         <option value="Inactive">Inactive</option>
                     </select>
                 </div>
-
-                <div class="form-group">
-                    <label for="adminRemarks" class="sr-only">Admin Remarks</label>
-                    <textarea rows="5" type="text" name="adminRemarks" id="adminRemarks" class="form-control" placeholder="Remarks">
-                    <?php echo set_value('adminRemarks');?><?php echo $events[0]->adminRemarks; ?></textarea>
-                    
-                </div>
                 <button class="btn btn-primary btn-block" type="submit">Update</button>
             </form>
         <?php } else { ?>

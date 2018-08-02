@@ -32,12 +32,12 @@
             <table class="table table-bordered table-striped data-table">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Staff Number</th>
-                        <th>Email</th>
-                        <th>Contact Number</th>
-                        <th>User Role</th>
+                        <th>Event Name</th>
+                        <th>Venue</th>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Created By</th>
+                        <th>Status</th>
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
@@ -49,8 +49,8 @@
                             <td><?php echo $event->eventvenue; ?></td>
                             <td><?php echo $event->eventDatetime; ?></td>
                             <td><?php echo $event->eventCategory; ?></td>
-                            <td><?php echo $event->description; ?></td>
-                            <td><?php echo $event->eventId; ?></td>
+                            <td><?php echo $event->studentName; ?></td>
+                            <td><?php echo $event->eventStatus; ?></td>     
                             <td>
                             <a href="<?php echo base_url('/admin_event/Update') . '/' . $event->eventId; ?>" class="btn btn-primary">Edit</a>   
                             </td>

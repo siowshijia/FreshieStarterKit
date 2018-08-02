@@ -14,11 +14,12 @@ class eventModel extends CI_Model{
         $this->db->select('event_datetime');
         $this->db->select('event_category');
         $this->db->select('student_name');
+        $this->db->select('event_id');
         $this->db->select('description');
         $this->db->where('event_approval','Approved');
         $this->db->where('event_status','Active');
         $this->db->join('student', 'event.event_owner = student.student_id');
-        $this->db->select('event_id');
+        $this->db->order_by("event_datetime desc");
 
         $this->db->from('event');
         $query = $this->db->get();
@@ -195,6 +196,7 @@ class eventModel extends CI_Model{
         $this->db->select('event_venue');
         $this->db->select('event_datetime');
         $this->db->select('event_category');
+        $this->db->select('event_attended');
         $this->db->select('student.student_name');
         $this->db->select('student.student_id');
         $this->db->select('student.admission_number');
@@ -217,6 +219,8 @@ class eventModel extends CI_Model{
         $list[$i]->eventDatetime = $result[$i]->event_datetime;
         $list[$i]->eventCategory = $result[$i]->event_category;
         $list[$i]->studentname = $result[$i]->student_name;
+        $list[$i]->studentid = $result[$i]->student_id;
+        $list[$i]->attendance = $result[$i]->event_attended;
         $list[$i]->studentNo = $result[$i]->admission_number;
         $list[$i]->datetime = $result[$i]->event_datetime;
         }
@@ -266,6 +270,39 @@ class eventModel extends CI_Model{
 
         return $this->db->update('event', $data);
 
+    }
+
+    function get_all_event_list(){
+        $this->db->select('event_name');
+        $this->db->select('event_venue');
+        $this->db->select('event_datetime');
+        $this->db->select('event_category');
+        $this->db->select('student_name');
+        $this->db->select('event_id');
+        $this->db->select('description');
+        $this->db->select('event_status');
+        $this->db->select('event_approval');
+        $this->db->join('student', 'event.event_owner = student.student_id');
+        $this->db->order_by("event_datetime desc");
+
+        $this->db->from('event');
+        $query = $this->db->get();
+        $result = $query->result();
+        $list = Array();
+        for ($i = 0; $i < count($result); $i++)
+        {
+        $list[$i] = (object)NULL;
+        $list[$i]->eventname = $result[$i]->event_name;
+        $list[$i]->eventvenue = $result[$i]->event_venue;
+        $list[$i]->eventDatetime = $result[$i]->event_datetime;
+        $list[$i]->eventCategory = $result[$i]->event_category;
+        $list[$i]->studentName = $result[$i]->student_name;
+        $list[$i]->eventApproval = $result[$i]->event_approval;
+        $list[$i]->eventStatus = $result[$i]->event_status;
+        $list[$i]->description = $result[$i]->description;
+        $list[$i]->eventId = $result[$i]->event_id;
+        }
+        return $list;
     }
 
 }

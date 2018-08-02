@@ -274,6 +274,7 @@ class Event extends CI_Controller {
 		'event_id' => $this->input->post('eventid'),
 		'student_id' => $_SESSION['user_id'],
 		'datetime' => date('m/d/Y h:i:s a', time()),
+		'event_attended' =>'No',
 		);
 		
 		$this->db->replace('event_attendance', $data1);

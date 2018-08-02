@@ -33,7 +33,8 @@
                         <th>Event Name</th>
                         <th>Admission Number</th>
                         <th>Name</th>
-
+                        <th>Attended Event</th>
+                        <th>&nbsp;</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,8 +43,8 @@
                             <td><?php echo $event->eventname; ?></td>   
                             <td><?php echo $event->studentNo; ?></td>
                             <td><?php echo $event->studentname; ?></td>
-
-
+                            <td><?php echo $event->attendance; ?></td>       
+                            <td><a href="<?php echo base_url('/admin_event/markAttendance') . '/' . $event->studentId; ?>" class="btn btn-primary">Edit</a></td>      
                         </tr>
                     <?php } ?>
                 </tbody>

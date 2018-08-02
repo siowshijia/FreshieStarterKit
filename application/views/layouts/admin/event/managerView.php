@@ -52,7 +52,7 @@
                             <td><?php echo $event->eventApproval; ?></td>
                             <td>
                             <a href="<?php echo base_url('/admin_event/managerUpdate') . '/' . $event->eventId; ?>" class="btn btn-primary">Edit</a>
-                            
+                            <a href="<?php echo base_url('/admin_event/viewAttendance') . '/' . $event->eventId; ?>" class="btn btn-primary">Attendance</a>
                             </td>
                         </tr>
                     <?php } ?>

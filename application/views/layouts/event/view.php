@@ -23,9 +23,9 @@
         <?php if(isset($msg) && $msg != '') { ?>
             <div class="alert alert-success"><?php echo $msg; ?></div>
         <?php } ?>
+           
+        <div> <a href="<?php echo base_url('/event/Attendance')?>" class="btn btn-primary">Registered Events</a></div><br>
 
-
-         
                     <?php foreach ($events as $event) { ?>
                         
                             <div class="panel panel-primary">

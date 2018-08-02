@@ -163,7 +163,7 @@ class Admin_Event extends CI_Controller {
 		);
 
 		$this->load->model("eventModel");
-		$events = $this->eventModel->get_event_list();
+		$events = $this->eventModel->get_all_event_list();
 		$data["events"] = $events;
 		$this->load->template('layouts/admin/event/adminView', $data);
 	}
@@ -249,9 +249,9 @@ class Admin_Event extends CI_Controller {
 		$data = array(
 			'view_name' => 'Events',
 		);
-		$id = $_SESSION['user_id'];
+
 		$this->load->model("eventModel");
-		$events = $this->eventModel->get_event_list_by_manager($id);
+		$events = $this->eventModel->get_event_list_by_manager($_SESSION['user_id']);
 		$data["events"] = $events;
 		$this->load->template('layouts/admin/event/managerView', $data);
 	}

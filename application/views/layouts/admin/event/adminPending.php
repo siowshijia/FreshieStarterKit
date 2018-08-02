@@ -50,7 +50,7 @@
                             <td><?php echo $event->description; ?></td>
                             <td><?php echo $event->eventOwner; ?></td>
                             <td>
-                            <a href="<?php echo base_url('/admin_event/approve_event') . '/' . $event->eventId; ?>" class="btn btn-primary">Edit</a>   
+                            <a href="<?php echo base_url('/admin_event/approve_event') . '/' . $event->eventId; ?>" class="btn btn-primary">Approve</a>   
                             </td>
                         </tr>
                     <?php } ?>
