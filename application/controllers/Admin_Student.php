@@ -94,7 +94,6 @@ class Admin_Student extends CI_Controller {
 			$this->form_validation->set_rules('contact_number', 'Contact Number', 'required|callback_valid_contact_no');
 			$this->form_validation->set_rules('interest', 'Interest', 'required');
 			$this->form_validation->set_rules('points', 'Points', 'required|numeric');
-			$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
 
 	        if ($this->form_validation->run() == FALSE) {
 
@@ -138,10 +137,9 @@ class Admin_Student extends CI_Controller {
 
 	public function alpha_only_space($str)
 	{
-		if (!preg_match("/^([-a-z ])+$/i", $str))
+		if (preg_match('/[^a-z_\-0-9]/i', $str))
 		{
-			$this->form_validation->set_message('alpha_only_space', 'The %s field must
-			contain only alphabets or spaces');
+			$this->form_validation->set_message('alpha_only_space', 'The %s field must contain only alphabets or spaces');
 			return FALSE;
 		}
 		else
@@ -154,8 +152,7 @@ class Admin_Student extends CI_Controller {
 	{
 		if (!preg_match("/^([1]\d{5}[A-Z])+$/i", $str))
 		{
-			$this->form_validation->set_message('valid_admin_no', 'The %s field must
-			be in this format: 123456A');
+			$this->form_validation->set_message('valid_admin_no', 'The %s field must be in this format: 123456A');
 			return FALSE;
 		}
 		else
@@ -168,8 +165,7 @@ class Admin_Student extends CI_Controller {
 	{
 		if (!preg_match("/^([6|8|9]\d{7})+$/i", $str))
 		{
-			$this->form_validation->set_message('valid_contact_no', 'Please enter a valid contact
-			no. in the %s field.');
+			$this->form_validation->set_message('valid_contact_no', 'Please enter a valid contact no. in the %s field.');
 			return FALSE;
 		}
 		else
