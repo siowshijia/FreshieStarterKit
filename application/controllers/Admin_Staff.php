@@ -105,8 +105,6 @@ class Admin_Staff extends CI_Controller {
 
 			if ($this->adminStaffModel->add_staff($name, $staff_number, $email, $contact_number, $user_role, $password)) {
 
-				$this->session->set_flashdata('add-staff-msg', '<div class="alert alert-success text-center">You have successfully added a staff.</div>');
-
 				redirect('/admin/staff/dashboard');
 
 			} else {
@@ -117,7 +115,7 @@ class Admin_Staff extends CI_Controller {
         }
 	}
 
-	public function edit($id) {
+	public function edit($id){
 		$data = array(
 			'view_name' => 'Edit Staff',
 		);
@@ -147,8 +145,6 @@ class Admin_Staff extends CI_Controller {
 
 				if ($this->adminStaffModel->update_staff($id, $name, $staff_number, $email, $contact_number, $user_role)) {
 
-					$this->session->set_flashdata('edit-staff-msg', '<div class="alert alert-success text-center">The staff&apos;s details has been updated.</div>');
-
 					redirect('/admin/staff/dashboard');
 
 				} else {
@@ -168,7 +164,6 @@ class Admin_Staff extends CI_Controller {
 	public function delete($id) {
 
 		$this->adminStaffModel->delete_staff($id);
-		$this->session->set_flashdata('delete-staff-msg', '<div class="alert alert-success text-center">Deleted Successfully.</div>');
 		redirect('/admin/staff/dashboard');
 
 	}

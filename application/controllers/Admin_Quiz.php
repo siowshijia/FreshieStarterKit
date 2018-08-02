@@ -35,6 +35,7 @@ class Admin_Quiz extends CI_Controller {
 	public function delete($id) {
 
 		$this->adminQuizModel->delete_quiz($id);
+		$this->session->set_flashdata('delete-quiz-msg', '<div class="alert alert-success text-center">Deleted Successfully.</div>');
 		redirect('/admin/quiz/dashboard');
 
 	}
@@ -72,6 +73,7 @@ class Admin_Quiz extends CI_Controller {
 
 			if ($this->adminQuizModel->add_quiz($quiz_name, $quiz_description, $question_1, $answer_1, $question_2, $answer_2, $question_3, $answer_3, $created_by)) {
 
+				$this->session->set_flashdata('add-quiz-msg', '<div class="alert alert-success text-center">You have successfully added a quiz record.</div>');				
 				redirect('/admin/quiz/dashboard');
 
 			} else {
@@ -116,6 +118,8 @@ class Admin_Quiz extends CI_Controller {
 				$answer_3				= $this->input->post('answer_3');
 
 				if ($this->adminQuizModel->update_quiz($id, $quiz_name, $quiz_description, $question_1, $answer_1, $question_2, $answer_2, $question_3, $answer_3)) {
+
+					$this->session->set_flashdata('edit-quiz-msg', '<div class="alert alert-success text-center">The quiz&apos;s details has been updated.</div>');
 
 					redirect('/admin/quiz/dashboard');
 
