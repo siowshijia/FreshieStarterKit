@@ -32,9 +32,9 @@ class Admin_Reward extends CI_Controller {
 		);
 
         //set validation rules
-        $this->form_validation->set_rules('name', 'Name', 'required');
-        $this->form_validation->set_rules('points', 'Points', 'required');
-        $this->form_validation->set_rules('qty', 'Quantity','required');
+        $this->form_validation->set_rules('name', 'Name', 'required|callback_alpha_only_space');
+        $this->form_validation->set_rules('points', 'Points', 'required|numeric');
+        $this->form_validation->set_rules('qty', 'Quantity','required|numeric');
 		$this->form_validation->set_rules('description', 'Description', 'required');
 		$this->form_validation->set_rules('expired_date', 'Expired Date', 'required');
 
@@ -150,5 +150,19 @@ class Admin_Reward extends CI_Controller {
 		$this->session->set_flashdata('delete-reward-msg', '<div class="alert alert-success text-center">Deleted Successfully.</div>');
 		redirect('/admin/reward/dashboard');
 
+	}
+
+	public function alpha_only_space($str)
+	{
+		if (!preg_match("/^([-a-z ])+$/i", $str))
+		{
+			$this->form_validation->set_message('alpha_only_space', 'The %s field must
+			contain only alphabets or spaces');
+			return FALSE;
+		}
+		else
+		{
+			return TRUE;
+		}
 	}
 }
