@@ -22,30 +22,6 @@
                     <div class="alert alert-danger text-center"><?php echo $error_msg; ?></div>
                 <?php } ?>
                 <div class="form-group">
-<<<<<<< HEAD
-                    <label for="name" class="sr-only">Name</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="Name" value="<?php echo $user->student_name; ?>">
-                </div>
-                <div class="form-group">
-                    <label for="admission_number" class="sr-only">Admission Number</label>
-                    <input type="text" name="admission_number" id="admission_number" class="form-control" placeholder="Admission Number"  value="<?php echo $user->admission_number; ?>">
-                </div>
-                <div class="form-group">
-                    <label for="email" class="sr-only">Email address</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="Email address"  value="<?php echo $user->student_email; ?>">
-                </div>
-                <div class="form-group">
-                    <label for="contact_number" class="sr-only">Contact Number</label>
-                    <input type="text" name="contact_number" id="contact_number" class="form-control" placeholder="Contact Number"  value="<?php echo $user->student_contact_number; ?>">
-                </div>
-                <div class="form-group">
-                    <label for="user_role" class="sr-only">Interest</label>
-                    <textarea name="interest" id="interest" class="form-control" rows="8" cols="80" placeholder="Interest"><?php echo $user->interest; ?></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="points" class="sr-only">Points</label>
-                    <input type="text" name="points" id="points" class="form-control" placeholder="Points" value="<?php echo $user->points; ?>">
-=======
                     <label for="name">Name</label>
                     <input type="text" name="name" id="name" class="form-control" value="<?php echo $user->student_name; ?>">
                     <span class="text-danger"><?php echo form_error('name'); ?></span>
@@ -74,7 +50,6 @@
                     <label for="points">Points</label>
                     <input type="text" name="points" id="points" class="form-control" value="<?php echo $user->points; ?>">
                     <span class="text-danger"><?php echo form_error('points'); ?></span>
->>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
                 </div>
                 <button class="btn btn-primary btn-block" type="submit">Save</button>
                 <a href="<?php echo base_url('/admin/student/dashboard'); ?>" class="btn btn-primary btn-block m-t-sm">Back</a>

@@ -16,13 +16,8 @@
 
 <section class="section-base">
     <div class="container-xs">
-<<<<<<< HEAD
-        <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) { ?>
-            <form class="form-signin" action="" method="post">
-=======
     <?php if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Admin')) { ?>
             <form action="" method="post">
->>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
                 <?php if (isset($error_msg)) { ?>
                     <div class="alert alert-danger text-center"><?php echo $error_msg; ?></div>
                 <?php } ?>
@@ -43,22 +38,6 @@
                     <span class="text-danger"><?php echo form_error('question_1'); ?></span>
                 </div>
                 <div class="form-group">
-<<<<<<< HEAD
-                    <label for="category" class="sr-only">Category</label>
-                    <select class="form-control" name="category">
-                        <option disabled>Select Category</option>
-                        <option value="Admin" <?php echo ($quiz->quiz_cat_id === 'Admin') ? 'selected' : '' ; ?>>Admin</option>
-                        <option value="Others" <?php echo ($quiz->quiz_cat_id === 'Event Manager') ? 'selected' : '' ; ?>>Others</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="question" class="sr-only">Question</label>
-                    <textarea name="question" cols="40" rows="2" id="answer" class="form-control" placeholder="Answer"><?php echo $quiz->quiz_question; ?></textarea>
-                </div> 
-                <div class="form-group">
-                    <label for="answer" class="sr-only">Answer</label>
-                    <textarea name="answer" cols="40" rows="2" id="answer" class="form-control" placeholder="Answer"><?php echo $quiz->quiz_answer; ?></textarea>
-=======
                     <label for="answer_1">Answer</label>
                     <input type="text" name="answer_1" id="answer_1" class="form-control" value="<?php echo $quiz->answer_1; ?>">
                     <span class="text-danger"><?php echo form_error('answer_1'); ?></span>
@@ -82,7 +61,6 @@
                     <label for="answer_3">Answer</label>
                     <input type="text" name="answer_3" id="answer_3" class="form-control" value="<?php echo $quiz->answer_3; ?>">
                     <span class="text-danger"><?php echo form_error('answer_3'); ?></span>
->>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
                 </div>
 
                 <button class="btn btn-primary btn-block" type="submit">Save</button>

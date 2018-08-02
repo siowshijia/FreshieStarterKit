@@ -45,13 +45,8 @@
                     <label for="user_role">User Role</label>
                     <select class="form-control" name="user_role">
                         <option selected disabled>Select Role</option>
-<<<<<<< HEAD
-                        <option value="Admin">Admin</option>
-                        <option value="Event Manager">Event Manager</option>
-=======
                         <option value="Admin" <?php echo set_select('user_role', 'Admin'); ?>>Admin</option>
                         <option value="Event Manager" <?php echo set_select('user_role', 'Event Manager'); ?>>Event Manager</option>
->>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
                     </select>
                     <span class="text-danger"><?php echo form_error('user_role'); ?></span>
                 </div>

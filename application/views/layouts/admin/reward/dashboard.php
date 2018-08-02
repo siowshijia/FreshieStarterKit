@@ -17,14 +17,11 @@
 <section class="section-base">
     <div class="container-md">
         <?php if (isset($rewards) && isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Admin')) { ?>
-<<<<<<< HEAD
-=======
 
             <?php echo $this->session->flashdata('add-reward-msg'); ?>
             <?php echo $this->session->flashdata('edit-reward-msg'); ?>
             <?php echo $this->session->flashdata('delete-reward-msg'); ?>
 
->>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
             <div class="m-b-md">
                 <a href="<?php echo base_url('/admin/reward/add'); ?>" class="btn btn-primary">Add Reward</a>
             </div>
@@ -56,11 +53,7 @@
                             <td><?php echo $reward->expired_date; ?></td>
                             <td>
                                 <a href="<?php echo base_url('/admin/reward/edit') . '/' . $reward->reward_id; ?>" class="btn btn-primary">Edit</a>
-<<<<<<< HEAD
-                                <a href="<?php echo base_url('/admin/reward/delete') . '/' . $reward->reward_id; ?>" class="btn btn-primary">Delete</a>
-=======
                                 <a href="<?php echo base_url('/admin/reward/delete') . '/' . $reward->reward_id; ?>" class="btn btn-primary" onclick="return confirm('Are you sure you want to delete?');">Delete</a>
->>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
                             </td>
                         </tr>
                     <?php } ?>

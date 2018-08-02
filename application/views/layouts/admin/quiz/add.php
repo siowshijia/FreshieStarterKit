@@ -27,18 +27,6 @@
                     <span class="text-danger"><?php echo form_error('quiz_name'); ?></span>
                 </div>
                 <div class="form-group">
-<<<<<<< HEAD
-                    <label for="category" class="sr-only">Category</label>
-                    <select class="form-control" name="category">
-                        <option selected disabled>Select Category</option>
-                        <option value="Admin">Admin</option>
-                        <option value="Others">Others</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="answer" class="sr-only">Answer</label>
-                    <textarea name="answer" cols="40" rows="2" id="answer" class="form-control" placeholder="Answer"></textarea>
-=======
                     <label for="quiz_description">Quiz Description</label>
                     <textarea name="quiz_description" cols="40" rows="4" id="quiz_description" class="form-control"><?php echo set_value('quiz_description'); ?></textarea>
                     <span class="text-danger"><?php echo form_error('quiz_description'); ?></span>
@@ -72,7 +60,6 @@
                     <label for="answer_3">Answer</label>
                     <input type="text" name="answer_3" id="answer_3" class="form-control" value="<?php echo set_value('answer_3'); ?>">
                     <span class="text-danger"><?php echo form_error('answer_3'); ?></span>
->>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
                 </div>
                 <button class="btn btn-primary btn-block" type="submit">Add</button>
                 <a href="<?php echo base_url('/admin/quiz/dashboard'); ?>" class="btn btn-primary btn-block m-t-sm">Back</a>
