@@ -51,7 +51,7 @@
                             <td><?php echo $user->points; ?></td>
                             <td>
                                 <a href="<?php echo base_url('/admin/student/edit') . '/' . $user->student_id; ?>" class="btn btn-primary">Edit</a>
-                                <a href="<?php echo base_url('/admin/student/delete') . '/' . $user->student_id; ?>" class="btn btn-primary">Delete</a>
+                                <a href="<?php echo base_url('/admin/student/delete') . '/' . $user->student_id; ?>" class="btn btn-primary" onclick="return confirm('Are you sure you want to delete?');">Delete</a>
                             </td>
                         </tr>
                     <?php } ?>

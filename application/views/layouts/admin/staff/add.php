@@ -42,7 +42,7 @@
                     <span class="text-danger"><?php echo form_error('contact_number'); ?></span>
                 </div>
                 <div class="form-group">
-                    <label for="user_role" class="sr-only">User Role</label>
+                    <label for="user_role">User Role</label>
                     <select class="form-control" name="user_role">
                         <option selected disabled>Select Role</option>
                         <option value="Admin" <?php echo set_select('user_role', 'Admin'); ?>>Admin</option>
