@@ -45,6 +45,10 @@
                     <label for="points" class="sr-only">Points</label>
                     <input type="text" name="points" id="points" class="form-control" placeholder="Points">
                 </div>
+                <div class="form-group">
+                    <label for="password" class="sr-only">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                </div>
                 <button class="btn btn-primary btn-block" type="submit">Add</button>
                 <a href="<?php echo base_url('/admin/student/dashboard'); ?>" class="btn btn-primary btn-block m-t-sm">Back</a>
             </form>
