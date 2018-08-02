@@ -22,22 +22,37 @@
                     <div class="alert alert-danger text-center"><?php echo $error_msg; ?></div>
                 <?php } ?>
                 <div class="form-group">
-                    <label for="question" class="sr-only">Question</label>
-                    <textarea name="question" cols="40" rows="5" id="question" class="form-control" placeholder="Question"></textarea>
+                    <label for="quiz_name" class="sr-only">Quiz Name</label>
+                    <input type="text" name="quiz_name" id="quiz_name" class="form-control" placeholder="Quiz Name">
                 </div>
                 <div class="form-group">
-                    <label for="category" class="sr-only">Category</label>
-                    <select class="form-control" name="category">
-                        <option selected disabled>Select Category</option>
-                        <option value="Admin">Admin</option>
-                        <option value="Others">Others</option>
-                    </select>
+                    <label for="quiz_description" class="sr-only">Quiz Description</label>
+                    <textarea name="quiz_description" cols="40" rows="4" id="quiz_description" class="form-control" placeholder="Description"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="answer" class="sr-only">Answer</label>
-                    <textarea name="answer" cols="40" rows="2" id="answer" class="form-control" placeholder="Answer"></textarea>
+                    <label for="question_1" class="sr-only">Question 1</label>
+                    <textarea name="question_1" cols="40" rows="3" id="question_1" class="form-control" placeholder="Question 1"></textarea>
                 </div>
-
+                <div class="form-group">
+                    <label for="answer_1" class="sr-only">Answer 1</label>
+                    <input type="text" name="answer_1" id="answer_1" class="form-control" placeholder="Answer to Question 1">
+                </div>
+                <div class="form-group">
+                    <label for="question_2" class="sr-only">Question 2</label>
+                    <textarea name="question_2" cols="40" rows="3" id="question_2" class="form-control" placeholder="Question 2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="answer_2" class="sr-only">Answer 2</label>
+                    <input type="text" name="answer_2" id="answer_2" class="form-control" placeholder="Answer to Question 2">
+                </div>
+                <div class="form-group">
+                    <label for="question_3" class="sr-only">Question 3</label>
+                    <textarea name="question_3" cols="40" rows="3" id="question_3" class="form-control" placeholder="Question 3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="answer_3" class="sr-only">Answer 3</label>
+                    <input type="text" name="answer_3" id="answer_3" class="form-control" placeholder="Answer to Question 3">
+                </div>
                 <button class="btn btn-primary btn-block" type="submit">Add</button>
                 <a href="<?php echo base_url('/admin/quiz/dashboard'); ?>" class="btn btn-primary btn-block m-t-sm">Back</a>
             </form>

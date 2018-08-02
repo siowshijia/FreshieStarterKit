@@ -33,12 +33,15 @@
             <table class="table table-bordered table-striped data-table">
                 <thead>
                     <tr>
-                        <th>Quiz ID</th>
-                        <th>Question</th>
-                        <th>Answer</th>
-                        <th>Category</th>
-                        <th>Created By</th>
-                        <th>Updated By</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Question 1</th>
+                        <th>Answer 1</th>
+                        <th>Question 2</th>
+                        <th>Answer 2</th>
+                        <th>Question 3</th>
+                        <th>Answer 3</th>
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
@@ -46,11 +49,14 @@
                     <?php foreach ($quizzes as $quiz) { ?>
                         <tr>
                             <td><?php echo $quiz->quiz_id; ?></td>
-                            <td><?php echo $quiz->quiz_question; ?></td>
-                            <td><?php echo $quiz->quiz_answer; ?></td>
-                            <td><?php echo $quiz->quiz_cat_id; ?></td>
-                            <td><?php echo $quiz->staff_name; ?></td>
-                            <td><?php echo $quiz->staff_name; ?></td>
+                            <td><?php echo $quiz->quiz_name; ?></td>
+                            <td><?php echo $quiz->description; ?></td>
+                            <td><?php echo $quiz->question_1; ?></td>
+                            <td><?php echo $quiz->answer_1; ?></td>
+                            <td><?php echo $quiz->question_2; ?></td>
+                            <td><?php echo $quiz->answer_2; ?></td>
+                            <td><?php echo $quiz->question_3; ?></td>
+                            <td><?php echo $quiz->answer_3; ?></td>
                             <td>
                                 <a href="<?php echo base_url('/admin/quiz/edit') . '/' . $quiz->quiz_id; ?>" class="btn btn-primary">Edit</a>
                                 <a href="<?php echo base_url('/admin/quiz/delete') . '/' . $quiz->quiz_id; ?>" class="btn btn-primary">Delete</a>
