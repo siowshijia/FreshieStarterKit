@@ -197,7 +197,7 @@ class Admin_Staff extends CI_Controller {
 
 	public function alpha_only_space($str)
 	{
-		if (preg_match('/[^a-z_\-0-9]/i', $str))
+		if (!preg_match('/^[a-z0-9 .\-]+$/i', $str))
 		{
 			$this->form_validation->set_message('alpha_only_space', 'The %s field must contain only alphabets or spaces');
 			return FALSE;
