@@ -49,6 +49,7 @@ class Admin_Student extends CI_Controller {
 		$this->form_validation->set_rules('contact_number', 'Contact Number', 'required');
 		$this->form_validation->set_rules('interest', 'Interest', 'required');
 		$this->form_validation->set_rules('points', 'Points', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
 
         if ($this->form_validation->run() == FALSE) {
 
@@ -61,8 +62,9 @@ class Admin_Student extends CI_Controller {
 			$contact_number   = $this->input->post('contact_number');
 			$interest         = $this->input->post('interest');
 			$points           = $this->input->post('points');
+			$password         = $this->input->post('password');
 
-			if ($this->adminStudentModel->add_student($name, $admission_number, $email, $contact_number, $interest, $points)) {
+			if ($this->adminStudentModel->add_student($name, $admission_number, $email, $contact_number, $interest, $points, $password)) {
 
 				$this->session->set_flashdata('add-student-msg', '<div class="alert alert-success text-center">You have successfully added a student.</div>');
 
