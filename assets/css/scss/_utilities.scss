@@ -77,3 +77,10 @@
     width: 100%;
     height: auto;
 }
+
+.flex-row {
+    @media (min-width: $screen-sm) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

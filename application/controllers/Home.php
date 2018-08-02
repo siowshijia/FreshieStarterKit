@@ -15,4 +15,9 @@ class Home extends CI_Controller {
 		);
 		$this->load->template('layouts/home', $data);
 	}
+
+	public function error404()
+	{
+		$this->load->template('layouts/error404');
+	}
 }

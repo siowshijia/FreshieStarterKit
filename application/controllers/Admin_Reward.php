@@ -32,9 +32,9 @@ class Admin_Reward extends CI_Controller {
 		);
 
         //set validation rules
-        $this->form_validation->set_rules('name', 'Name', 'required');
-        $this->form_validation->set_rules('points', 'Points', 'required');
-        $this->form_validation->set_rules('qty', 'Quantity','required');
+        $this->form_validation->set_rules('name', 'Name', 'required|callback_alpha_only_space');
+        $this->form_validation->set_rules('points', 'Points', 'required|numeric');
+        $this->form_validation->set_rules('qty', 'Quantity','required|numeric');
 		$this->form_validation->set_rules('description', 'Description', 'required');
 		$this->form_validation->set_rules('expired_date', 'Expired Date', 'required');
 
@@ -64,6 +64,8 @@ class Admin_Reward extends CI_Controller {
 			$expired_date = $this->input->post('expired_date');
 
 			if ($this->adminRewardModel->add_reward($name, $points, $qty, $image, $description, $expired_date)) {
+
+				$this->session->set_flashdata('add-reward-msg', '<div class="alert alert-success text-center">You have successfully added a reward.</div>');
 
 				redirect('/admin/reward/dashboard');
 
@@ -124,6 +126,8 @@ class Admin_Reward extends CI_Controller {
 
 				if ($this->adminRewardModel->update_reward($id, $name, $points, $qty, $image, $description, $expired_date)) {
 
+					$this->session->set_flashdata('edit-reward-msg', '<div class="alert alert-success text-center">The reward&apos;s details has been updated.</div>');
+
 					redirect('/admin/reward/dashboard');
 
 				} else {
@@ -143,7 +147,22 @@ class Admin_Reward extends CI_Controller {
 	public function delete($id) {
 
 		$this->adminRewardModel->delete_reward($id);
+		$this->session->set_flashdata('delete-reward-msg', '<div class="alert alert-success text-center">Deleted Successfully.</div>');
 		redirect('/admin/reward/dashboard');
 
+	}
+
+	public function alpha_only_space($str)
+	{
+		if (!preg_match("/^([-a-z ])+$/i", $str))
+		{
+			$this->form_validation->set_message('alpha_only_space', 'The %s field must
+			contain only alphabets or spaces');
+			return FALSE;
+		}
+		else
+		{
+			return TRUE;
+		}
 	}
 }

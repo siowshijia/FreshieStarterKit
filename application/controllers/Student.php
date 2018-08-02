@@ -11,57 +11,6 @@ class Student extends CI_Controller {
         $this->load->model('studentModel');
     }
 
-	public function register()
-	{
-		$data = array(
-			'view_name' => 'Student Register',
-		);
-
-        //set validation rules
-        $this->form_validation->set_rules('name', 'Name', 'required|validation_msg');
-        $this->form_validation->set_rules(
-			'email', 'Email',
-			'required|valid_email|is_unique[student.student_email]|validation_msg',
-				array(
-	                'required'      => 'You have not provided %s.',
-	                'is_unique'     => 'This %s already exists.'
-	        )
-		);
-
-		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|validation_msg');
-		$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|validation_msg');
-
-        if ($this->form_validation->run() == FALSE) {
-
-            $this->load->template('layouts/student/register', $data);
-
-        } else {
-
-			$name     = $this->input->post('name');
-			$email    = $this->input->post('email');
-			$password = $this->input->post('password');
-			$password = $this->input->post('confirm_password');
-
-			if ($this->studentModel->create_user($name, $email, $password)) {
-
-				$success_data = array(
-					'view_name' => 'Register Success',
-					'message'   => 'You have successfully register yourself.'
-				);
-
-				$this->load->template('layouts/student/success', $success_data);
-
-			} else {
-
-				$data['error_msg'] = 'Some problems occured, please try again.';
-				$this->load->template('layouts/student/register', $data);
-
-			}
-
-        }
-
-	}
-
 	public function login()
 	{
 		$data = array(
@@ -98,7 +47,7 @@ class Student extends CI_Controller {
 					'message'   => 'You have successfully logged in.'
 				);
 
-				$this->load->template('layouts/student/success', $success_data);
+				redirect('student/profile');
 
 			} else {
 
@@ -110,8 +59,6 @@ class Student extends CI_Controller {
 		}
 
 	}
-
-
 
 	public function profile()
 	{
@@ -167,7 +114,6 @@ class Student extends CI_Controller {
 			$data['user'] = $this->studentModel->get_user($_SESSION['user_id']);
 
 			//set validation rules
-	        $this->form_validation->set_rules('old_stud_pass', 'Current Password', 'required');
 	        $this->form_validation->set_rules('new_stud_pass', 'New Password', 'required|min_length[6]');
 	        $this->form_validation->set_rules('confirm_new_stud_pass', 'Confirm New Password', 'required|matches[new_stud_pass]');
 
@@ -177,12 +123,12 @@ class Student extends CI_Controller {
 
 	        } else {
 
-				$password           = $this->input->post('old_stud_pass');
-				$password     = $this->input->post('new_stud_pass');
-				$password          = $this->input->post('confirm_new_stud_pass');
-				$id             = $_SESSION['user_id'];
+				$password = $this->input->post('new_stud_pass');
+				$id       = $_SESSION['user_id'];
 
 				if ($this->studentModel->update_userpass($id, $password)) {
+
+					$this->session->set_flashdata('update-pw-msg', '<div class="alert alert-success text-center">You have successfully update your password.</div>');
 
 					redirect('student/profile');
 
@@ -236,6 +182,8 @@ class Student extends CI_Controller {
 				$id             = $_SESSION['user_id'];
 
 				if ($this->studentModel->update_user($id, $name, $adm_number, $email, $contact_number, $interest)) {
+
+					$this->session->set_flashdata('edit-profile-msg', '<div class="alert alert-success text-center">Your details has been saved.</div>');
 
 					redirect('student/profile');
 
@@ -307,6 +255,8 @@ class Student extends CI_Controller {
 				unset($_SESSION[$key]);
 
 			}
+
+			$this->session->set_flashdata('logout-msg', '<div class="alert alert-success text-center">You have successfully logged out.</div>');
 
 			redirect('/');
 

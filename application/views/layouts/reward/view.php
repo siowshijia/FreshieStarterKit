@@ -15,41 +15,40 @@
 <!--/#page-breadcrumb-->
 
 <section class="section-base">
-    <div class="container-xs">
-        <?php //if (isset($user)) { ?>
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered">
-                    <tr>
-                        <th>Name</th>
-                        <td><?php echo $user->student_name; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Admission Number</th>
-                        <td><?php echo $user->admission_number; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Email</th>
-                        <td><?php echo $user->student_email; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Contact Number</th>
-                        <td><?php echo $user->student_contact_number; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Interest</th>
-                        <td><?php echo $user->interest; ?></td>
-                    </tr>
-                </table>
-            </div>
+    <div class="container-md">
+        <?php echo $this->session->flashdata('msg'); ?>
+        <?php if ($rewards) { ?>
+            <div class="row flex-row">
+                <?php foreach ($rewards as $reward) { ?>
+                    <div class="col-xs-12 col-sm-6 col-md-4 m-b-md">
+                        <div class="product">
+                            <img src="<?php echo base_url('/uploads/' . $reward->image); ?>" alt="">
+                            <h2><?php echo $reward->reward_name; ?></h2>
+                            <p><b><?php echo $reward->cost_points; ?> Points</b></p>
+                            <p><?php echo $reward->description; ?></p>
 
-            <div class="text-center">
-                <a href="<?php echo base_url('/student/edit'); ?>" class="btn btn-common">Edit Profile</a>
+                            <?php if (isset($_SESSION['logged_in']) && isset($_SESSION['user_id'])) { ?>
+                                <a href="<?php echo base_url('/reward/redeem/' . $_SESSION['user_id'] . '/' .  $reward->reward_id); ?>" class="btn btn-common">Redeem</a>
+                            <?php } else { ?>
+                                <button type="button" class="btn btn-common" data-toggle="modal" data-target="#alertModal">Redeem</button>
+                            <?php } ?>
+                        </div>
+                    </div>
+                <?php } ?>
             </div>
-        <?php //} else { ?>
-            <div class="text-center">
-                <h4>Please login to view this page.</h4>
-                <a href="<?php echo base_url('/student/login'); ?>" class="btn btn-primary">Login</a>
-            </div>
-        <?php //} ?>
+        <?php } ?>
     </div>
 </section>
+
+<div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h1 class="modal-title text-danger">Alert!</h1>
+                <h4 class="m-b-md">Please login to redeem!</h4>
+                <a href="<?php echo base_url('/student/login'); ?>" class="btn btn-primary m-b-sm">Login</a>
+            </div>
+        </div>
+    </div>
+</div>

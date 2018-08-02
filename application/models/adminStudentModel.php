@@ -12,7 +12,7 @@ class adminStudentModel extends CI_Model
         parent::__construct();
     }
 
-    public function add_student($name, $admission_number, $email, $contact_number, $interest, $points) {
+    public function add_student($name, $admission_number, $email, $contact_number, $interest, $points, $password) {
 
         $data = array(
             'student_name'           => $name,
@@ -21,6 +21,7 @@ class adminStudentModel extends CI_Model
             'student_contact_number' => $contact_number,
             'interest'               => $interest,
             'points'                 => $points,
+            'password'               => $this->hash_password($password),
         );
 
         return $this->db->insert('student', $data);
