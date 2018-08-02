@@ -18,9 +18,9 @@
     <div class="container-md">
         <?php echo $this->session->flashdata('msg'); ?>
         <?php if ($rewards) { ?>
-            <div class="row">
+            <div class="row flex-row">
                 <?php foreach ($rewards as $reward) { ?>
-                    <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="col-xs-12 col-sm-6 col-md-4 m-b-md">
                         <div class="product">
                             <img src="<?php echo base_url('/uploads/' . $reward->image); ?>" alt="">
                             <h2><?php echo $reward->reward_name; ?></h2>
