@@ -128,6 +128,8 @@ class Student extends CI_Controller {
 
 				if ($this->studentModel->update_userpass($id, $password)) {
 
+					$this->session->set_flashdata('update-pw-msg', '<div class="alert alert-success text-center">You have successfully update your password.</div>');
+
 					redirect('student/profile');
 
 				} else {
@@ -160,7 +162,7 @@ class Student extends CI_Controller {
 			$data['user'] = $this->studentModel->get_user($_SESSION['user_id']);
 
 			//set validation rules
-	        $this->form_validation->set_rules('stud_name', 'Name', 'required');
+	        $this->form_validation->set_rules('stud_name', 'Name', 'required|callback_alpha_only_space');
 	        $this->form_validation->set_rules('adm_number', 'Admission Number', 'required|callback_valid_admin_no');
 	        $this->form_validation->set_rules('stud_email', 'Email', 'required|valid_email');
 			$this->form_validation->set_rules('contact_number', 'Contact Number','required|callback_valid_contact_no');
@@ -180,6 +182,8 @@ class Student extends CI_Controller {
 				$id             = $_SESSION['user_id'];
 
 				if ($this->studentModel->update_user($id, $name, $adm_number, $email, $contact_number, $interest)) {
+
+					$this->session->set_flashdata('edit-profile-msg', '<div class="alert alert-success text-center">Your details has been saved.</div>');
 
 					redirect('student/profile');
 
@@ -205,8 +209,7 @@ class Student extends CI_Controller {
 	{
 		if (!preg_match("/^([-a-z ])+$/i", $str))
 		{
-			$this->form_validation->set_message('alpha_only_space', 'The %s field must
-			contain only alphabets or spaces');
+			$this->form_validation->set_message('alpha_only_space', 'The %s field must contain only alphabets or spaces');
 			return FALSE;
 		}
 		else
@@ -219,8 +222,7 @@ class Student extends CI_Controller {
 	{
 		if (!preg_match("/^([1]\d{5}[A-Z])+$/i", $str))
 		{
-			$this->form_validation->set_message('valid_admin_no', 'The %s field must
-			be in this format: 123456A');
+			$this->form_validation->set_message('valid_admin_no', 'The %s field must be in this format: 123456A');
 			return FALSE;
 		}
 		else
@@ -253,6 +255,8 @@ class Student extends CI_Controller {
 				unset($_SESSION[$key]);
 
 			}
+
+			$this->session->set_flashdata('logout-msg', '<div class="alert alert-success text-center">You have successfully logged out.</div>');
 
 			redirect('/');
 

@@ -77,3 +77,20 @@
     width: 100%;
     height: auto;
 }
+
+.flex-row {
+    @media (min-width: $screen-sm) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.trucate-4 {
+    max-height: 80px;
+    display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

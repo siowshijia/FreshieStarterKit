@@ -6,12 +6,16 @@
                     <div class="contact-info bottom">
                         <h2>Site Map</h2>
                         <ul class="p-l-none two-column">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="#">Quizzes</a></li>
-                            <li><a href="#">Rewards</a></li>
-                            <li><a href="#">Login</a></li>
-                            <li><a href="#">Register</a></li>
+                            <li class="<?php echo activate_menu('student'); ?>">
+                                <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) { ?>
+                                    <a href="<?php echo base_url('/student/profile'); ?>">Profile</a>
+                                <?php } else { ?>
+                                    <a href="<?php echo base_url('/student/login'); ?>">Profile</a>
+                                <?php } ?>
+                            </li>
+                            <li class="<?php echo activate_menu('quiz'); ?>"><a href="<?php echo base_url('/quiz'); ?>">Quizzes</a></li>
+                            <li class="<?php echo activate_menu('event'); ?>"><a href="<?php echo base_url('/event'); ?>">Events</a></li>
+                            <li class="<?php echo activate_menu('reward'); ?>"><a href="<?php echo base_url('/reward'); ?>">Rewards</a></li>
                         </ul>
                     </div>
                 </div>

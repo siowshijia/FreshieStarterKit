@@ -16,6 +16,7 @@
 
 <section class="section-base">
     <div class="container-md">
+<<<<<<< HEAD
         <?php if(validation_errors()) { ?>
             <div class="alert alert-danger"><?= validation_errors();?></div>
         <?php } ?>
@@ -24,6 +25,14 @@
         <?php } ?>
 
         <?php if (isset($users)) { ?>
+=======
+        <?php if (isset($users)) { ?>
+
+            <?php echo $this->session->flashdata('add-student-msg'); ?>
+            <?php echo $this->session->flashdata('edit-student-msg'); ?>
+            <?php echo $this->session->flashdata('delete-student-msg'); ?>
+
+>>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
             <div class="m-b-md">
                 <a href="<?php echo base_url('/admin/student/add'); ?>" class="btn btn-primary">Add Student</a>
             </div>
@@ -53,7 +62,11 @@
                             <td><?php echo $user->points; ?></td>
                             <td>
                                 <a href="<?php echo base_url('/admin/student/edit') . '/' . $user->student_id; ?>" class="btn btn-primary">Edit</a>
+<<<<<<< HEAD
                                 <a href="<?php echo base_url('/admin/student/delete') . '/' . $user->student_id; ?>" class="btn btn-primary">Delete</a>
+=======
+                                <a href="<?php echo base_url('/admin/student/delete') . '/' . $user->student_id; ?>" class="btn btn-primary" onclick="return confirm('Are you sure you want to delete?');">Delete</a>
+>>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
                             </td>
                         </tr>
                     <?php } ?>

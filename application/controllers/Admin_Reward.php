@@ -32,9 +32,9 @@ class Admin_Reward extends CI_Controller {
 		);
 
         //set validation rules
-        $this->form_validation->set_rules('name', 'Name', 'required');
-        $this->form_validation->set_rules('points', 'Points', 'required');
-        $this->form_validation->set_rules('qty', 'Quantity','required');
+        $this->form_validation->set_rules('name', 'Name', 'required|callback_alpha_only_space');
+        $this->form_validation->set_rules('points', 'Points', 'required|numeric');
+        $this->form_validation->set_rules('qty', 'Quantity','required|numeric');
 		$this->form_validation->set_rules('description', 'Description', 'required');
 		$this->form_validation->set_rules('expired_date', 'Expired Date', 'required');
 
@@ -65,6 +65,11 @@ class Admin_Reward extends CI_Controller {
 
 			if ($this->adminRewardModel->add_reward($name, $points, $qty, $image, $description, $expired_date)) {
 
+<<<<<<< HEAD
+=======
+				$this->session->set_flashdata('add-reward-msg', '<div class="alert alert-success text-center">You have successfully added a reward.</div>');
+
+>>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
 				redirect('/admin/reward/dashboard');
 
 			} else {
@@ -85,9 +90,9 @@ class Admin_Reward extends CI_Controller {
 			$data['reward'] = $this->adminRewardModel->get_reward($id);
 
 			//set validation rules
-			$this->form_validation->set_rules('name', 'Name', 'required');
-	        $this->form_validation->set_rules('points', 'Points', 'required');
-	        $this->form_validation->set_rules('qty', 'Email','required');
+			$this->form_validation->set_rules('name', 'Name', 'required|callback_alpha_only_space');
+	        $this->form_validation->set_rules('points', 'Points', 'required|numeric');
+	        $this->form_validation->set_rules('qty', 'Quantity','required|numeric');
 			$this->form_validation->set_rules('description', 'Description', 'required');
 			$this->form_validation->set_rules('expired_date', 'Expired Date', 'required');
 
@@ -124,6 +129,11 @@ class Admin_Reward extends CI_Controller {
 
 				if ($this->adminRewardModel->update_reward($id, $name, $points, $qty, $image, $description, $expired_date)) {
 
+<<<<<<< HEAD
+=======
+					$this->session->set_flashdata('edit-reward-msg', '<div class="alert alert-success text-center">The reward&apos;s details has been updated.</div>');
+
+>>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
 					redirect('/admin/reward/dashboard');
 
 				} else {
@@ -143,7 +153,25 @@ class Admin_Reward extends CI_Controller {
 	public function delete($id) {
 
 		$this->adminRewardModel->delete_reward($id);
+<<<<<<< HEAD
+		redirect('/admin/reward/dashboard');
+=======
+		$this->session->set_flashdata('delete-reward-msg', '<div class="alert alert-success text-center">Deleted Successfully.</div>');
 		redirect('/admin/reward/dashboard');
 
+	}
+>>>>>>> fcef5ed1cea13463e0c599a267060877476f72d7
+
+	public function alpha_only_space($str)
+	{
+		if (!preg_match('/^[a-z0-9 .\-]+$/i', $str))
+		{
+			$this->form_validation->set_message('alpha_only_space', 'The %s field must contain only alphabets or spaces');
+			return FALSE;
+		}
+		else
+		{
+			return TRUE;
+		}
 	}
 }

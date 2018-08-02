@@ -17,6 +17,8 @@
 <section class="section-base">
     <div class="container-xs">
         <?php if (isset($user)) { ?>
+            <?php echo $this->session->flashdata('edit-profile-msg'); ?>
+
             <div class="table-responsive">
                 <table class="table table-striped table-bordered">
                     <tr>
