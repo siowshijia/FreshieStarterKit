@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="action">
                     <div class="col-sm-12">
-                        <h1 class="title">Quizzes<?php //echo $view_name; ?></h1>
+                        <h1 class="title"><?php echo $view_name; ?></h1>
                     </div>
                  </div>
             </div>
@@ -24,14 +24,14 @@
                         <div class="box1">
                             <div class="icon-circle"><span class="fa fa-list-ol"></span></div>
                             <h2>Quiz 1</h2>
-                            <p>Quis autem vel eum iure reprederit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum.</p>
-                            <a href="#" class="btn btn-common visible-xs visible-sm m-t-md">Read More</a>
+                            <p>Quiz about school attendace.</p>
+                            <a href="<?php echo base_url('quiz/attendance'); ?>" class="btn btn-common visible-xs visible-sm m-t-md">Read More</a>
                         </div>
                     </div>
 
                     <div class="back">
                         <div class="box2">
-                            <a href="#" class="btn">Read More</a>
+                            <a href="<?php echo base_url('quiz/attendance'); ?>" class="btn">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -43,14 +43,14 @@
                         <div class="box1">
                             <div class="icon-circle"><span class="fa fa-list-ol"></span></div>
                             <h2>Quiz 2</h2>
-                            <p>Quis autem vel eum iure reprederit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum.</p>
-                            <a href="#" class="btn btn-common visible-xs visible-sm m-t-md">Read More</a>
+                            <p>Quiz about school bursary.</p>
+                            <a href="<?php echo base_url('quiz/bursary'); ?>" class="btn btn-common visible-xs visible-sm m-t-md">Read More</a>
                         </div>
                     </div>
 
                     <div class="back">
                         <div class="box2">
-                            <a href="#" class="btn">Read More</a>
+                            <a href="<?php echo base_url('quiz/bursary'); ?>" class="btn">Read More</a>
                         </div>
                     </div>
                 </div>

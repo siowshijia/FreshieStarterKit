@@ -87,6 +87,7 @@ $route['admin/event/edit/(:num)'] = 'admin_event/Update/$1';
 $route['admin/event/pending'] = 'admin_event/adminPending';
 
 // Quiz - Student
+$route['quizzes'] = 'quiz/quizzes';
 
 $route['default_controller'] = 'home';
 $route['404_override'] = 'home/error404';

@@ -13,7 +13,7 @@
                                     <a href="<?php echo base_url('/student/login'); ?>">Profile</a>
                                 <?php } ?>
                             </li>
-                            <li class="<?php echo activate_menu('quiz'); ?>"><a href="<?php echo base_url('/quiz'); ?>">Quizzes</a></li>
+                            <li class="<?php echo activate_menu('quiz'); ?>"><a href="<?php echo base_url('/quizzes'); ?>">Quizzes</a></li>
                             <li class="<?php echo activate_menu('event'); ?>"><a href="<?php echo base_url('/event'); ?>">Events</a></li>
                             <li class="<?php echo activate_menu('reward'); ?>"><a href="<?php echo base_url('/reward'); ?>">Rewards</a></li>
                         </ul>
@@ -56,6 +56,6 @@
     <script type="text/javascript" src="<?php echo base_url("assets/js/lightbox.min.js"); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url("assets/js/wow.min.js"); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url("assets/js/main.js"); ?>"></script>
-    
+
 </body>
 </html>
