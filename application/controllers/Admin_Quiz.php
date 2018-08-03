@@ -21,7 +21,7 @@ class Admin_Quiz extends CI_Controller {
 		if (isset($_SESSION['user_id'])) {
 
 			$data['logged_in'] = true;
-			$data['quizzes'] = $this->AdminQuizModel->get_all_quiz();
+			$data['quizzes'] = $this->adminQuizModel->get_all_quiz();
 
 		} else {
 
@@ -138,6 +138,5 @@ class Admin_Quiz extends CI_Controller {
 		$this->AdminQuizModel->delete_quiz($id);
 		$this->session->set_flashdata('delete-quiz-msg', '<div class="alert alert-success text-center">Deleted Successfully.</div>');
 		redirect('/admin/quiz/dashboard');
-
 	}
 }

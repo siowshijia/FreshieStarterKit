@@ -40,7 +40,13 @@ class Admin_Staff extends CI_Controller {
 				$_SESSION['user_role']    = (string)$user->user_role;
 				$_SESSION['logged_in']    = (bool)true;
 
-				redirect('/admin');
+				if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Admin')){
+
+					redirect('/admin');
+					}
+					else {
+						redirect('/manager/event/dashboard');	
+					}
 
 			} else {
 
@@ -106,6 +112,8 @@ class Admin_Staff extends CI_Controller {
 
 				$this->session->set_flashdata('add-staff-msg', '<div class="alert alert-success text-center">You have successfully added a staff.</div>');
 
+				$this->session->set_flashdata('add-staff-msg', '<div class="alert alert-success text-center">You have successfully added a staff.</div>');
+
 				redirect('/admin/staff/dashboard');
 
 			} else {
@@ -145,6 +153,8 @@ class Admin_Staff extends CI_Controller {
 				$user_role      = $this->input->post('user_role');
 
 				if ($this->AdminStaffModel->update_staff($id, $name, $staff_number, $email, $contact_number, $user_role)) {
+
+					$this->session->set_flashdata('edit-staff-msg', '<div class="alert alert-success text-center">The staff&apos;s details has been updated.</div>');
 
 					$this->session->set_flashdata('edit-staff-msg', '<div class="alert alert-success text-center">The staff&apos;s details has been updated.</div>');
 

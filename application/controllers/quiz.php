@@ -62,6 +62,7 @@ class Quiz extends CI_Controller {
 
 
 }
+
 	public function quizzes()
 	{
 		$data = array(
