@@ -1,10 +1,10 @@
 <?php
 /*
-* File Name: adminRewardModel.php
+* File Name: AdminRewardModel.php
 */
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class adminRewardModel extends CI_Model
+class AdminRewardModel extends CI_Model
 {
     function __construct()
     {
