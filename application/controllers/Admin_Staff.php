@@ -7,7 +7,7 @@ class Admin_Staff extends CI_Controller {
     {
         parent::__construct();
 		$this->load->library('form_validation');
-        $this->load->model('adminStaffModel');
+        $this->load->model('AdminStaffModel');
     }
 
 	public function index()
@@ -29,10 +29,10 @@ class Admin_Staff extends CI_Controller {
 			$email    = $this->input->post('email');
 			$password = $this->input->post('password');
 
-			if ($this->adminStaffModel->resolve_user_login($email, $password)) {
+			if ($this->AdminStaffModel->resolve_user_login($email, $password)) {
 
-				$user_id = $this->adminStaffModel->get_user_id_from_username($email);
-				$user    = $this->adminStaffModel->get_user($user_id);
+				$user_id = $this->AdminStaffModel->get_user_id_from_username($email);
+				$user    = $this->AdminStaffModel->get_user($user_id);
 
 				// set session user datas
 				$_SESSION['user_id']      = (int)$user->staff_id;
@@ -60,7 +60,7 @@ class Admin_Staff extends CI_Controller {
 		if (isset($_SESSION['user_id'])) {
 
 			$data['logged_in'] = true;
-			$data['users'] = $this->adminStaffModel->get_all_staff();
+			$data['users'] = $this->AdminStaffModel->get_all_staff();
 
 		} else {
 
@@ -102,7 +102,7 @@ class Admin_Staff extends CI_Controller {
 			$user_role      = $this->input->post('user_role');
 			$password       = $this->input->post('password');
 
-			if ($this->adminStaffModel->add_staff($name, $staff_number, $email, $contact_number, $user_role, $password)) {
+			if ($this->AdminStaffModel->add_staff($name, $staff_number, $email, $contact_number, $user_role, $password)) {
 
 				$this->session->set_flashdata('add-staff-msg', '<div class="alert alert-success text-center">You have successfully added a staff.</div>');
 
@@ -124,7 +124,7 @@ class Admin_Staff extends CI_Controller {
 		if (isset($id)) {
 
 			$data['logged_in'] = true;
-			$data['user'] = $this->adminStaffModel->get_user($id);
+			$data['user'] = $this->AdminStaffModel->get_user($id);
 
 			//set validation rules
 			$this->form_validation->set_rules('name', 'Name', 'required|callback_alpha_only_space');
@@ -144,7 +144,7 @@ class Admin_Staff extends CI_Controller {
 				$contact_number = $this->input->post('contact_number');
 				$user_role      = $this->input->post('user_role');
 
-				if ($this->adminStaffModel->update_staff($id, $name, $staff_number, $email, $contact_number, $user_role)) {
+				if ($this->AdminStaffModel->update_staff($id, $name, $staff_number, $email, $contact_number, $user_role)) {
 
 					$this->session->set_flashdata('edit-staff-msg', '<div class="alert alert-success text-center">The staff&apos;s details has been updated.</div>');
 
@@ -166,7 +166,7 @@ class Admin_Staff extends CI_Controller {
 
 	public function delete($id) {
 
-		$this->adminStaffModel->delete_staff($id);
+		$this->AdminStaffModel->delete_staff($id);
 		$this->session->set_flashdata('delete-staff-msg', '<div class="alert alert-success text-center">Deleted Successfully.</div>');
 		redirect('/admin/staff/dashboard');
 

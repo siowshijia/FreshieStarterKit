@@ -7,7 +7,7 @@ class Admin_Student extends CI_Controller {
     {
         parent::__construct();
 		$this->load->library('form_validation');
-        $this->load->model('adminStudentModel');
+        $this->load->model('AdminStudentModel');
     }
 
 	public function dashboard()
@@ -19,7 +19,7 @@ class Admin_Student extends CI_Controller {
 		if (isset($_SESSION['user_id'])) {
 
 			$data['logged_in'] = true;
-			$data['users'] = $this->adminStudentModel->get_all_student();
+			$data['users'] = $this->AdminStudentModel->get_all_student();
 
 		} else {
 
@@ -65,7 +65,7 @@ class Admin_Student extends CI_Controller {
 			$points           = $this->input->post('points');
 			$password         = $this->input->post('password');
 
-			if ($this->adminStudentModel->add_student($name, $admission_number, $email, $contact_number, $interest, $points, $password)) {
+			if ($this->AdminStudentModel->add_student($name, $admission_number, $email, $contact_number, $interest, $points, $password)) {
 
 				$this->session->set_flashdata('add-student-msg', '<div class="alert alert-success text-center">You have successfully added a student.</div>');
 
@@ -87,7 +87,7 @@ class Admin_Student extends CI_Controller {
 		if (isset($id)) {
 
 			$data['logged_in'] = true;
-			$data['user'] = $this->adminStudentModel->get_user($id);
+			$data['user'] = $this->AdminStudentModel->get_user($id);
 
 			//set validation rules
 			$this->form_validation->set_rules('name', 'Name', 'required|callback_alpha_only_space');
@@ -109,7 +109,7 @@ class Admin_Student extends CI_Controller {
 				$interest         = $this->input->post('interest');
 				$points           = $this->input->post('points');
 
-				if ($this->adminStudentModel->update_student($id, $name, $admission_number, $email, $contact_number, $interest, $points)) {
+				if ($this->AdminStudentModel->update_student($id, $name, $admission_number, $email, $contact_number, $interest, $points)) {
 
 					$this->session->set_flashdata('edit-student-msg', '<div class="alert alert-success text-center">The student&apos;s details has been updated.</div>');
 
@@ -131,7 +131,7 @@ class Admin_Student extends CI_Controller {
 
 	public function delete($id) {
 
-		$this->adminStudentModel->delete_student($id);
+		$this->AdminStudentModel->delete_student($id);
 		$this->session->set_flashdata('delete-student-msg', '<div class="alert alert-success text-center">Delete successfully.</div>');
 		redirect('/admin/student/dashboard');
 

@@ -1,10 +1,10 @@
 <?php
 /*
-* File Name: rewardModel.php
+* File Name: RewardModel.php
 */
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class rewardModel extends CI_Model
+class RewardModel extends CI_Model
 {
     function __construct()
     {
@@ -22,8 +22,8 @@ class rewardModel extends CI_Model
 
     public function redeem_reward($user_id, $reward_id) {
 
-        $student_points = $this->rewardModel->_retrieve_student_points($user_id);
-        $reward_points = $this->rewardModel->_retrieve_reward_points($reward_id);
+        $student_points = $this->RewardModel->_retrieve_student_points($user_id);
+        $reward_points = $this->RewardModel->_retrieve_reward_points($reward_id);
 
         if ($reward_points < $student_points) {
 
