@@ -7,7 +7,7 @@ class Admin_Quiz extends CI_Controller {
     {
         parent::__construct();
 		$this->load->library('form_validation');
-        $this->load->model('adminQuizModel');
+        $this->load->model('AdminQuizModel');
     }
 
 	public function dashboard()
@@ -21,7 +21,7 @@ class Admin_Quiz extends CI_Controller {
 		if (isset($_SESSION['user_id'])) {
 
 			$data['logged_in'] = true;
-			$data['quizzes'] = $this->adminQuizModel->get_all_quiz();
+			$data['quizzes'] = $this->AdminQuizModel->get_all_quiz();
 
 		} else {
 
@@ -64,7 +64,7 @@ class Admin_Quiz extends CI_Controller {
 			$answer_3				= $this->input->post('answer_3');
 			$created_by				= $_SESSION['user_id'];
 
-			if ($this->adminQuizModel->add_quiz($quiz_name, $quiz_description, $question_1, $answer_1, $question_2, $answer_2, $question_3, $answer_3, $created_by)) {
+			if ($this->AdminQuizModel->add_quiz($quiz_name, $quiz_description, $question_1, $answer_1, $question_2, $answer_2, $question_3, $answer_3, $created_by)) {
 
 				$this->session->set_flashdata('add-quiz-msg', '<div class="alert alert-success text-center">You have successfully added a quiz record.</div>');
 				redirect('/admin/quiz/dashboard');
@@ -77,14 +77,15 @@ class Admin_Quiz extends CI_Controller {
         }
 	}
 
-	public function edit($id) {
+	public function edit($id)
+	{
 		$data = array(
 			'view_name' => 'Edit Quiz',
 		);
 
 		if (isset($id)) {
 
-			$data['quiz'] = $this->adminQuizModel->get_quiz($id);
+			$data['quiz'] = $this->AdminQuizModel->get_quiz($id);
 
 			//set validation rules
 	        $this->form_validation->set_rules('quiz_name', 'quiz_name', 'required');
@@ -111,7 +112,7 @@ class Admin_Quiz extends CI_Controller {
 				$question_3				= $this->input->post('question_3');
 				$answer_3				= $this->input->post('answer_3');
 
-				if ($this->adminQuizModel->update_quiz($id, $quiz_name, $quiz_description, $question_1, $answer_1, $question_2, $answer_2, $question_3, $answer_3)) {
+				if ($this->AdminQuizModel->update_quiz($id, $quiz_name, $quiz_description, $question_1, $answer_1, $question_2, $answer_2, $question_3, $answer_3)) {
 
 					$this->session->set_flashdata('edit-quiz-msg', '<div class="alert alert-success text-center">The quiz&apos;s details has been updated.</div>');
 
@@ -131,9 +132,10 @@ class Admin_Quiz extends CI_Controller {
 		}
 	}
 
-	public function delete($id) {
+	public function delete($id)
+	{
 
-		$this->adminQuizModel->delete_quiz($id);
+		$this->AdminQuizModel->delete_quiz($id);
 		$this->session->set_flashdata('delete-quiz-msg', '<div class="alert alert-success text-center">Deleted Successfully.</div>');
 		redirect('/admin/quiz/dashboard');
 
