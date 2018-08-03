@@ -66,3 +66,11 @@ class Quiz extends CI_Controller {
 
 
 }
+	public function quizzes()
+	{
+		$data = array(
+			'view_name' => 'Quizzes',
+		);
+		$this->load->template('layouts/quiz/quizzes', $data);
+	}
+}
