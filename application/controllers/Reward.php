@@ -7,14 +7,14 @@ class Reward extends CI_Controller {
     {
         parent::__construct();
 		$this->load->library('form_validation');
-        $this->load->model('rewardModel');
+        $this->load->model('RewardModel');
     }
 
 	public function index()
 	{
 		$data = array(
 			'view_name' => 'Rewards',
-			'rewards'   => $this->rewardModel->get_all_reward(),
+			'rewards'   => $this->RewardModel->get_all_reward(),
 		);
 
 		$this->load->template('layouts/reward/view', $data);
@@ -22,11 +22,11 @@ class Reward extends CI_Controller {
 
 	public function redeem($user_id, $reward_id)
 	{
-		$boolean = $this->rewardModel->redeem_reward($user_id, $reward_id);
+		$boolean = $this->RewardModel->redeem_reward($user_id, $reward_id);
 
 		if ($boolean) {
 
-			$reward_name = $this->rewardModel->_retrieve_reward_name($reward_id);
+			$reward_name = $this->RewardModel->_retrieve_reward_name($reward_id);
 
             $msg = '<div class="alert alert-success text-center">You have successfully redeemed ' . $reward_name . '.</div>';
 

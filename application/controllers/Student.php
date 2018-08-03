@@ -8,7 +8,7 @@ class Student extends CI_Controller {
     {
         parent::__construct();
 		$this->load->library('form_validation');
-        $this->load->model('studentModel');
+        $this->load->model('StudentModel');
     }
 
 	public function login()
@@ -30,10 +30,10 @@ class Student extends CI_Controller {
 			$email    = $this->input->post('stud_email');
 			$password = $this->input->post('stud_pass');
 
-			if ($this->studentModel->resolve_user_login($email, $password)) {
+			if ($this->StudentModel->resolve_user_login($email, $password)) {
 
-				$user_id = $this->studentModel->get_user_id_from_username($email);
-				$user    = $this->studentModel->get_user($user_id);
+				$user_id = $this->StudentModel->get_user_id_from_username($email);
+				$user    = $this->StudentModel->get_user($user_id);
 
 				// set session user datas
 
@@ -69,7 +69,7 @@ class Student extends CI_Controller {
 		if (isset($_SESSION['user_id'])) {
 
 			$data['logged_in'] = true;
-			$data['user'] = $this->studentModel->get_user($_SESSION['user_id']);
+			$data['user'] = $this->StudentModel->get_user($_SESSION['user_id']);
 
 		} else {
 
@@ -90,7 +90,7 @@ class Student extends CI_Controller {
 		if (isset($_SESSION['user_id'])) {
 
 			$data['logged_in'] = true;
-			$data['user'] = $this->studentModel->get_student_points_statement($_SESSION['user_id']);
+			$data['user'] = $this->StudentModel->get_student_points_statement($_SESSION['user_id']);
 
 		} else {
 
@@ -111,7 +111,7 @@ class Student extends CI_Controller {
 		if (isset($_SESSION['user_id'])) {
 
 			$data['logged_in'] = true;
-			$data['user'] = $this->studentModel->get_user($_SESSION['user_id']);
+			$data['user'] = $this->StudentModel->get_user($_SESSION['user_id']);
 
 			//set validation rules
 	        $this->form_validation->set_rules('new_stud_pass', 'New Password', 'required|min_length[6]');
@@ -126,7 +126,7 @@ class Student extends CI_Controller {
 				$password = $this->input->post('new_stud_pass');
 				$id       = $_SESSION['user_id'];
 
-				if ($this->studentModel->update_userpass($id, $password)) {
+				if ($this->StudentModel->update_userpass($id, $password)) {
 
 					$this->session->set_flashdata('update-pw-msg', '<div class="alert alert-success text-center">You have successfully update your password.</div>');
 
@@ -159,7 +159,7 @@ class Student extends CI_Controller {
 		if (isset($_SESSION['user_id'])) {
 
 			$data['logged_in'] = true;
-			$data['user'] = $this->studentModel->get_user($_SESSION['user_id']);
+			$data['user'] = $this->StudentModel->get_user($_SESSION['user_id']);
 
 			//set validation rules
 	        $this->form_validation->set_rules('stud_name', 'Name', 'required|callback_alpha_only_space');
@@ -181,7 +181,7 @@ class Student extends CI_Controller {
 				$interest       = $this->input->post('interest');
 				$id             = $_SESSION['user_id'];
 
-				if ($this->studentModel->update_user($id, $name, $adm_number, $email, $contact_number, $interest)) {
+				if ($this->StudentModel->update_user($id, $name, $adm_number, $email, $contact_number, $interest)) {
 
 					$this->session->set_flashdata('edit-profile-msg', '<div class="alert alert-success text-center">Your details has been saved.</div>');
 
