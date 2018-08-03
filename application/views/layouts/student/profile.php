@@ -48,6 +48,24 @@
                 </table>
             </div>
 
+            <?php if ($transactions) { ?>
+                <div class="table-responsive m-t-md">
+                    <table class="table table-striped table-bordered">
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Amount</th>
+                        </tr>
+
+                        <?php foreach ($transactions as $transaction) { ?>
+                            <tr>
+                                <td><?php echo $transaction->reward_name; ?></td>
+                                <td><?php echo $transaction->amount ? '-'.$transaction->amount : '+'.$transaction->amount; ?></td>
+                            </tr>
+                        <?php } ?>
+                    </table>
+                </div>
+            <?php } ?>
+
             <div class="text-center m-b-md">
                 <a href="<?php echo base_url('/student/edit'); ?>" class="btn btn-common">Edit Profile</a>
             </div>

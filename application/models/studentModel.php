@@ -81,6 +81,16 @@ class StudentModel extends CI_Model
 
     }
 
+    public function get_transactions($user_id) {
+
+        $this->db->select('*');
+        $this->db->from('rewards');
+        $this->db->join('reward_transaction', 'rewards.reward_id = reward_transaction.reward_id');
+
+        return $this->db->get()->result();
+
+    }
+
     private function hash_password($password) {
 
         return password_hash($password, PASSWORD_BCRYPT);

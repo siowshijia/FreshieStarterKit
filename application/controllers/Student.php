@@ -70,6 +70,7 @@ class Student extends CI_Controller {
 
 			$data['logged_in'] = true;
 			$data['user'] = $this->StudentModel->get_user($_SESSION['user_id']);
+			$data['transactions'] = $this->StudentModel->get_transactions($_SESSION['user_id']);
 
 		} else {
 
@@ -78,27 +79,6 @@ class Student extends CI_Controller {
 		}
 
         $this->load->template('layouts/student/profile', $data);
-
-	}
-
-	public function points()
-	{
-		$data = array(
-			'view_name' => 'Student Points Statement',
-		);
-
-		if (isset($_SESSION['user_id'])) {
-
-			$data['logged_in'] = true;
-			$data['user'] = $this->StudentModel->get_student_points_statement($_SESSION['user_id']);
-
-		} else {
-
-			$data['logged_in'] = false;
-
-		}
-
-        $this->load->template('layouts/student/points', $data);
 
 	}
 
