@@ -18,60 +18,129 @@
 <section class="section-base">
     <div class="container-md">
         <h3 class="ds-blue-title">BURSARIES</h3></hr>
-        <ol>
-            <li><p>
-                The following NYP Assessment Regulation shall be applied to all modules, unless otherwise stated, that are given a letter-grade
-                (i.e. modules that have letter grades of DIST, A, B, C, D and F) taken by students in a Semester:
-                <br />
-                Under the NYP Assessment Regulations, students who do not achieve 75% or above for attendance shall be allowed to continue with their studies and sit for assessment,
-                but will have their final overall grade capped at ‘D’ with a corresponding grade point of 1.0 (50 marks) if they pass the module.
-                <br /><br /></p>
-            </li>
-            <li><p>
-                While NYP will send notifications on attendance to students and parents/guardians, students are strongly encouraged to check their attendance records frequently through the Student Attendance System. To help you keep track of your attendance,
-                NYP has developed a mobile-friendly interface (https://attendance.nyp.edu.sg) where you can access using any of the web browsers in your mobile device.
-                Alternatively, you can also continue to check your attendance records through the Student Portal.
-                <br /><br /></p>
-            </li>
-            <li><p>
-                The computation of your attendance rate will take into account approved absence with valid reasons, i.e. medical leave or other approved leave will not affect your attendance computation.
-                <br /><br />
-                The only absenteeism officially accepted are:<br />
-                a.    Medical Leave<br />
-                - Supported by an official medical certificate. Medical certificates must be obtained from a medical practitioner registered with the Singapore Medical Council or a
-                dental practitioner registered with the Singapore Dental Council, who ought not be a family member. Medical certificates from Traditional Chinese Medicine (TCM) practitioners
-                are not accepted.
-                <br />
-                b.    NYP Student Activities <br />
-                - Representing Singapore/NYP at official events with prior approval from NYP
-                <br />
-                c.    Compassionate Leave<br />
-                - Demise of immediate family members<br />
-                d.    NS Obligations <br />
-                - e.g. medical check-up at CMPB, reservist training
-                <br />
-                e.    GCE O Levels<br />
-                - e.g. re-taking of GCE O-Level Examinations
-                <br />
-                f.     Public Transport Disruption
-                <br />
-                g.    ITE/Secondary School Graduation
-                <br />
-                h.    Statutory Obligations
-                <br />
-                - e.g. attend court hearings
-                <br /><br />
-            </li>
-            <li><p>
-                Please go to the Statement of Absence system in the <a href="http://myportal.nyp.edu.sg/portal/page/portal/Student_Portal/Student_Portal_DocumentLibrary/login.htm" target="_blank">myNYP Portal</a>
-                to update your absence from classes. You must submit the original documentary evidence, including medical certificates,
-                within the next two (2) working days following your absence to your school’s administration office.
-                Once this is done, your absence will not be counted in the calculation of your attendance.</li>
-            </p></li>
-        </ol>
+        <div class="par2 parsys"><div class="parbase richtext section">
+            <ul>
+                <li>There are bursaries for students who require financial assistance to apply at different times of the academic year.&nbsp;</li>
+                <li>Applicants&nbsp;must be enrolled in an NYP course at the time of application and receipt of the bursary.</li>
+                <li>In general, applicants must not be receiving sponsorships/full scholarships&nbsp;in the same academic year. As a reference, full scholarships cover tuition fees payable and a&nbsp;monthly or annual living allowance.</li>
+                <li>Students will be informed of the application exercise and application procedures, through their NYP email, about a week before each application exercise.&nbsp;The duration between application and receipt of bursary money generally takes up to three months. Recipients will be notified through their NYP email of the estimated date of receipt of bursary money.</li>
+            </ul>
+            
+            <p><br><b>Government Bursaries</b></p>
+            
+            <ul>
+                <li><a adhocenable="false" href="#cdc-ccc-polytechnic-bursary">CDC/CCC-Polytechnic Bursary [for Full-time Diploma Students]</a></li>
+                <li><a adhocenable="false" href="#moe-bursary-ft">MOE Bursary [for Full-time Diploma Students]</a></li>
+                <li><a adhocenable="false" href="#moe-bursary-pfp">MOE Bursary [for Polytechnic Foundation Programme (PFP) Students]</a></li>
+                <li><a adhocenable="false" href="/admissions/lifelong-learners/financial-matters-financial-assistance.html#par_accordion">MOE Bursary [for Part-time Diploma Students]</a></li>
+            </ul>
+
+            <p><br><u>Application Period for AY2018</u>&nbsp;<i>(subject to change)</i></p>
+
+            <p><b>Full-time Diploma &amp; PFP</b><br>
+            16 Apr – 25 Apr 2018<br>
+            25 Jun – 4 Jul 2018<br>
+            15 Oct – 24 Oct 2018<br>
+            1 Jan – 10 Jan 2019</p>
+
+            <p><br>
+                <a adhocenable="false" href="#ap-government-bursaries">Application Procedures</a> (Government Bursaries)</p>
+                <p>&nbsp;
+            </p>
+
+            <p><b>Private Bursaries</b><br> [for Full-time Diploma Students]</p>
+
+            <ul>
+                <li><a href="#choolim" adhocenable="false">Choo-Lim Bursary</a></li>
+                <li><a adhocenable="false" href="#cj-koh-bursary">CJ Koh Bursary</a></li>
+                <li><a adhocenable="false" href="#daisy-phay-nyp-foundation-grant">Daisy Phay-NYP Foundation Grant</a></li>
+                <li><a adhocenable="false" href="#gic-study-grant">GIC Study Grant</a></li>
+                <li><a adhocenable="false" href="#hotel81">Hotel 81-Choo Chong Ngen Foundation Bursary</a></li>
+                <li><a href="#linninhuabursary" adhocenable="false">Linn In Hua Bursary</a></li>
+                <li><a adhocenable="false" href="#ngee-ann-kongsi-scholarship">Ngee Ann Kongsi Scholarship</a></li>
+                <li><a adhocenable="false" href="#ntuc-income-orangeaid-award">NTUC Income OrangeAid Award</a></li>
+                <li><a adhocenable="false" href="#renee-chew-student-aid">Renee Chew Student Aid</a></li>
+                <li><a adhocenable="false" href="#rotary-club-of-queenstown-award">Rotary Club of Queenstown Award</a></li>
+                <li><a adhocenable="false" href="#shaw-foundation-bursary">Shaw Foundation Bursary</a></li>
+                <li><a href="#leong-khay-huay-kuan" adhocenable="false">Singapore Leong Khay Huay Kuan Bursary</a></li>
+                <li><a href="#school-of-design"></a><a adhocenable="false" href="#sr-nathan-education-award">SR Nathan Education Award</a></li>
+                <li><a href="#sr-nathan-education-award-social" adhocenable="false">SR Nathan Education Award</a>&nbsp;(Social Work)</li>
+                <li><a href="#tan-joo-kee" adhocenable="false">Tan Joo Kee Scholarship</a></li>
+                <li><a adhocenable="false" href="#toh-kian-chui-endowment-fund-nyp-bursary">Toh Kian Chui Endowment Fund-NYP Bursary</a></li>
+            </ul>
+
+            <p><br><u>Application Period for AY2018</u>&nbsp;<i>(subject to change)</i></p>
+            <p>15 Oct – 24 Oct 2018</p>
+            <p><br><a adhocenable="false" href="#ap-private-sponsored-awards">Application Procedures</a> (Private Bursaries)</p>
+            <p>&nbsp;</p>
+
+            <p><b>External Awards</b><br>
+            Examples:</p>
+
+            <ul>
+                <li><a adhocenable="false" href="#lee-foundation-study-grant">Lee Foundation Study Grant</a></li>
+                <li><a adhocenable="false" href="#ngee-ann-kongsi-tertiary-scholarship">Ngee Ann Kongsi Tertiary Scholarship/Bursary</a></li>
+                <li><a adhocenable="false" href="#rotary-club-of-singapore-west-pc-tan-bursary">Rotary Club of Singapore West-PC Tan Bursary</a></li>
+                <li><a adhocenable="false" href="#singapore-buddhist-lodge-bursary">Singapore Buddhist Lodge Bursary</a></li>
+            </ul>
+
+            <p><br><u>Application Period for AY2018</u></p>
+            <p>Application periods are determined by donors.</p>
+            <p><a adhocenable="false" href="#ap-external-awards">Application Procedures</a> (External Awards)</p>
+            <p>&nbsp;</p>
+        </div>
+        
+        <div class="ds-richtext ds-component-margin">
+            <h4><b>Application Procedures</b></h4>
+            <p><b><a name="ap-government-bursaries"></a>Government Bursaries</b></p>
+
+            <ul>
+                <li>Application is done in two steps:
+                    <ol>
+                        <li>Submit application online @myNYP Portal account.</li>
+                        <li>Submit Bursary Application Form and supporting documents at i@Central (Information and Service Centre). Click <a adhocenable="false" href="/content/dam/nyp/admissions/full-time-diploma/financial-matters-financial-assistance/form_ft_2018c.pdf" target="_blank">here</a><span style="background-color: transparent;"> for Bursary Application Form.&nbsp;Click <a adhocenable="false" href="/content/dam/nyp/admissions/full-time-diploma/financial-matters-financial-assistance/checklist_supportingdocuments_004.pdf" target="_blank">here</a> for a checklist of supporting documents.</span></li>
+                    </ol>
+                </li>
+                <li>Depending on household income, students who apply for government bursaries will receive the respective bursaries that they qualify for.</li>
+                <li>Government bursaries for Full-time Diploma and PFP students are tenable for one academic year. Students are to apply every academic year.</li>
+            </ul>
+
+            <p>Click&nbsp;<a href="/content/dam/nyp/admissions/full-time-diploma/financial-matters-financial-assistance/2018_jun_householdincomecalculator.xlsx" style="background-color: rgb(255,255,255);" target="_blank" adhocenable="false">here</a>&nbsp;to calculate your household Income</p>
+            <p style="text-align: right;"><a adhocenable="false" href="#bursaries-top">Back to top</a></p>
+            <p><b><a name="ap-private-sponsored-awards"></a>Private Bursaries</b><br>[for Full-time Diploma Students]</p>
+
+            <ul>
+                <li>Application is done in two steps:
+                    <ol>
+                        <li>Submit application online @myNYP Portal account.</li>
+                        <li>Submit&nbsp;Bursary Application Form and supporting&nbsp;documents at i@Central (Information and Service Centre). Click <a adhocenable="false" href="/content/dam/nyp/admissions/full-time-diploma/financial-matters-financial-assistance/form_ft_2018c.pdf" target="_blank">here</a> for Bursary Application Form.</li>
+                    </ol>
+                </li>
+                <li>There is no need for applicants to choose the bursary to apply for. The selection of candidates and the award of the bursary will be based on the donor's criteria (such as nationality, course of study, financial need and academic performance).</li>
+                <li>In some cases, application is through nomination.</li>
+                <li>Shortlisted candidates may be required to attend interviews if required by donors.</li>
+                <li>Awards are tenable for one academic year unless otherwise stated.</li>
+            </ul>
+
+            <p style="text-align: right;"><a adhocenable="false" href="#bursaries-top">Back to top</a></p>
+
+            <p><b><a name="ap-external-awards"></a>External Bursaries</b></p>
+
+            <ul>
+                <li>In general, announcements on application for awards and application procedures will be made to the students' NYP email account when the Polytechnic is informed of their availability.</li>
+                <li>In some cases, application is through nomination.</li>
+                <li>Shortlisted candidates may be required to attend interviews if required by donors.</li>
+            </ul>
+    
+        </div>
     </div>
 
     <div class="container-md">
+        <?php if (isset($_SESSION['logged_in']) { ?>
+                <form action="" method="post">
+                    <?php if (isset($error_msg)) { ?>
+                        <div class="alert alert-danger text-center"><?php echo $error_msg; ?></div>
+                    <?php } ?>
         <table class="table table-bordered table-striped data-table">
             <thead>
                 <tr>
@@ -109,5 +178,4 @@
             </tbody>
         </table>
     </div>
-
 </section>
