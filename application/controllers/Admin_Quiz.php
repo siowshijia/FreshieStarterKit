@@ -21,7 +21,7 @@ class Admin_Quiz extends CI_Controller {
 		if (isset($_SESSION['user_id'])) {
 
 			$data['logged_in'] = true;
-			$data['quizzes'] = $this->adminQuizModel->get_all_quiz();
+			$data['quizzes'] = $this->AdminQuizModel->get_all_quiz();
 
 		} else {
 

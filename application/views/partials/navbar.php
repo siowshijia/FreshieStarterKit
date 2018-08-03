@@ -22,17 +22,15 @@
                         <li class="<?php echo activate_menu('home'); ?>"><a href="<?php echo base_url(); ?>">Home</a></li>
                         <li class="<?php echo activate_menu('student'); ?>"><a href="<?php echo base_url('/admin/student/dashboard'); ?>">Students</a></li>
                         <li class="<?php echo activate_menu('student'); ?>"><a href="<?php echo base_url('/admin/staff/dashboard'); ?>">Staff</a></li>
-                        <li class="<?php echo activate_menu('quiz'); ?>"><a href="<?php echo base_url('/quiz'); ?>">Quizzes</a></li>
+                        <li class="<?php echo activate_menu('quiz'); ?>"><a href="<?php echo base_url('/admin/quiz/dashboard'); ?>">Quizzes</a></li>
                         <li class="<?php echo activate_menu('event'); ?>"><a href="<?php echo base_url('/admin/event/dashboard'); ?>">Events</a></li>
                         <li class="<?php echo activate_menu('reward'); ?>"><a href="<?php echo base_url('/admin/reward/dashboard'); ?>">Rewards</a></li>
-                    
+
                     <?php }else if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'Event Manager') { ?>
 
                         <li class="<?php echo activate_menu('home'); ?>"><a href="<?php echo base_url(); ?>">Home</a></li>
                         <li class="<?php echo activate_menu('event'); ?>"><a href="<?php echo base_url('/manager/event/dashboard'); ?>">Events</a></li>
 
-
-                        
                     <?php } else { ?>
 
                         <li class="<?php echo activate_menu('home'); ?>"><a href="<?php echo base_url(); ?>">Home</a></li>
@@ -43,7 +41,7 @@
                                 <a href="<?php echo base_url('/student/login'); ?>">Profile</a>
                             <?php } ?>
                         </li>
-                        <li class="<?php echo activate_menu('quiz'); ?>"><a href="<?php echo base_url('/quiz'); ?>">Quizzes</a></li>
+                        <li class="<?php echo activate_menu('quiz'); ?>"><a href="<?php echo base_url('/quizzes'); ?>">Quizzes</a></li>
                         <li class="<?php echo activate_menu('event'); ?>"><a href="<?php echo base_url('/event'); ?>">Events</a></li>
                         <li class="<?php echo activate_menu('reward'); ?>"><a href="<?php echo base_url('/reward'); ?>">Rewards</a></li>
 

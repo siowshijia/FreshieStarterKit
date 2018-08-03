@@ -35,12 +35,12 @@
                         <th>Category</th>
                         <th>Description</th>
                         <th>Created By</th>
-                        
+
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
                 <tbody>
-                
+
                     <?php foreach ($events as $event) { ?>
                         <tr>
                             <td><?php echo $event->eventname; ?></td>
@@ -50,7 +50,8 @@
                             <td><?php echo $event->description; ?></td>
                             <td><?php echo $event->eventOwner; ?></td>
                             <td>
-                            <a href="<?php echo base_url('/admin_event/approve_event') . '/' . $event->eventId; ?>" class="btn btn-primary">Approve</a>   
+                            <a href="<?php echo base_url('/admin_event/approve_event') . '/' . $event->eventId; ?>" class="btn btn-primary">Approve</a>
+                            <a href="<?php echo base_url('/admin_event/deny_event') . '/' . $event->eventId; ?>" class="btn btn-primary">Deny</a>
                             </td>
                         </tr>
                     <?php } ?>

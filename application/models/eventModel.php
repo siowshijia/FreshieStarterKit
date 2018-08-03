@@ -13,12 +13,12 @@ class EventModel extends CI_Model{
         $this->db->select('event_venue');
         $this->db->select('event_datetime');
         $this->db->select('event_category');
-        $this->db->select('student_name');
+        $this->db->select('staff_name');
         $this->db->select('event_id');
         $this->db->select('description');
         $this->db->where('event_approval','Approved');
         $this->db->where('event_status','Active');
-        $this->db->join('student', 'event.event_owner = student.student_id');
+        $this->db->join('staff', 'event.event_owner = staff.staff_id');
         $this->db->order_by("event_datetime desc");
 
         $this->db->from('event');
@@ -32,13 +32,13 @@ class EventModel extends CI_Model{
         $list[$i]->eventvenue = $result[$i]->event_venue;
         $list[$i]->eventDatetime = $result[$i]->event_datetime;
         $list[$i]->eventCategory = $result[$i]->event_category;
-        $list[$i]->studentName = $result[$i]->student_name;
+        $list[$i]->studentName = $result[$i]->staff_name;
         $list[$i]->description = $result[$i]->description;
         $list[$i]->eventId = $result[$i]->event_id;
         }
         return $list;
     }
- 
+
     function get_category(){
         $this->db->select('category_id');
         $this->db->select('category_name');
@@ -66,9 +66,9 @@ class EventModel extends CI_Model{
         $this->db->select('admin_remarks');
         $this->db->select('event_approval');
         $this->db->select('event_status');
-        $this->db->select('student_name');
-        $this->db->join('student', 'event.event_owner = student.student_id');
-        
+        $this->db->select('staff_name');
+        $this->db->join('staff', 'event.event_owner = staff.staff_id');
+
         $this->db->where('event_id',$id);
         $this->db->from('event');
         $query = $this->db->get();
@@ -81,7 +81,7 @@ class EventModel extends CI_Model{
         $list[$i]->eventvenue = $result[$i]->event_venue;
         $list[$i]->eventDatetime = $result[$i]->event_datetime;
         $list[$i]->eventCategory = $result[$i]->event_category;
-        $list[$i]->studentName = $result[$i]->student_name;
+        $list[$i]->studentName = $result[$i]->staff_name;
         $list[$i]->description = $result[$i]->description;
         $list[$i]->eventApproval = $result[$i]->event_approval;
         $list[$i]->eventStatus = $result[$i]->event_status;
@@ -126,9 +126,9 @@ class EventModel extends CI_Model{
         $this->db->select('event_category');
         $this->db->select('event_id');
         $this->db->select('description');
-        
-        
-        
+
+
+
         $this->db->where('event_owner',$id);
         $this->db->from('event');
         $query = $this->db->get();
@@ -142,7 +142,7 @@ class EventModel extends CI_Model{
         $list[$i]->eventvenue = $result[$i]->event_venue;
         $list[$i]->eventDatetime = $result[$i]->event_datetime;
         $list[$i]->eventCategory = $result[$i]->event_category;
-        
+
         $list[$i]->description = $result[$i]->description;
         $list[$i]->eventId = $result[$i]->event_id;
         $list[$i]->adminRemarks = $result[$i]->admin_remarks;
@@ -160,8 +160,8 @@ class EventModel extends CI_Model{
         $this->db->select('admin_remarks');
         $this->db->select('datetime');
         $this->db->join('event_attendance', 'event.event_id = event_attendance.event_id');
-        
-        
+
+
         $this->db->where('student_id',$id);
         $this->db->from('event');
         $query = $this->db->get();
@@ -179,8 +179,8 @@ class EventModel extends CI_Model{
         $list[$i]->datetime = $result[$i]->datetime;
         }
         return $list;
-        
-       
+
+
     }
 
     public function delete_attendance($eventid,$studentid) {
@@ -203,8 +203,8 @@ class EventModel extends CI_Model{
         $this->db->select('student.admission_number');
         $this->db->join('event', 'event.event_id = event_attendance.event_id');
         $this->db->join('student', 'student.student_id = event_attendance.student_id');
-        
-        
+
+
         $this->db->where('event_attendance.event_id',$id);
         $this->db->from('event_attendance');
 
@@ -227,8 +227,8 @@ class EventModel extends CI_Model{
         $list[$i]->datetime = $result[$i]->event_datetime;
         }
         return $list;
-        
-       
+
+
     }
 
     function get_event_list_by_manager($id){
@@ -240,7 +240,7 @@ class EventModel extends CI_Model{
         $this->db->select('event_approval');
         $this->db->select('event_status');
         $this->db->select('description');
-        
+
         $this->db->where('event_owner',$id);
         $this->db->from('event');
         $query = $this->db->get();
@@ -274,17 +274,30 @@ class EventModel extends CI_Model{
 
     }
 
+    public function deny_event($id) {
+
+        $data = array(
+            'event_approval' => 'Denied',
+
+        );
+
+        $this->db->where('event_id', $id);
+
+        return $this->db->update('event', $data);
+
+    }
+
     function get_all_event_list(){
         $this->db->select('event_name');
         $this->db->select('event_venue');
         $this->db->select('event_datetime');
         $this->db->select('event_category');
-        $this->db->select('student_name');
+        $this->db->select('staff_name');
         $this->db->select('event_id');
         $this->db->select('description');
         $this->db->select('event_status');
         $this->db->select('event_approval');
-        $this->db->join('student', 'event.event_owner = student.student_id');
+        $this->db->join('staff', 'event.event_owner = staff.staff_id');
         $this->db->order_by("event_datetime desc");
 
         $this->db->from('event');
@@ -298,7 +311,7 @@ class EventModel extends CI_Model{
         $list[$i]->eventvenue = $result[$i]->event_venue;
         $list[$i]->eventDatetime = $result[$i]->event_datetime;
         $list[$i]->eventCategory = $result[$i]->event_category;
-        $list[$i]->studentName = $result[$i]->student_name;
+        $list[$i]->studentName = $result[$i]->staff_name;
         $list[$i]->eventApproval = $result[$i]->event_approval;
         $list[$i]->eventStatus = $result[$i]->event_status;
         $list[$i]->description = $result[$i]->description;
@@ -325,10 +338,10 @@ class EventModel extends CI_Model{
 
 
         $this->db->where('student_id', $studentid);
-        
-        
+
+
         $this->db->set('points', 'points + ' . (int) 20, FALSE);
-        $this->db->update('student'); 
+        $this->db->update('student');
 
     }
 
