@@ -51,12 +51,12 @@
                         <tr>
                             <td><?php echo $quiz->quiz_id; ?></td>
                             <td><?php echo $quiz->quiz_name; ?></td>
-                            <td><?php echo $quiz->description; ?></td>
-                            <td><?php echo $quiz->question_1; ?></td>
+                            <td><div class="trucate-4"><?php echo $quiz->description; ?></div></td>
+                            <td><div class="trucate-4"><?php echo $quiz->question_1; ?></div></td>
                             <td><?php echo $quiz->answer_1; ?></td>
-                            <td><?php echo $quiz->question_2; ?></td>
+                            <td><div class="trucate-4"><?php echo $quiz->question_2; ?></div></td>
                             <td><?php echo $quiz->answer_2; ?></td>
-                            <td><?php echo $quiz->question_3; ?></td>
+                            <td><div class="trucate-4"><?php echo $quiz->question_3; ?></div></td>
                             <td><?php echo $quiz->answer_3; ?></td>
                             <td>
                                 <a href="<?php echo base_url('/admin/quiz/edit') . '/' . $quiz->quiz_id; ?>" class="btn btn-primary">Edit</a>

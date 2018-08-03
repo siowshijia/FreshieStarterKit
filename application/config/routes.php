@@ -70,7 +70,7 @@ $route['admin/reward/add'] = 'admin_reward/add';
 $route['admin/reward/edit/(:num)'] = 'admin_reward/edit/$1';
 $route['admin/reward/delete/(:num)'] = 'admin_reward/delete/$1';
 
-// Quiz
+// Quiz - Admin
 $route['admin/quiz/dashboard'] = 'admin_quiz/dashboard';
 $route['admin/quiz/add'] = 'admin_quiz/add';
 $route['admin/quiz/edit/(:num)'] = 'admin_quiz/edit/$1';
@@ -85,6 +85,8 @@ $route['admin/event/dashboard'] = 'admin_event/adminview';
 $route['admin/event/create'] = 'admin_event/adminCreate';
 $route['admin/event/edit/(:num)'] = 'admin_event/Update/$1';
 $route['admin/event/pending'] = 'admin_event/adminPending';
+
+// Quiz - Student
 
 $route['default_controller'] = 'home';
 $route['404_override'] = 'home/error404';

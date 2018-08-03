@@ -69,9 +69,59 @@
                 Once this is done, your absence will not be counted in the calculation of your attendance.</li>
             </p></li>
         </ol>
+    </div>
 
-        <div class="container-xs">
-        
-        </div>
+    <div class="container-xs">
+    <?php if (isset($_SESSION['logged_in']) { ?>
+            <form action="" method="post">
+                <?php if (isset($error_msg)) { ?>
+                    <div class="alert alert-danger text-center"><?php echo $error_msg; ?></div>
+                <?php } ?>
+
+                <div class="form-group">
+                    <label for="quiz_name">Quiz Name</label>
+                    <input type="text" name="quiz_name" id="quiz_name" class="form-control" value="<?php echo $quiz->quiz_name; ?>" readonly>
+                    <span class="text-danger"><?php echo form_error('quiz_name'); ?></span>
+                </div>
+                <div class="form-group">
+                    <label for="question_1">Question 1</label>
+                    <textarea name="question_1" cols="40" rows="3" id="question_1" class="form-control" readonly><?php echo $quiz->question_1; ?></textarea>
+                    <span class="text-danger"><?php echo form_error('question_1'); ?></span>
+                </div>
+                <div class="form-group">
+                    <label for="answer_1">Answer</label>
+                    <input type="text" name="answer_1" id="answer_1" class="form-control" value="<?php echo $quiz->answer_1; ?>">
+                    <span class="text-danger"><?php echo form_error('answer_1'); ?></span>
+                </div>
+                <div class="form-group">
+                    <label for="question_2">Question 2</label>
+                    <textarea name="question_2" cols="40" rows="3" id="question_2" class="form-control" readonly><?php echo $quiz->question_2; ?></textarea>
+                    <span class="text-danger"><?php echo form_error('question_2'); ?></span>
+                </div>
+                <div class="form-group">
+                    <label for="answer_2">Answer</label>
+                    <input type="text" name="answer_2" id="answer_2" class="form-control" value="<?php echo $quiz->answer_2; ?>">
+                    <span class="text-danger"><?php echo form_error('answer_2'); ?></span>
+                </div>
+                <div class="form-group">
+                    <label for="question_3">Question 3</label>
+                    <textarea name="question_3" cols="40" rows="3" id="question_3" class="form-control" readonly><?php echo $quiz->question_3; ?></textarea>
+                    <span class="text-danger"><?php echo form_error('question_3'); ?></span>
+                </div>
+                <div class="form-group">
+                    <label for="answer_3">Answer</label>
+                    <input type="text" name="answer_3" id="answer_3" class="form-control" value="<?php echo $quiz->answer_3; ?>">
+                    <span class="text-danger"><?php echo form_error('answer_3'); ?></span>
+                </div>
+
+                <button class="btn btn-primary btn-block" type="submit">Submit</button>
+
+            </form>
+            <?php } else { ?>
+            <div class="text-center">
+                <h4>Please login to view this page.</h4>
+                <a href="<?php echo base_url('/student/login'); ?>" class="btn btn-primary">Login</a>
+            </div>
+        <?php } ?>
     </div>
 </section>

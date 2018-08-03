@@ -7,7 +7,7 @@ class Admin_Reward extends CI_Controller {
     {
         parent::__construct();
 		$this->load->library('form_validation');
-        $this->load->model('adminRewardModel');
+        $this->load->model('AdminRewardModel');
     }
 
 	public function dashboard()
@@ -18,7 +18,7 @@ class Admin_Reward extends CI_Controller {
 
 		if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Admin')) {
 
-			$data['rewards'] = $this->adminRewardModel->get_all_rewards();
+			$data['rewards'] = $this->AdminRewardModel->get_all_rewards();
 
 		}
 
@@ -63,7 +63,7 @@ class Admin_Reward extends CI_Controller {
 			$description  = $this->input->post('description');
 			$expired_date = $this->input->post('expired_date');
 
-			if ($this->adminRewardModel->add_reward($name, $points, $qty, $image, $description, $expired_date)) {
+			if ($this->AdminRewardModel->add_reward($name, $points, $qty, $image, $description, $expired_date)) {
 
 				$this->session->set_flashdata('add-reward-msg', '<div class="alert alert-success text-center">You have successfully added a reward.</div>');
 
@@ -84,7 +84,7 @@ class Admin_Reward extends CI_Controller {
 
 		if (isset($id)) {
 
-			$data['reward'] = $this->adminRewardModel->get_reward($id);
+			$data['reward'] = $this->AdminRewardModel->get_reward($id);
 
 			//set validation rules
 			$this->form_validation->set_rules('name', 'Name', 'required|callback_alpha_only_space');
@@ -124,7 +124,7 @@ class Admin_Reward extends CI_Controller {
 				$description  = $this->input->post('description');
 				$expired_date = $this->input->post('expired_date');
 
-				if ($this->adminRewardModel->update_reward($id, $name, $points, $qty, $image, $description, $expired_date)) {
+				if ($this->AdminRewardModel->update_reward($id, $name, $points, $qty, $image, $description, $expired_date)) {
 
 					$this->session->set_flashdata('edit-reward-msg', '<div class="alert alert-success text-center">The reward&apos;s details has been updated.</div>');
 
