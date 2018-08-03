@@ -146,7 +146,7 @@ class Admin_Reward extends CI_Controller {
 
 	public function delete($id) {
 
-		$this->AdminRewardModel->delete_reward($id);
+		$this->adminRewardModel->delete_reward($id);
 		$this->session->set_flashdata('delete-reward-msg', '<div class="alert alert-success text-center">Deleted Successfully.</div>');
 		redirect('/admin/reward/dashboard');
 

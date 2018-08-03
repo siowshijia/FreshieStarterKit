@@ -6,7 +6,7 @@ class Event extends CI_Controller {
 		parent::__construct();
 		$this->load->database();
 		$this->load->library('form_validation');
-		$this->load->model("eventModel");
+		$this->load->model("EventModel");
 	}
 
 	public function index()
@@ -18,7 +18,7 @@ class Event extends CI_Controller {
 		if (isset($_SESSION['user_id'])) {
 
 			$data['logged_in'] = true;
-			$events = $this->eventModel->get_event_list();
+			$events = $this->EventModel->get_event_list();
 			$data["events"] = $events;
 
 		} else {
@@ -118,9 +118,9 @@ class Event extends CI_Controller {
 		'view_name' => 'Update Event',
 	);
 	
-	$this->load->model("eventModel");
+	$this->load->model("EventModel");
 	$db_Id = $id;
-	$events = $this->eventModel->get_event_details($db_Id);
+	$events = $this->EventModel->get_event_details($db_Id);
 	$data["events"] = $events;
 	$this->form_validation->set_rules('eventname', 'Event Name',
 		'trim|required|callback_alpha_only_space');
@@ -167,8 +167,8 @@ class Event extends CI_Controller {
 			'view_name' => 'Events',
 		);
 
-		$this->load->model("eventModel");
-		$events = $this->eventModel->get_event_status();
+		$this->load->model("EventModel");
+		$events = $this->EventModel->get_event_status();
 		$data["events"] = $events;
 		$this->load->template('layouts/event/viewStatus', $data);
 	}
@@ -179,8 +179,8 @@ class Event extends CI_Controller {
 			'view_name' => 'Events',
 		);
 
-		$this->load->model("eventModel");
-		$events = $this->eventModel->get_event_list();
+		$this->load->model("EventModel");
+		$events = $this->EventModel->get_event_list();
 		$data["events"] = $events;
 		$this->load->template('layouts/event/adminView', $data);
 	}
@@ -191,8 +191,8 @@ class Event extends CI_Controller {
 			'view_name' => 'Events',
 		);
 
-		$this->load->model("eventModel");
-		$events = $this->eventModel->get_event_pending();
+		$this->load->model("EventModel");
+		$events = $this->EventModel->get_event_pending();
 		$data["events"] = $events;
 		$this->load->template('layouts/event/adminPending', $data);
 	}
@@ -204,9 +204,9 @@ class Event extends CI_Controller {
 		'view_name' => 'Approve Event',
 	);
 	
-	$this->load->model("eventModel");
+	$this->load->model("EventModel");
 	$db_Id = $id;
-	$events = $this->eventModel->get_event_details($db_Id);
+	$events = $this->EventModel->get_event_details($db_Id);
 	$data["events"] = $events;
 	$this->form_validation->set_rules('eventname', 'Event Name',
 		'trim|required|callback_alpha_only_space');
@@ -253,7 +253,7 @@ class Event extends CI_Controller {
 		if (isset($_SESSION['user_id'])) {
 
 			$data['logged_in'] = true;
-			$events = $this->eventModel->get_event_details($id);
+			$events = $this->EventModel->get_event_details($id);
 			$data["events"] = $events;
 
 		
@@ -291,7 +291,7 @@ class Event extends CI_Controller {
 		if (isset($_SESSION['user_id'])) {
 
 			$data['logged_in'] = true;
-			$events = $this->eventModel->get_event_attendance($_SESSION['user_id']);
+			$events = $this->EventModel->get_event_attendance($_SESSION['user_id']);
 			$data["events"] = $events;
 
 		} else {
@@ -307,7 +307,7 @@ class Event extends CI_Controller {
 	public function delete($id) {
 		$eventid = $id;
 		$studentid = $_SESSION['user_id'];
-		$this->eventModel->delete_attendance($eventid,$studentid);
+		$this->EventModel->delete_attendance($eventid,$studentid);
 		redirect('/event/attendance');
 
 	}
