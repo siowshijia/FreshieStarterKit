@@ -10,7 +10,7 @@ class Event extends CI_Controller {
 	}
 
 	public function index()
-	{	
+	{
 		$data = array(
 			'view_name' => 'Events',
 		);
@@ -36,8 +36,8 @@ class Event extends CI_Controller {
 		$data = array(
 			'view_name' => 'Create Event',
 		);
-		
-		
+
+
 		if (isset($_SESSION['user_id'])) {
 			//set validation rules
 			$this->form_validation->set_rules('eventname', 'Event Name',
@@ -46,12 +46,12 @@ class Event extends CI_Controller {
 			'trim|required');
 			$this->form_validation->set_rules('eventDate', 'Event Date',
 			'required');
-			
+
 			if ($this->form_validation->run() == FALSE)
 			{
 				//fail validation
 				$this->load->template('layouts/event/eventCreate', $data);
-			}	
+			}
 			else
 			{
 				$data = array(
@@ -72,7 +72,7 @@ class Event extends CI_Controller {
 			sent to Admin for approval</div>');
 			redirect('event');
 			}
-		
+
 		}else {
 
 			$data['logged_in'] = false;
@@ -110,14 +110,14 @@ class Event extends CI_Controller {
 	return TRUE;
 	}
 
-	
+
 }
 	public function update($id)
 	{
 	$data = array(
 		'view_name' => 'Update Event',
 	);
-	
+
 	$this->load->model("EventModel");
 	$db_Id = $id;
 	$events = $this->EventModel->get_event_details($db_Id);
@@ -130,14 +130,14 @@ class Event extends CI_Controller {
 		'callback_combo_check');
 		$this->form_validation->set_rules('eventDate', 'Event Date',
 		'required');
-		
+
 		if ($this->form_validation->run() == FALSE)
 		{
 			//fail validation
 			$this->load->template('layouts/event/eventUpdate', $data);
-		}	
+		}
 		else
-		{	
+		{
 			$id = $this->input->post('eventId');
 			$data = array(
 
@@ -146,7 +146,7 @@ class Event extends CI_Controller {
 			'event_category' => $this->input->post('category'),
 			'event_datetime' => @date('Y-m-d', @strtotime($this->input->post('eventDate'))),
 			'description' => $this->input->post('eventDescription'),
-			
+
 		   );
 		   //insert the form data into database
 		   $this->db->where('event_id', $id);
@@ -155,14 +155,14 @@ class Event extends CI_Controller {
 		   $this->session->set_flashdata('msg', '<div class="alert alert-success textcenter">Event
 		   Updated</div>');
 		   redirect('event/update/'.$id);
-		
+
 
 		}
-	
+
 	}
 
 	public function viewStatus()
-	{	
+	{
 		$data = array(
 			'view_name' => 'Events',
 		);
@@ -174,7 +174,7 @@ class Event extends CI_Controller {
 	}
 
 	public function adminView()
-	{	
+	{
 		$data = array(
 			'view_name' => 'Events',
 		);
@@ -186,7 +186,7 @@ class Event extends CI_Controller {
 	}
 
 	public function adminPending()
-	{	
+	{
 		$data = array(
 			'view_name' => 'Events',
 		);
@@ -197,13 +197,13 @@ class Event extends CI_Controller {
 		$this->load->template('layouts/event/adminPending', $data);
 	}
 
-	
+
 	public function adminUpdate($id)
 	{
 	$data = array(
 		'view_name' => 'Approve Event',
 	);
-	
+
 	$this->load->model("EventModel");
 	$db_Id = $id;
 	$events = $this->EventModel->get_event_details($db_Id);
@@ -216,20 +216,20 @@ class Event extends CI_Controller {
 		'callback_combo_check');
 		$this->form_validation->set_rules('eventDate', 'Event Date',
 		'required');
-		
+
 		if ($this->form_validation->run() == FALSE)
 		{
 			//fail validation
 			$this->load->template('layouts/event/adminUpdate', $data);
-		}	
+		}
 		else
-		{	
+		{
 			$id = $this->input->post('eventId');
 			$data = array(
 
 			'event_approval' => $this->input->post('Status'),
 			'admin_remarks' => $this->input->post('adminRemarks'),
-			
+
 		   );
 		   //insert the form data into database
 		   $this->db->where('event_id', $id);
@@ -238,14 +238,14 @@ class Event extends CI_Controller {
 		   $this->session->set_flashdata('msg', '<div class="alert alert-success textcenter">Event
 		   Updated</div>');
 		   redirect('event/adminPending/');
-		
+
 
 		}
-	
+
 	}
 
 	public function details($id)
-	{	
+	{
 		$data = array(
 			'view_name' => 'Events Details',
 		);
@@ -256,7 +256,7 @@ class Event extends CI_Controller {
 			$events = $this->EventModel->get_event_details($id);
 			$data["events"] = $events;
 
-		
+
 
 		} else {
 
@@ -276,14 +276,14 @@ class Event extends CI_Controller {
 		'datetime' => date('m/d/Y h:i:s a', time()),
 		'event_attended' =>'No',
 		);
-		
+
 		$this->db->replace('event_attendance', $data1);
 		redirect('event/Attendance');
-	}	
+	}
 
 
 	public function attendance()
-	{	
+	{
 		$data = array(
 			'view_name' => 'Registered Events',
 		);
@@ -312,7 +312,7 @@ class Event extends CI_Controller {
 
 	}
 
-	
+
 
 
 }

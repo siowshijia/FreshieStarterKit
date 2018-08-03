@@ -25,18 +25,18 @@
         <?php } ?>
 
 
-         
+
                     <?php foreach ($events as $event) { ?>
-                        
+
                             <div class="panel panel-primary">
                             <div class="panel-heading"><?php echo $event->eventname; ?>@<?php echo $event->eventvenue; ?></div>
-                            <div class="panel-body">
-                            <a href="<?php echo base_url('/event/delete') . '/' . $event->eventId; ?>" class="btn btn-primary pull-right">Delete</a>
+                            <div class="panel-body"><?php echo $event->description; ?>
+                            <a href="<?php echo base_url('/event/delete') . '/' . $event->eventId; ?>" class="btn btn-primary pull-right">Unregister</a>
                             </div>
 </div>
-                           
+
                     <?php } ?>
-              
+
         <?php } else { ?>
             <div class="text-center">
                 <h4>Please login to view this page.</h4>
@@ -45,4 +45,3 @@
             <?php } ?>
     </div>
 </section>
-

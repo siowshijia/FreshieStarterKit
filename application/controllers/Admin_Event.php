@@ -21,7 +21,6 @@ class Admin_Event extends CI_Controller {
 		$data = array(
 			'view_name' => 'Create Event',
 		);
-		$data['category'] = $this->EventModel->get_category();
 
 
 		//set validation rules
@@ -259,6 +258,13 @@ class Admin_Event extends CI_Controller {
 	public function approve_event($id) {
 		$eventid = $id;
 		$this->EventModel->approve_event($eventid);
+		redirect('/admin_event/adminPending');
+
+	}
+
+	public function deny_event($id) {
+		$eventid = $id;
+		$this->EventModel->deny_event($eventid);
 		redirect('/admin_event/adminPending');
 
 	}
