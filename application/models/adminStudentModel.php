@@ -1,10 +1,10 @@
 <?php
 /*
-* File Name: adminStudentModel.php
+* File Name: AdminStudentModel.php
 */
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class adminStudentModel extends CI_Model
+class AdminStudentModel extends CI_Model
 {
     function __construct()
     {
