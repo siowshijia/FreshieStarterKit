@@ -45,7 +45,7 @@ class Admin_Staff extends CI_Controller {
 					redirect('/admin');
 					}
 					else {
-						redirect('/admin/event/manager');	
+						redirect('/manager/event/dashboard');	
 					}
 
 			} else {

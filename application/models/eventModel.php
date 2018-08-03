@@ -1,6 +1,6 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class eventModel extends CI_Model{
+class EventModel extends CI_Model{
 
     function __construct()
     {

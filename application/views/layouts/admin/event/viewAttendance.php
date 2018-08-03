@@ -51,7 +51,7 @@
             </table>
         <?php } else { ?>
             <div class="text-center"
-                <h4>Please login to view this page.</h4>
+                <h4>Please login as Event Manager to view this page.</h4>
                 <a href="<?php echo base_url('/admin/staff/login'); ?>" class="btn btn-primary">Login</a>
             </div>
         <?php } ?>

@@ -29,9 +29,9 @@
                     <?php foreach ($events as $event) { ?>
                         
                             <div class="panel panel-primary">
-                            <div class="panel-heading"><?php echo $event->eventname; ?><div class='pull-right'><?php echo $event->eventCategory; ?></div></div>
+                            <div class="panel-heading"><h3><?php echo $event->eventname; ?><div class='pull-right'><?php echo $event->eventCategory; ?></div></div></h3>
                             <div class="panel-body">
-                            <?php echo $event->eventvenue; ?>@<?php echo $event->eventDatetime; ?> <a class='pull-right' href="<?php echo base_url('/event/details') . '/' . $event->eventId; ?>" class="btn btn-primary">View Details</a>
+                            <?php echo $event->eventvenue; ?>@<?php echo $event->eventDatetime; ?> <a class='btn btn-primary pull-right' href="<?php echo base_url('/event/details') . '/' . $event->eventId; ?>" class="btn btn-primary">View Details</a>
                             </div>
 </div>
                            

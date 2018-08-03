@@ -25,7 +25,7 @@
 
         <?php if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Event Manager')) { ?>
             <div class="m-b-md">
-            <a href="<?php echo base_url('/admin/event/manager/create')?>" class="btn btn-primary">Add Event</a>
+            <a href="<?php echo base_url('/manager/event/create')?>" class="btn btn-primary">Add Event</a>
             </div>
 
             <table class="table table-bordered table-striped data-table">
@@ -51,8 +51,8 @@
                             <td><?php echo $event->eventStatus; ?></td>
                             <td><?php echo $event->eventApproval; ?></td>
                             <td>
-                            <a href="<?php echo base_url('/admin/event/manager/edit') . '/' . $event->eventId; ?>" class="btn btn-primary">Edit</a>
-                            <a href="<?php echo base_url('/admin/event/manager/attendance') . '/' . $event->eventId; ?>" class="btn btn-primary">Attendance</a>
+                            <a href="<?php echo base_url('/manager/event/edit') . '/' . $event->eventId; ?>" class="btn btn-primary">Edit</a>
+                            <a href="<?php echo base_url('/manager/event/attendance') . '/' . $event->eventId; ?>" class="btn btn-primary">Attendance</a>
                             </td>
                         </tr>
                     <?php } ?>
@@ -60,7 +60,7 @@
             </table>
         <?php } else { ?>
             <div class="text-center">
-                <h4>Please login to view this page.</h4>
+                <h4>Please login as Event Manager to view this page.</h4>
                 <a href="<?php echo base_url('/admin/staff/login'); ?>" class="btn btn-primary">Login</a>
             </div>
         <?php } ?>

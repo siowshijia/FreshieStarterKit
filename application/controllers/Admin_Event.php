@@ -12,7 +12,7 @@ class Admin_Event extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->database();
 		$this->load->library('form_validation');
-		$this->load->model("eventModel");
+		$this->load->model("EventModel");
 	}
 
 
@@ -21,7 +21,7 @@ class Admin_Event extends CI_Controller {
 		$data = array(
 			'view_name' => 'Create Event',
 		);
-		$data['category'] = $this->eventModel->get_category();
+		$data['category'] = $this->EventModel->get_category();
 		
 		
 		//set validation rules
@@ -56,7 +56,7 @@ class Admin_Event extends CI_Controller {
 		   //display success message
 		   $this->session->set_flashdata('msg', '<div class="alert alert-success textcenter">Event
 		   sent to Admin for approval</div>');
-		   redirect('admin_event/managerView');
+		   redirect('manager/event/dashboard');
 		}
 	}
 
@@ -66,7 +66,7 @@ class Admin_Event extends CI_Controller {
 		$data = array(
 			'view_name' => 'Create Event',
 		);
-		//$data['category'] = $this->eventModel->get_category();
+		//$data['category'] = $this->EventModel->get_category();
 		
 		
 		//set validation rules
@@ -101,7 +101,7 @@ class Admin_Event extends CI_Controller {
 		   //display success message
 		   $this->session->set_flashdata('msg', '<div class="alert alert-success textcenter">Event
 		   sent to Admin for approval</div>');
-		   redirect('admin_event/adminView');
+		   redirect('admin/event/dashboard');
 		}
 	}
 
@@ -113,9 +113,9 @@ class Admin_Event extends CI_Controller {
 		'view_name' => 'Update Event',
 	);
 	
-	$this->load->model("eventModel");
+	$this->load->model("EventModel");
 	$db_Id = $id;
-	$events = $this->eventModel->get_event_details($db_Id);
+	$events = $this->EventModel->get_event_details($db_Id);
 	$data["events"] = $events;
 	$this->form_validation->set_rules('eventname', 'Event Name',
 		'trim|required');
@@ -148,7 +148,7 @@ class Admin_Event extends CI_Controller {
 		   //display success message
 		   $this->session->set_flashdata('msg', '<div class="alert alert-success textcenter">Event
 		   Updated</div>');
-		   redirect('admin_event/update/'.$id);
+		   redirect('admin/event/dashboard');
 		
 
 		}
@@ -162,8 +162,8 @@ class Admin_Event extends CI_Controller {
 			'view_name' => 'Events',
 		);
 
-		$this->load->model("eventModel");
-		$events = $this->eventModel->get_all_event_list();
+		$this->load->model("EventModel");
+		$events = $this->EventModel->get_all_event_list();
 		$data["events"] = $events;
 		$this->load->template('layouts/admin/event/adminView', $data);
 	}
@@ -174,8 +174,8 @@ class Admin_Event extends CI_Controller {
 			'view_name' => 'Pending Events',
 		);
 
-		$this->load->model("eventModel");
-		$events = $this->eventModel->get_event_pending();
+		$this->load->model("EventModel");
+		$events = $this->EventModel->get_event_pending();
 		$data["events"] = $events;
 		$this->load->template('layouts/admin/event/adminPending', $data);
 	}
@@ -187,9 +187,9 @@ class Admin_Event extends CI_Controller {
 		'view_name' => 'Edit Event',
 	);
 	
-	$this->load->model("eventModel");
+	$this->load->model("EventModel");
 	$db_Id = $id;
-	$events = $this->eventModel->get_event_details($db_Id);
+	$events = $this->EventModel->get_event_details($db_Id);
 	$data["events"] = $events;
 	$this->form_validation->set_rules('eventname', 'Event Name',
 		'trim|required');
@@ -224,7 +224,7 @@ class Admin_Event extends CI_Controller {
 		   //display success message
 		   $this->session->set_flashdata('msg', '<div class="alert alert-success textcenter">Event
 		   Updated</div>');
-		   redirect('admin_event/managerView');
+		   redirect('manager/event/dashboard');
 		
 		
 
@@ -238,8 +238,8 @@ class Admin_Event extends CI_Controller {
 			'view_name' => 'Event Attendance',
 		);
 
-		$this->load->model("eventModel");
-		$events = $this->eventModel->get_event_attendance1($id);
+		$this->load->model("EventModel");
+		$events = $this->EventModel->get_event_attendance1($id);
 		$data["events"] = $events;
 		$this->load->template('layouts/admin/event/viewAttendance', $data);
 	}
@@ -250,34 +250,25 @@ class Admin_Event extends CI_Controller {
 			'view_name' => 'Events',
 		);
 
-		$this->load->model("eventModel");
-		$events = $this->eventModel->get_event_list_by_manager($_SESSION['user_id']);
+		$this->load->model("EventModel");
+		$events = $this->EventModel->get_event_list_by_manager($_SESSION['user_id']);
 		$data["events"] = $events;
 		$this->load->template('layouts/admin/event/managerView', $data);
 	}
 
 	public function approve_event($id) {
 		$eventid = $id;
-		$this->eventModel->approve_event($eventid);
+		$this->EventModel->approve_event($eventid);
 		redirect('/admin_event/adminPending');
 
 	}
 
-	public function viewStatus()
-	{	
-		$data = array(
-			'view_name' => 'Events',
-		);
-		$this->load->model("eventModel");
-		$events = $this->eventModel->get_event_status();
-		$data["events"] = $events;
-		$this->load->template('layouts/event/viewStatus', $data);
-	}
+
 
 	public function markAttendance($eventId,$studentId) {
 		
-		$this->eventModel->mark_attendance($eventId,$studentId);
-		$this->eventModel->add_points($studentId);
+		$this->EventModel->mark_attendance($eventId,$studentId);
+		$this->EventModel->add_points($studentId);
 		redirect('/admin_event/viewAttendance/'. $eventId);
 
 	}

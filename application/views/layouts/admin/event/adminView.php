@@ -25,8 +25,8 @@
 
         <?php if (isset($_SESSION['logged_in']) && ($_SESSION['user_role'] === 'Admin')) { ?>
             <div class="m-b-md">
-            <a href="<?php echo base_url('/admin_event/adminCreate')?>" class="btn btn-primary">Add Event</a>
-            <a href="<?php echo base_url('/admin_event/adminPending')?>" class="btn btn-primary">Pending Event</a>
+            <a href="<?php echo base_url('/admin/event/create')?>" class="btn btn-primary">Add Event</a>
+            <a href="<?php echo base_url('/admin/event/pending')?>" class="btn btn-primary">Pending Event</a>
             </div>
 
             <table class="table table-bordered table-striped data-table">
@@ -52,7 +52,7 @@
                             <td><?php echo $event->studentName; ?></td>
                             <td><?php echo $event->eventStatus; ?></td>     
                             <td>
-                            <a href="<?php echo base_url('/admin_event/Update') . '/' . $event->eventId; ?>" class="btn btn-primary">Edit</a>   
+                            <a href="<?php echo base_url('/admin/event/edit') . '/' . $event->eventId; ?>" class="btn btn-primary">Edit</a>   
                             </td>
                         </tr>
                     <?php } ?>
@@ -60,7 +60,7 @@
             </table>
         <?php } else { ?>
             <div class="text-center">
-                <h4>Please login to view this page.</h4>
+                <h4>Please login as Administrator to view this page.</h4>
                 <a href="<?php echo base_url('/admin/staff/login'); ?>" class="btn btn-primary">Login</a>
             </div>
         <?php } ?>

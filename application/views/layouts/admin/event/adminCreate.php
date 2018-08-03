@@ -22,23 +22,23 @@
                     <div class="alert alert-danger text-center"><?php echo $error_msg; ?></div>
                 <?php } ?>
                 <div class="form-group">
-                    <label for="name" class="sr-only">Event Name</label>
-                    <input type="text" name="eventname" id="eventname" class="form-control" placeholder="Event Name" required>
+                    <label for="name" >Event Name</label>
+                    <input type="text" name="eventname" id="eventname" class="form-control"  required>
                 </div>
                 <div class="form-group">
-                    <label for="eventvenue" class="sr-only">Event Venue</label>
-                    <input type="text" name="eventvenue" id="eventvenue" class="form-control" placeholder="Event Venue" required>
+                    <label for="eventvenue">Event Venue</label>
+                    <input type="text" name="eventvenue" id="eventvenue" class="form-control"  required>
                 </div>
                 <div class="form-group">
-                <label for="category" class="sr-only">Category</label>
+                <label for="category" >Category</label>
                     <select name="category" class="form-control">
                         <option value="sports">Sports</option>
                         <option value="arts">Arts</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="eventDate" class="sr-only">Contact Number</label>
-                    <input type="text" name="eventDate" id="eventDate" class="form-control datepicker" placeholder="Event Date" required>
+                    <label for="eventDate" >Event Date</label>
+                    <input type="text" name="eventDate" id="eventDate" class="form-control datepicker"  required>
                 </div>
                 <div class="form-group">
                     <label for="eventDescription" class="sr-only">Event Description</label>
@@ -57,7 +57,7 @@
             </form>
         <?php } else { ?>
             <div class="text-center">
-                <h4>Please login to view this page.</h4>
+                <h4>PPlease login as Administrator to view this page.</h4>
                 <a href="<?php echo base_url('/admin/staff/login'); ?>" class="btn btn-primary">Login</a>
             </div>
         <?php } ?>

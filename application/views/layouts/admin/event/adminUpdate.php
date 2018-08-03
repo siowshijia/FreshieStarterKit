@@ -22,39 +22,39 @@
                     <div class="alert alert-danger text-center"><?php echo $error_msg; ?></div>
                 <?php } ?>
                 <div class="form-group">
-                <input type="hidden" name="eventId" id="eventId" class="form-control" valueplaceholder="Event Name"
+                <input type="hidden" name="eventId" id="eventId" class="form-control" 
                     value="<?php echo set_value('eventId'); echo $events[0]->eventId; ?>">
-                    <label for="name" class="sr-only">Event Name</label>
-                    <input type="text" name="eventname" id="eventname" class="form-control" valueplaceholder="Event Name"
+                    <label for="name" >Event Name</label>
+                    <input type="text" name="eventname" id="eventname" class="form-control" 
                     value="<?php echo set_value('eventname'); echo $events[0]->eventname; ?>">
                 </div>
                 <div class="form-group">
-                    <label for="eventvenue" class="sr-only">Event Venue</label>
-                    <input type="text" name="eventvenue" id="eventvenue" class="form-control" placeholder="Event Venue"
+                    <label for="eventvenue" >Event Venue</label>
+                    <input type="text" name="eventvenue" id="eventvenue" class="form-control"
                     value="<?php echo set_value('eventvenue'); echo $events[0]->eventvenue; ?>">
                 </div>
                 <div class="form-group">
                 <?php  $category =  $events[0]->eventCategory;?>
-                <label for="category" class="sr-only">Category</label>
+                <label for="category" >Category</label>
                     <select name="category" class="form-control" selected="<?php echo $events[0]->eventCategory; ?>">
                         <option value="Sports" <?php if( $category=="Sports"){ echo'selected="selected"';}?>>Sports</option>
                         <option value="Arts" <?php if( $category=="Arts"){ echo'selected="selected"';}?>>Arts</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="eventDate" class="sr-only">Event Date</label>
-                    <input type="text" name="eventDate" id="eventDate" class="form-control" placeholder="Event Date"
+                    <label for="eventDate" >Event Date</label>
+                    <input type="text" name="eventDate" id="eventDate" class="form-control datepicker" placeholder="Event Date"
                     value="<?php echo set_value('eventDatetime'); echo $events[0]->eventDatetime; ?>">
                 </div>
                 <div class="form-group">
-                    <label for="eventDescription" class="sr-only">Event Description</label>
-                    <textarea rows="5" type="text" name="eventDescription" id="eventDescription" class="form-control" placeholder="Description"
+                    <label for="eventDescription" >Event Description</label>
+                    <textarea rows="5" type="text" name="eventDescription" id="eventDescription" class="form-control" 
                     value="<?php echo set_value('description');?>"><?php echo $events[0]->description; ?></textarea>
                     
                 </div>
                 <div class="form-group">
                     <?php  $status =  $events[0]->eventStatus;?>
-                <label for="Status" class="sr-only">Status</label>
+                <label for="Status" >Status</label>
                     <select name="Status" class="form-control">
                         <option value="Active" <?php if($status=="Active"){ echo'selected="selected"';}?>>Active</option>
                         <option value="Inactive" <?php if( $status=="Inactive"){ echo'selected="selected"';}?>>Inactive</option>
@@ -62,10 +62,10 @@
                 </div>
 
                 <div class="form-group">
-                <label for="Status" class="sr-only">Status</label>
-                    <select name="status" class="form-control">
-                        <option value="Active">Active</option>
-                        <option value="Inactive">Inactive</option>
+                <label for="Approval" >Approval</label>
+                    <select name="approval" class="form-control">
+                        <option value="Approved">Approve</option>
+                        <option value="Denied">Deny</option>
                     </select>
                 </div>
                 <button class="btn btn-primary btn-block" type="submit">Update</button>
